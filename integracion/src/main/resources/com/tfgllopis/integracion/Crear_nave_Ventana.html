@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout responsive size-full>
+   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+    <vaadin-horizontal-layout style-name="card" width-full>
+     <vaadin-label style-name="h2" plain-text>
+       Crear Nave 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout>
+     <vaadin-vertical-layout size-auto>
+      <vaadin-image source="C:/Users/JALLOPISE/AppData/Local/Temp/tomcat-docbase.3555214715756277071.8080/VAADIN/No_Image_Available.png" width="100px" height="100px" _id="imagenNave" :center></vaadin-image>
+      <vaadin-upload button-caption="Cargar Imagen" _id="subirImagen"></vaadin-upload>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout width-auto height-full margin="false">
+      <vaadin-label plain-text>
+        Nombre 
+      </vaadin-label>
+      <vaadin-label plain-text>
+        Tipo de Nave 
+      </vaadin-label>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout width-auto height-full margin="false">
+      <vaadin-text-field _id="nombreF"></vaadin-text-field>
+      <vaadin-combo-box empty-selection-allowed="false" data-item-type="com.tfgllopis.integracion.TipoNave" _id="tipoNaveCombo"></vaadin-combo-box>
+     </vaadin-vertical-layout>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout size-auto :center>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="caracteristicasB">
+        Características 
+      </vaadin-button>
+      <vaadin-panel visible="false" size-auto _id="panelCaracteristicas">
+       <vaadin-horizontal-layout margin>
+        <vaadin-vertical-layout width-auto height-full margin="false">
+         <vaadin-label plain-text>
+           Salud 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Escudo 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Ataque 
+         </vaadin-label>
+        </vaadin-vertical-layout>
+        <vaadin-vertical-layout size-auto margin="false">
+         <vaadin-text-field _id="saludF"></vaadin-text-field>
+         <vaadin-text-field _id="escudoF"></vaadin-text-field>
+         <vaadin-text-field _id="ataqueF"></vaadin-text-field>
+        </vaadin-vertical-layout>
+        <vaadin-vertical-layout width-auto height-full margin="false">
+         <vaadin-label plain-text>
+           Agilidad 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Velocidad 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Capacidad Carga 
+         </vaadin-label>
+        </vaadin-vertical-layout>
+        <vaadin-vertical-layout width-auto height-full margin="false">
+         <vaadin-text-field _id="agilidadF"></vaadin-text-field>
+         <vaadin-text-field _id="velocidadF"></vaadin-text-field>
+         <vaadin-text-field _id="cargaF"></vaadin-text-field>
+        </vaadin-vertical-layout>
+       </vaadin-horizontal-layout>
+      </vaadin-panel>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false">
+      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="costeB">
+        Coste 
+      </vaadin-button>
+      <vaadin-panel visible="false" size-auto _id="panelCoste">
+       <vaadin-horizontal-layout margin>
+        <vaadin-vertical-layout width-auto height-full margin="false">
+         <vaadin-label plain-text>
+           Metal 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Oro 
+         </vaadin-label>
+         <vaadin-label plain-text>
+           Petróleo 
+         </vaadin-label>
+        </vaadin-vertical-layout>
+        <vaadin-vertical-layout size-auto margin="false">
+         <vaadin-text-field _id="metalF"></vaadin-text-field>
+         <vaadin-text-field _id="oroF"></vaadin-text-field>
+         <vaadin-text-field _id="petroleoF"></vaadin-text-field>
+        </vaadin-vertical-layout>
+       </vaadin-horizontal-layout>
+      </vaadin-panel>
+     </vaadin-vertical-layout>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false">
+      <vaadin-check-box caption="Bloqueada" _id="bloqueadaChckBx"></vaadin-check-box>
+      <vaadin-panel visible="false" width-auto height="200px" _id="panelPiratas">
+       <vaadin-vertical-layout size-auto _id="layoutDesbloqueo"></vaadin-vertical-layout>
+      </vaadin-panel>
+     </vaadin-vertical-layout>
+    </vaadin-vertical-layout>
+    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+      Nave creada con éxito 
+    </vaadin-label>
+    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+      Error 
+    </vaadin-label>
+    <vaadin-horizontal-layout :center>
+     <vaadin-button plain-text _id="guardarB">
+       Guardar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="cancelarB">
+       Cancelar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.tfgllopis</groupId>
+	<artifactId>integracion</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>integracion</name>
+	<description>Demo project for Spring Boot</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<vaadin.version>8.4.1</vaadin.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+		<dependency>
+    		<groupId>org.mindrot</groupId>
+    		<artifactId>jbcrypt</artifactId>
+    		<version>0.4</version>
+		</dependency>
+		<dependency>
+    		<groupId>commons-validator</groupId>
+    		<artifactId>commons-validator</artifactId>
+    		<version>1.4.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit --> 		
+		<dependency>     		
+			<groupId>junit</groupId>     		
+			<artifactId>junit</artifactId>    		 
+			<version>4.12</version> 		
+		</dependency>
+		<dependency>
+    		<groupId>commons-validator</groupId>
+    		<artifactId>commons-validator</artifactId>
+    		<version>1.4.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+    		<groupId>javax.mail</groupId>
+    		<artifactId>mail</artifactId>
+   			<version>1.4</version>
+		</dependency>
+		
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.vaadin</groupId>
+				<artifactId>vaadin-bom</artifactId>
+				<version>${vaadin.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin> 			
+            	<groupId>org.codehaus.mojo</groupId> 			
+            	<artifactId>cobertura-maven-plugin</artifactId> 			
+            	<version>2.7</version> 			
+            	<configuration> 				
+            		<formats> 					
+            			<format>xml</format> 				
+            		</formats> 			
+            	</configuration> 			
+            	<executions> 				
+            		<execution> 					
+            			<phase>package</phase> 					
+            			<goals> 						
+            				<goal>cobertura</goal> 					
+            			</goals> 				
+            		</execution> 			
+            	</executions> 
+            </plugin>
+			<plugin>
+ 				<groupId>com.vaadin</groupId>
+ 				<artifactId>vaadin-maven-plugin</artifactId>
+ 				<version>${vaadin.version}</version>
+ 				<configuration>
+  					<webappDirectory>${basedir}/src/main/resources/VAADIN/widgetsets</webappDirectory>
+  					<warSourceDirectory>${basedir}/src/main/resources</warSourceDirectory>
+ 				</configuration>
+ 				<executions>
+ 					<execution>
+   						<goals>
+    						<goal>clean</goal>
+    						<goal>resources</goal>
+						    <goal>update-theme</goal>
+						    <goal>update-widgetset</goal>
+						    <goal>compile-theme</goal>
+						    <goal>compile</goal>
+   						</goals>
+  					</execution>
+ 				</executions>
+			</plugin>			
+		</plugins>
+	</build>
+
+
+</project>
+
