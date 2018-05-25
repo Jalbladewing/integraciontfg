@@ -17,6 +17,28 @@ public class Menu extends Menu_Ventana
 				doNavigate(Pagina_principal.VIEW_NAME);
 			}
 		});
+		
+		recursoB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Recursos.VIEW_NAME);
+				
+			}
+		});
+		
+		hangarB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Hangar.VIEW_NAME);
+				
+			}
+		});
 	}
 	
 	private void doNavigate(String viewName) 

@@ -16,6 +16,8 @@ public class Jugador extends Jugador_Ventana
 		
 		navigator.addView(Pagina_principal.VIEW_NAME, Pagina_principal.class);
 		navigator.addView(Perfil.VIEW_NAME, Perfil.class);
+		navigator.addView(Hangar.VIEW_NAME, Hangar.class);
+		navigator.addView(Recursos.VIEW_NAME, Recursos.class);
 		
 		navigator.navigateTo(Pagina_principal.VIEW_NAME);
 

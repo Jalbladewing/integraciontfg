@@ -59,7 +59,7 @@ public class Cabecera_tecnico extends Cabecera_tecnico_Ventana
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				doNavigate(Recursos.VIEW_NAME);
+				doNavigate(Recursos_tecnico.VIEW_NAME);
 				
 			}
 		});

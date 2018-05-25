@@ -44,6 +44,27 @@ public class VaadinUI extends UI {
 	@Autowired
 	private InstalacionRepository instalacionRepo;
 	
+	@Autowired
+	PlanetaRepository planetaRepo;
+	
+	@Autowired
+	PlanetahasRecursoRepository planetaRecursoRepo;
+	
+	@Autowired
+	PlanetahasInstalacionRepository planetaInstalacionRepo;
+	
+	@Autowired
+	PlanetaHasNaveRepository planetaNaveRepo;
+	
+	@Autowired
+	private InstalacioncuestaRecursoRepository instalacionRecursoRepo;
+	
+	@Autowired
+	UsuarioconstruyeNaveRepository construyeRepo;
+	
+	@Autowired
+	UsuarioHasNaveRepository usuarioNaveRepo;
+	
 	private Usuario usuario;
 
 	@Override
@@ -122,6 +143,42 @@ public class VaadinUI extends UI {
 	public InstalacionRepository getInterfazInstalacion()
 	{
 		return instalacionRepo;
+	}
+	
+	public PlanetaRepository getInterfazPlaneta()
+	{
+		return planetaRepo;
+	}
+	
+	public PlanetahasRecursoRepository getInterfazPlanetaRecurso()
+	{
+		return planetaRecursoRepo;
+	}
+	
+	public PlanetahasInstalacionRepository getInterfazPlanetaInstalacion()
+	{
+		return planetaInstalacionRepo;
+	}
+	
+	public PlanetaHasNaveRepository getInterfazPlanetaNave()
+
+	{
+		return planetaNaveRepo;
+	}
+	
+	public InstalacioncuestaRecursoRepository getInterfazInstalacionRecurso()
+	{
+		return instalacionRecursoRepo;
+	}
+	
+	public UsuarioconstruyeNaveRepository getInterfazUsuarioConstruye()
+	{
+		return construyeRepo;
+	}
+	
+	public UsuarioHasNaveRepository getInterfazUsuarioNave()
+	{
+		return usuarioNaveRepo;
 	}
 	
 	public Usuario getUsuario() 

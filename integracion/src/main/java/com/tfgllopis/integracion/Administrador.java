@@ -12,6 +12,8 @@ public class Administrador extends Administrador_Ventana
 		Navigator navigator = new Navigator(VaadinUI.getCurrent(), principalLayout);
 		
 		navigator.addView(Perfil.VIEW_NAME, Perfil.class);
+		navigator.addView(Hangar.VIEW_NAME, Hangar.class);
+		navigator.addView(Recursos.VIEW_NAME, Recursos.class);
 		navigator.addView(Listar_usuarios.VIEW_NAME, Listar_usuarios.class);
 		navigator.addView(Editar_usuario.VIEW_NAME, Editar_usuario.class);
 		navigator.addView(Borrar_usuario.VIEW_NAME, Borrar_usuario.class);

@@ -46,7 +46,7 @@ public class EditarInstalacion
 		Instalacion instalacionPetroleo = Instalacion.cargarInstalacion("Plataforma Petrolifera", instalacionRepo);
 		instalacionPetroleo.setGeneracionBase(160);
 		
-		Recursos.updateInstalacion(instalacionMetal, instalacionOro, instalacionPetroleo, "120", "90", "160", instalacionRepo);
+		Recursos_tecnico.updateInstalacion(instalacionMetal, instalacionOro, instalacionPetroleo, "120", "90", "160", instalacionRepo);
 		
 		auxMetal = Instalacion.cargarInstalacion("Mina de Metal", instalacionRepo);
 		auxOro = Instalacion.cargarInstalacion("Mina de Oro", instalacionRepo);

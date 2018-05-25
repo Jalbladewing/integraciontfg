@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-horizontal-layout spacing="false" size-full>
+   <vaadin-vertical-layout spacing="false" width-auto height-full _id="tipoNaveLayout" :center></vaadin-vertical-layout>
+   <vaadin-vertical-layout visible="false" size-auto margin="false" _id="construirLayout" :center :expand>
+    <vaadin-vertical-layout style-name="well" responsive size-auto margin="false">
+     <vaadin-horizontal-layout style-name="card" width-full>
+      <vaadin-label style-name="h2" plain-text _id="nombreTipoL">
+        Tipo Nave 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-horizontal-layout spacing="false" :center>
+        <vaadin-image source="C:/Users/JALLOPISE/AppData/Local/Temp/tomcat-docbase.3555214715756277071.8080/VAADIN/flechaIzq.png" style-name="my-img-button" width="40px" height="40px" _id="flechaIzq" :middle :center></vaadin-image>
+        <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="naveLayout"></vaadin-vertical-layout>
+        <vaadin-image source="C:/Users/JALLOPISE/AppData/Local/Temp/tomcat-docbase.3555214715756277071.8080/VAADIN/flechaDer.png" style-name="my-img-button" width="40px" height="40px" _id="flechaDer" :middle :center></vaadin-image>
+       </vaadin-horizontal-layout>
+       <vaadin-text-field _id="construirF" :center></vaadin-text-field>
+       <vaadin-button plain-text _id="construirB" :center>
+         Construir 
+       </vaadin-button>
+       <vaadin-vertical-layout size-auto margin="false" _id="cancelarConstruccionLayout"></vaadin-vertical-layout>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto margin="false">
+       <vaadin-vertical-layout style-name="card" spacing="false" size-auto margin="false">
+        <vaadin-label style-name="h3 bold" plain-text :center>
+          Estadísticas 
+        </vaadin-label>
+        <vaadin-horizontal-layout style-name="well" width-full>
+         <vaadin-vertical-layout size-auto margin="false">
+          <vaadin-horizontal-layout>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label style-name="bold" plain-text>
+              Salud: 
+            </vaadin-label>
+            <vaadin-label style-name="bold" plain-text>
+              Ataque: 
+            </vaadin-label>
+            <vaadin-label style-name="bold" plain-text>
+              Cap. Carga: 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+           <vaadin-vertical-layout size-auto margin="false" :center>
+            <vaadin-label plain-text _id="saludL">
+              0 
+            </vaadin-label>
+            <vaadin-label plain-text _id="ataqueL">
+              0 
+            </vaadin-label>
+            <vaadin-label plain-text _id="cargaL">
+              0 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+          </vaadin-horizontal-layout>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout size-auto margin="false">
+          <vaadin-horizontal-layout>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label style-name="bold" plain-text>
+              Escudo: 
+            </vaadin-label>
+            <vaadin-label style-name="bold" plain-text>
+              Agilidad: 
+            </vaadin-label>
+            <vaadin-label style-name="bold" plain-text>
+              Velocidad: 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label plain-text _id="escudoL">
+              0 
+            </vaadin-label>
+            <vaadin-label plain-text _id="agilidadL">
+              0 
+            </vaadin-label>
+            <vaadin-label plain-text _id="velocidadL">
+              0 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+          </vaadin-horizontal-layout>
+         </vaadin-vertical-layout>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+       <vaadin-vertical-layout style-name="card" spacing="false" margin="false" :center>
+        <vaadin-label style-name="h3 bold" plain-text :center>
+          Coste 
+        </vaadin-label>
+        <vaadin-horizontal-layout style-name="well" width-full>
+         <vaadin-vertical-layout margin="false">
+          <vaadin-horizontal-layout width-full>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label style-name="bold" plain-text>
+              Metal: 
+            </vaadin-label>
+            <vaadin-label style-name="bold" plain-text>
+              Petroleo: 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+           <vaadin-vertical-layout size-auto margin="false" :right>
+            <vaadin-label plain-text _id="metalL">
+              0 
+            </vaadin-label>
+            <vaadin-label plain-text _id="petroleoL">
+              0 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+          </vaadin-horizontal-layout>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout size-auto margin="false" :center>
+          <vaadin-horizontal-layout>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label style-name="bold" plain-text>
+              Oro: 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+           <vaadin-vertical-layout size-auto margin="false">
+            <vaadin-label plain-text _id="oroL">
+              0 
+            </vaadin-label>
+           </vaadin-vertical-layout>
+          </vaadin-horizontal-layout>
+         </vaadin-vertical-layout>
+        </vaadin-horizontal-layout>
+       </vaadin-vertical-layout>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Construcción comenzada con éxito 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Error 
+     </vaadin-label>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-horizontal-layout>
+ </body>
+</html>

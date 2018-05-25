@@ -8,7 +8,7 @@ public class Instalacion_tecnico extends Instalacion_tecnico_Ventana
 	private String tipoInstalacion;
 	
 	@SuppressWarnings({ "unchecked", "serial", "rawtypes" })
-	public Instalacion_tecnico(String tipoInstalacion, Recursos recursos)
+	public Instalacion_tecnico(String tipoInstalacion, Recursos_tecnico recursos)
 	{
 		this.tipoInstalacion = tipoInstalacion;
 		
