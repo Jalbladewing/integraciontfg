@@ -1,6 +1,7 @@
 package com.tfgllopis.integracion;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -45,6 +46,7 @@ public class Hangar extends Hangar_Ventana implements View
 	public static final String VIEW_NAME = "hangar";
 	private int posicion = 0;
 	private ArrayList<Nave> naves;
+	private boolean clickable = true;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked", "serial" })
 	public Hangar()
@@ -53,7 +55,7 @@ public class Hangar extends Hangar_Ventana implements View
 		Planeta planeta;
 		Tipo_nave aux;
 		naves = new ArrayList<>();
-		
+
 		naveRepo = ((VaadinUI) UI.getCurrent()).getInterfazNave();
 		naveCuestaRepo = ((VaadinUI) UI.getCurrent()).getInterfazNaveCuesta();
 		construyeRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuarioConstruye();
@@ -106,16 +108,29 @@ public class Hangar extends Hangar_Ventana implements View
 			@Override
 			public void click(ClickEvent event) 
 			{
-				posicion -= 1;
-				if(posicion < 0)posicion = 0;
-				naveLayout.removeAllComponents();
-				naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
-				comprobarFlechaIzq();
-				comprobarFlechaDer();
-				actualizarDatosNave(naves.get(posicion));
-				construirF.setValue("");
-			}
-			
+				if(clickable) 
+				{
+					clickable = false;
+					try 
+					{
+						flechaIzq.setEnabled(false);
+						posicion -= 1;
+						if(posicion < 0)posicion = 0;
+						naveLayout.removeAllComponents();
+						naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
+						actualizarDatosNave(naves.get(posicion));
+						construirF.setValue("");
+						Thread.sleep(100);
+						comprobarFlechaIzq();
+						comprobarFlechaDer();	
+					} catch (InterruptedException e)
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}	
+					clickable = true;
+				}
+			}	
 		});
 		
 		flechaDer.addClickListener(new ClickListener()
@@ -124,14 +139,28 @@ public class Hangar extends Hangar_Ventana implements View
 			@Override
 			public void click(ClickEvent event) 
 			{
-				posicion += 1;
-				if(posicion > naves.size())posicion = naves.size();
-				naveLayout.removeAllComponents();
-				naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
-				comprobarFlechaIzq();
-				comprobarFlechaDer();
-				actualizarDatosNave(naves.get(posicion));
-				construirF.setValue("");
+				if(clickable)
+				{
+					clickable = false;
+					try 
+					{
+						flechaDer.setEnabled(false);
+						posicion += 1;
+						if(posicion >= naves.size())posicion = naves.size()-1;
+						naveLayout.removeAllComponents();
+						naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
+						actualizarDatosNave(naves.get(posicion));
+						construirF.setValue("");
+						Thread.sleep(100);
+						comprobarFlechaIzq();
+						comprobarFlechaDer();
+					} catch (InterruptedException e) 
+					{
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					clickable = true;	
+				}
 			}
 			
 		});
@@ -175,9 +204,9 @@ public class Hangar extends Hangar_Ventana implements View
 		});
 	}
 	
-	private void comprobarFlechaDer()
+	public void comprobarFlechaDer()
 	{
-		if(posicion+1 >= naves.size())
+		if(posicion >= naves.size()-1)
 		{
 			flechaDer.setEnabled(false);
 		}else
@@ -186,9 +215,9 @@ public class Hangar extends Hangar_Ventana implements View
 		}
 	}
 	
-	private void comprobarFlechaIzq()
+	public void comprobarFlechaIzq()
 	{
-		if(posicion == 0)
+		if(posicion <= 0)
 		{
 			flechaIzq.setEnabled(false);
 		}else
@@ -210,7 +239,6 @@ public class Hangar extends Hangar_Ventana implements View
 		metalL.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Metal").getCantidadBase() + "");
 		oroL.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Oro").getCantidadBase() + "");
 		petroleoL.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Petroleo").getCantidadBase() + "");
-	
 	}
 	
 	private void actualizarCostes(int cantidad)

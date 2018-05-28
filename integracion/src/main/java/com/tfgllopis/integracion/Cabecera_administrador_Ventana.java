@@ -23,6 +23,7 @@ public class Cabecera_administrador_Ventana extends HorizontalLayout {
 	protected Button perfilB;
 	protected Button listarUsuariosB;
 	protected Button crearUsuarioB;
+	protected Button mensajesB;
 	protected Button desconectarB;
 
 	public Cabecera_administrador_Ventana() {

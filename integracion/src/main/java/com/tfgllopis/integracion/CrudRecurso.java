@@ -27,9 +27,9 @@ public class CrudRecurso
 		oroGenerado = generacionSegundoOro * segundos;
 		petroleoGenerado = generacionSegundoPetroleo * segundos;
 		
-		metalPlaneta = planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal");
-		oroPlaneta = planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Oro");
-		petroleoPlaneta = planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Petroleo");
+		metalPlaneta = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		oroPlaneta = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		petroleoPlaneta = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
 		
 		metalPlaneta.setCantidad(metalPlaneta.getCantidad() + metalGenerado);
 		oroPlaneta.setCantidad(oroPlaneta.getCantidad() + oroGenerado);

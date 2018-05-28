@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout responsive size-full>
+   <vaadin-vertical-layout style-name="well" spacing="false" responsive size-auto margin="false" :center>
+    <vaadin-horizontal-layout style-name="card" width-full>
+     <vaadin-label style-name="h2" plain-text>
+       Crear Mensaje 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-label plain-text>
+       Asunto 
+     </vaadin-label>
+     <vaadin-text-field width="300px" _id="asuntoF"></vaadin-text-field>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout>
+     <vaadin-label plain-text>
+       Descripción 
+     </vaadin-label>
+     <vaadin-text-area width-full height="200px" _id="descripcionF"></vaadin-text-area>
+    </vaadin-vertical-layout>
+    <vaadin-horizontal-layout width-full :center>
+     <vaadin-button plain-text _id="cancelarB">
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="enviarB" :right>
+       Enviar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+      Error 
+    </vaadin-label>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

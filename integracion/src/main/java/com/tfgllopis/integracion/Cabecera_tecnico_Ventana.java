@@ -25,6 +25,7 @@ public class Cabecera_tecnico_Ventana extends HorizontalLayout {
 	protected Button listarNavesB;
 	protected Button listarPiratasB;
 	protected Button recursosB;
+	protected Button mensajesB;
 	protected Button desconectarB;
 
 	public Cabecera_tecnico_Ventana() {

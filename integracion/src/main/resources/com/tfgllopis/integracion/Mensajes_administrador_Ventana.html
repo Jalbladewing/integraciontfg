@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout responsive size-full>
+   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+    <vaadin-horizontal-layout style-name="card" width-full>
+     <vaadin-label style-name="h2" plain-text>
+       Mensajes 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-panel width="500px" height="300px">
+     <vaadin-vertical-layout style-name="well" margin="false" _id="mensajesLayout"></vaadin-vertical-layout>
+    </vaadin-panel>
+    <vaadin-button plain-text _id="crearMensajeB" :center>
+      Crear Mensaje 
+    </vaadin-button>
+    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+      Mensaje enviado correctamente 
+    </vaadin-label>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

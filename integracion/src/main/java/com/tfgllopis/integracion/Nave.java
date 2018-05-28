@@ -19,6 +19,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import com.vaadin.server.ClassResource;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Image;
@@ -137,8 +138,7 @@ public class Nave implements Serializable {
     
     public Image getImage()
     {
-    	FileResource resource = new FileResource(new File(rutaImagenNave));
-    	Image image = new Image("", resource);
+    	Image image = new Image("", new ClassResource("/images/" + rutaImagenNave));
     	
     	return image;
     }

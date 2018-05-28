@@ -21,6 +21,16 @@ public class Cabecera extends Cabecera_Ventana
 			}
 		});
 		
+		mensajesB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Mensajes.VIEW_NAME);				
+			}
+		});
+		
 		desconectarB.addClickListener(new Button.ClickListener() 
 		{
 			

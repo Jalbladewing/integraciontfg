@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout responsive size-full>
+   <vaadin-vertical-layout style-name="well" spacing="false" responsive size-auto margin="false" :center>
+    <vaadin-horizontal-layout style-name="card" width-full>
+     <vaadin-label style-name="h2" plain-text _id="tipoL">
+       Tipo Mensaje 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-label plain-text>
+       Asunto 
+     </vaadin-label>
+     <vaadin-text-field width="300px" readonly _id="asuntoF"></vaadin-text-field>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout>
+     <vaadin-label plain-text>
+       Descripción 
+     </vaadin-label>
+     <vaadin-text-area width-full height="200px" readonly _id="descripcionF"></vaadin-text-area>
+    </vaadin-vertical-layout>
+    <vaadin-horizontal-layout :center>
+     <vaadin-button plain-text _id="borrarB">
+       Borrar Mensaje 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

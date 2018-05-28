@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
+  <meta name="vaadin-version" content="8.0.5">
+ </head>
+ <body>
+  <vaadin-vertical-layout spacing="false" size-full margin="false">
+   <vaadin-tab-sheet size-full _id="sistemasTab">
+    <tab caption="Tab" selected>
+     <vaadin-vertical-layout size-full>
+      <vaadin-grid size-full data-item-type="com.tfgllopis.integracion.Planeta" _id="planetaTabla" :expand>
+       <table>
+        <colgroup>
+         <col column-id="nombrePlaneta" sortable>
+         <col column-id="sistemanombreSistema" sortable>
+        </colgroup>
+        <thead>
+         <tr default>
+          <th plain-text column-ids="nombrePlaneta">NombrePlaneta</th>
+          <th plain-text column-ids="sistemanombreSistema">Sistema</th>
+         </tr>
+        </thead>
+        <tbody></tbody>
+       </table>
+      </vaadin-grid>
+      <vaadin-horizontal-layout spacing="false" _id="hLayoutBotones" :center></vaadin-horizontal-layout>
+     </vaadin-vertical-layout>
+    </tab>
+   </vaadin-tab-sheet>
+  </vaadin-vertical-layout>
+ </body>
+</html>

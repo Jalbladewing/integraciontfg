@@ -21,6 +21,8 @@ public class Menu_Ventana extends VerticalLayout {
 	protected Button paginaPrincipalB;
 	protected Button recursoB;
 	protected Button hangarB;
+	protected Button flotaB;
+	protected Button galaxiaB;
 
 	public Menu_Ventana() {
 		Design.read(this);

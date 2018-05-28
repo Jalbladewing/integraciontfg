@@ -21,6 +21,7 @@ import com.vaadin.ui.declarative.Design;
 public class Cabecera_Ventana extends HorizontalLayout {
 	protected Label usernameL;
 	protected Button perfilB;
+	protected Button mensajesB;
 	protected Button desconectarB;
 
 	public Cabecera_Ventana() {

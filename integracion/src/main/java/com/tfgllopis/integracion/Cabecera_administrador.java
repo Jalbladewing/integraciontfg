@@ -21,6 +21,16 @@ public class Cabecera_administrador extends Cabecera_administrador_Ventana
 			}
 		});
 		
+		mensajesB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Mensajes_administrador.VIEW_NAME);				
+			}
+		});
+		
 		listarUsuariosB.addClickListener(new Button.ClickListener() 
 		{
 			

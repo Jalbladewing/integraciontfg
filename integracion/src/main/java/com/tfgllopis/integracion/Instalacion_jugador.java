@@ -3,6 +3,8 @@ package com.tfgllopis.integracion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.ui.UI;
+import com.vaadin.server.ClassResource;
+import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
@@ -28,12 +30,13 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
 		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
 		
+		instalacionImagen.setSource(new ClassResource("/images/No_Image_Available.png"));
 		produccionL.setValue(instalacion.getInstalacion().getGeneracionBase() * instalacion.getNivelInstalacion() + "");
 		nivelL.setValue(instalacion.getNivelInstalacion() + "");
 		metalL.setValue(instalacionRecursoRepo.findByRecursoInstalacionname(instalacion.getInstalacionname(), "Metal").getCantidadBase() * instalacion.getNivelInstalacion() + "");
 		oroL.setValue(instalacionRecursoRepo.findByRecursoInstalacionname(instalacion.getInstalacionname(), "Oro").getCantidadBase() * instalacion.getNivelInstalacion() + "");
 		petroleoL.setValue(instalacionRecursoRepo.findByRecursoInstalacionname(instalacion.getInstalacionname(), "Petroleo").getCantidadBase() * instalacion.getNivelInstalacion() + "");
-	
+		
 		subirNivelB.addClickListener(new Button.ClickListener() 
 		{
 			
@@ -45,7 +48,7 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 				
 				if(value.isEmpty())
 				{
-					doNavigate(Recursos_tecnico.VIEW_NAME  + "/" + instalacion.getInstalacionname());
+					doNavigate(Recursos.VIEW_NAME  + "/" + instalacion.getInstalacionname());
 					
 				}else
 				{

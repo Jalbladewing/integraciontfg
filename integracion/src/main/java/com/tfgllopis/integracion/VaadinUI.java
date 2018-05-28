@@ -7,6 +7,9 @@ import com.vaadin.server.VaadinService;
 import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.UI;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @PreserveOnRefresh
@@ -65,7 +68,42 @@ public class VaadinUI extends UI {
 	@Autowired
 	UsuarioHasNaveRepository usuarioNaveRepo;
 	
+	@Autowired
+	private UsuariohasMensajeRepository usuarioMensajeRepo;
+	
+	@Autowired
+	private SistemaRepository sistemaRepo;
+	
+	@Autowired
+	private MensajeRepository mensajeRepo;
+	
+	@Autowired
+	private TipoMensajeRepository tipoMensajeRepo;
+	
+	@Autowired
+	private MovimientoRepository movimientoRepo;
+
+	@Autowired
+	private MovimientohasNaveRepository movimientoNaveRepo;
+	
+	@Autowired
+	private InformeBatallaRepository informeRepo;
+	
+	@Autowired
+	private InformeBatallahasNaveAtaqueRepository informeAtaqueRepo;
+	
+	@Autowired
+	private InformeBatallahasNaveDefensaRepository informeDefensaRepo;
+	
+	@Autowired
+	private InformeBatallahasRecursoRepository informeRecursoRepo;
+		
+	@PersistenceContext
+	EntityManager em;
+	
 	private Usuario usuario;
+	private Planeta planetaAtaque;
+	private Movimiento movimiento;
 
 	@Override
 	protected void init(VaadinRequest vaadinRequest) 
@@ -181,6 +219,57 @@ public class VaadinUI extends UI {
 		return usuarioNaveRepo;
 	}
 	
+	public UsuariohasMensajeRepository getInterfazUsuarioMensaje()
+	{
+		return usuarioMensajeRepo;
+	}
+	
+	public SistemaRepository getInterfazSistema()
+	{
+		return sistemaRepo;
+	}
+	
+	public MensajeRepository getInterfazMensaje()
+	{
+		return mensajeRepo;
+	}
+	
+	public TipoMensajeRepository getInterfazTipoMensaje()
+	{
+		return tipoMensajeRepo;
+	}
+	
+	public MovimientoRepository getInterfazMovimiento()
+	{
+		return movimientoRepo;
+	}
+	
+	public MovimientohasNaveRepository getInterfazMovimientoNave()
+	{
+		return movimientoNaveRepo;
+	}
+	
+	public InformeBatallaRepository getInterfazInformeBatalla()
+	{
+		return informeRepo;
+	}
+	
+	public InformeBatallahasNaveAtaqueRepository getInterfazInformeAtaque()
+	{
+		return informeAtaqueRepo;
+	}
+	
+	public InformeBatallahasNaveDefensaRepository getInterfazInformeDefensa()
+	{
+		return informeDefensaRepo;
+	}
+	
+	public InformeBatallahasRecursoRepository getInterfazInformeRecurso()
+	{
+		return informeRecursoRepo;
+	}
+	
+	
 	public Usuario getUsuario() 
 	{
 		return usuario;
@@ -189,6 +278,33 @@ public class VaadinUI extends UI {
 	public void setUsuario(Usuario usuario) 
 	{
 		this.usuario = usuario;
+	}
+	
+	public Planeta getPlanetaAtaque()
+	{
+		return planetaAtaque;
+	}
+	
+	public void setPlanetaAtaque(Planeta planeta)
+
+	{
+		planetaAtaque = planeta;
+	}
+	
+	public Movimiento getMovimiento()
+	{
+		return movimiento;
+	}
+	
+	public void setMovimiento(Movimiento movimiento)
+
+	{
+		this.movimiento = movimiento;
+	}
+	
+	public EntityManager getEntitymanager()
+	{
+		return em;
 	}
 
 }

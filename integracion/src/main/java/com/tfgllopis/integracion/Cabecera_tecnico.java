@@ -21,6 +21,16 @@ public class Cabecera_tecnico extends Cabecera_tecnico_Ventana
 			}
 		});
 		
+		mensajesB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Mensajes_tecnico.VIEW_NAME);				
+			}
+		});
+		
 		crearNaveB.addClickListener(new Button.ClickListener() 
 		{
 			

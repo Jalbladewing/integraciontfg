@@ -46,7 +46,7 @@ public class ImageUploader implements Receiver, SucceededListener, StartedListen
          try 
          {
              // Open the file for writing.
-        	 filePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath() +"/VAADIN/";
+        	 filePath = "/images/";
              file = new File(filePath + filename);
              this.imageName = filename;
              fos = new FileOutputStream(file);

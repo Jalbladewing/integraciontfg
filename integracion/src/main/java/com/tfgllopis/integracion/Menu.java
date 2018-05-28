@@ -39,6 +39,26 @@ public class Menu extends Menu_Ventana
 				
 			}
 		});
+		
+		flotaB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Flota.VIEW_NAME);				
+			}
+		});
+		
+		galaxiaB.addClickListener(new Button.ClickListener() 
+		{
+			
+			@Override
+			public void buttonClick(ClickEvent event) 
+			{
+				doNavigate(Galaxia.VIEW_NAME);				
+			}
+		});
 	}
 	
 	private void doNavigate(String viewName) 

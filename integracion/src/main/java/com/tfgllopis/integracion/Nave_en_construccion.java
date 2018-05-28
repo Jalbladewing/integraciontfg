@@ -6,6 +6,7 @@ import com.vaadin.ui.VerticalLayout;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import com.vaadin.server.ClassResource;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
@@ -31,8 +32,7 @@ public class Nave_en_construccion extends Nave_en_construccion_Ventana
 		int seconds = (int)((tiempoRestante % MINUTE) / SECOND);
 		navesConstruccionL.setValue(naveConstruida.getCantidad() + "");
 		tiempoL.setValue(hours + ":" + minutes + ":" + seconds);
-		imagenNave.setSource(naveConstruida.getNave().getImage().getSource());
-
+		imagenNave.setSource(new ClassResource("/images/" + naveConstruida.getNave().getRutaImagenNave()));
 		cancelarConstruccionB.addClickListener(new Button.ClickListener() 
 		{
 			
