@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Image;
 
@@ -138,7 +139,8 @@ public class Nave implements Serializable {
     
     public Image getImage()
     {
-    	Image image = new Image("", new ClassResource("/images/" + rutaImagenNave));
+    	FileResource resource = new FileResource(new File(new File("").getAbsolutePath() + "/images/" + rutaImagenNave));
+    	Image image = new Image("", resource);
     	
     	return image;
     }

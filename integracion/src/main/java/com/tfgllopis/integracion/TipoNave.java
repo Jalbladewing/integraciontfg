@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Image;
 
 @Entity
@@ -73,7 +74,7 @@ public class TipoNave implements Serializable {
     
     public Image getImage()
     {
-    	FileResource resource = new FileResource(new File(rutaImagenTipoNave));
+    	FileResource resource = new FileResource(new File(new File("").getAbsolutePath() + "/images/" + rutaImagenTipoNave));
     	Image image = new Image("", resource);
     	
     	return image;

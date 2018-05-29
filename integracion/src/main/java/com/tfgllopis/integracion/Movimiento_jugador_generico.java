@@ -1,7 +1,10 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
 import java.util.Date;
 
+import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
 public class Movimiento_jugador_generico extends Movimiento_jugador_generico_Ventana 
@@ -20,6 +23,9 @@ public class Movimiento_jugador_generico extends Movimiento_jugador_generico_Ven
 			coordenadasOrigenL.setVisible(false);
 		}
 		
+		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		imagenMovimiento.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
 		nombreOrigen.setValue(planetaOrigen.getNombrePlaneta());
 		coordenadasOrigenL.setValue("(" + planetaOrigen.getCoordenadaX() + "," + planetaOrigen.getCoordenadaY() + ")");
 		nombreDestino.setValue(movimiento.getPlaneta().getNombrePlaneta());

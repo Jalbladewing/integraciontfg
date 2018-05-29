@@ -32,7 +32,7 @@ public class Nave_en_construccion extends Nave_en_construccion_Ventana
 		int seconds = (int)((tiempoRestante % MINUTE) / SECOND);
 		navesConstruccionL.setValue(naveConstruida.getCantidad() + "");
 		tiempoL.setValue(hours + ":" + minutes + ":" + seconds);
-		imagenNave.setSource(new ClassResource("/images/" + naveConstruida.getNave().getRutaImagenNave()));
+		imagenNave.setSource(naveConstruida.getNave().getImage().getSource());
 		cancelarConstruccionB.addClickListener(new Button.ClickListener() 
 		{
 			

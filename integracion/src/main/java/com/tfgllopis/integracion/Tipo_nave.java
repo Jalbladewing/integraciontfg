@@ -19,7 +19,7 @@ public class Tipo_nave extends Tipo_nave_Ventana
 		this.tipoNave = tipoNave;
 		nombreTipoL.setValue(tipoNave.getNombreTipoNave());
 		imagenTipo.setId(id +"");
-		imagenTipo.setSource(new ClassResource("/images/" + tipoNave.getRutaImagenTipoNave()));
+		imagenTipo.setSource(tipoNave.getImage().getSource());
 
 			
 	}

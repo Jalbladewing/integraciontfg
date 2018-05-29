@@ -1,10 +1,13 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
 
+import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.GridLayout;
 
 public class Informacion_movimiento extends Informacion_movimiento_Ventana
@@ -19,6 +22,8 @@ public class Informacion_movimiento extends Informacion_movimiento_Ventana
 		this.planetaUsuario = planetaUsuario;
 		this.planetaAtaque = planetaAtaque;
 		
+		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
 		nombreOrigen.setValue(planetaUsuario.getNombrePlaneta());
 		nombreDestino.setValue(planetaAtaque.getNombrePlaneta());
 		coordenadasOrigenL.setValue("(" + planetaUsuario.getCoordenadaX() + "," + planetaUsuario.getCoordenadaY() + ")");

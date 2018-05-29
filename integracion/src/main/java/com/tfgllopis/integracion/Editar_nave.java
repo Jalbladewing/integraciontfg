@@ -1,10 +1,12 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
@@ -51,7 +53,7 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 					probabilidadesDesbloqueo[i] = ((Nave_desbloqueo) layoutDesbloqueo.getComponent(i)).porcentajeF.getValue();
 				}
 				
-				String value = CrudNave.modificarNave(nave.getNombreNave(), uploader.getFilePath() + uploader.getNombreImagen(), tipoNaveCombo.getSelectedItem().get().getNombreTipoNave(), "23", ataqueF.getValue(), saludF.getValue(), escudoF.getValue(), velocidadF.getValue(), agilidadF.getValue(), cargaF.getValue(), oroF.getValue(), metalF.getValue(), petroleoF.getValue(), bloqueadaChckBx.getValue(), probabilidadesDesbloqueo, naveRepo, tipoRepo, naveCuestaRepo, pirataDesbloqueoRepo);
+				String value = CrudNave.modificarNave(nave.getNombreNave(), uploader.getNombreImagen(), tipoNaveCombo.getSelectedItem().get().getNombreTipoNave(), "23", ataqueF.getValue(), saludF.getValue(), escudoF.getValue(), velocidadF.getValue(), agilidadF.getValue(), cargaF.getValue(), oroF.getValue(), metalF.getValue(), petroleoF.getValue(), bloqueadaChckBx.getValue(), probabilidadesDesbloqueo, naveRepo, tipoRepo, naveCuestaRepo, pirataDesbloqueoRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty())
@@ -115,8 +117,8 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 			metalF.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Metal").getCantidadBase()+"");
 			petroleoF.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Petroleo").getCantidadBase()+"");
 			bloqueadaChckBx.setValue(true);
-			imageName = nave.getRutaImagenNave().split("VAADIN/")[1];
-			filePath = nave.getRutaImagenNave().split("VAADIN/")[0] +"VAADIN/";
+			imageName = nave.getRutaImagenNave();
+			filePath = new File("").getAbsolutePath() + "/images/";
 			
 			uploader = new ImageUploader(imagenNave, subirImagen, errorL, filePath, imageName); 
 	        subirImagen.setReceiver(uploader);

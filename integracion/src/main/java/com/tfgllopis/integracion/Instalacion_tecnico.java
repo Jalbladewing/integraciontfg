@@ -1,7 +1,11 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
+
 import com.vaadin.data.HasValue.ValueChangeEvent;
 import com.vaadin.data.HasValue.ValueChangeListener;
+import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 
 public class Instalacion_tecnico extends Instalacion_tecnico_Ventana
 {
@@ -11,6 +15,8 @@ public class Instalacion_tecnico extends Instalacion_tecnico_Ventana
 	public Instalacion_tecnico(String tipoInstalacion, Recursos_tecnico recursos)
 	{
 		this.tipoInstalacion = tipoInstalacion;
+		imagenInstalacion.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+
 		
 		tasaInstalacionF.addValueChangeListener(new ValueChangeListener() 
 		{

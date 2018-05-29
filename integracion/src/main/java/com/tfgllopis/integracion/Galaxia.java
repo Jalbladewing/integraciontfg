@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
 import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
@@ -76,7 +77,7 @@ public class Galaxia extends Galaxia_Ventana implements View
 		//Columna imagen
 		planetaTabla.addComponentColumn(planeta -> {
 			Image imagen = new Image();
-			imagen.setSource(new FileResource(new File("C:/Users/JALLOPISE/AppData/Local/Temp/tomcat-docbase.3555214715756277071.8080/VAADIN/No_Image_Available.png")));
+			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
 			imagen.setWidth("50px");
 			imagen.setHeight("50px");
 			return imagen;	

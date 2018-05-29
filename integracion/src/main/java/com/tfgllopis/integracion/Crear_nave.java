@@ -1,5 +1,6 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.VaadinService;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.UI;
@@ -34,7 +36,7 @@ public class Crear_nave extends Crear_nave_Ventana implements View
 		
 	public Crear_nave()
 	{
-		String filePath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath() + "/VAADIN/";
+		String filePath = new File("").getAbsolutePath() + "/images/";
 		ArrayList<Pirata> piratas;
 		ArrayList<TipoNave> tiposNave;
 		configuracionBotones();

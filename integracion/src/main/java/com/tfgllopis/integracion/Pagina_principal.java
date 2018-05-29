@@ -1,8 +1,11 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
 public class Pagina_principal extends Pagina_principal_Ventana implements View
@@ -50,6 +53,8 @@ public class Pagina_principal extends Pagina_principal_Ventana implements View
 		metalL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal").getCantidad() + "");
 		oroL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro").getCantidad() + "");
 		petroleoL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo").getCantidad() + "");
+System.out.println(VaadinServlet.getCurrent().getServletContext().getRealPath("/"));
+System.out.println(new File("").getAbsolutePath());
 
 	}
 }

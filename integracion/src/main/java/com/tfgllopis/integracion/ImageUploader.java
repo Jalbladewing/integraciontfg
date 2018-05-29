@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.Upload;
@@ -46,7 +47,7 @@ public class ImageUploader implements Receiver, SucceededListener, StartedListen
          try 
          {
              // Open the file for writing.
-        	 filePath = "/images/";
+        	 filePath = new File("").getAbsolutePath() + "/images/";
              file = new File(filePath + filename);
              this.imageName = filename;
              fos = new FileOutputStream(file);

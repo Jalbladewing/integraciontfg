@@ -1,10 +1,13 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.ui.UI;
 import com.vaadin.server.ClassResource;
 import com.vaadin.server.FileResource;
+import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
@@ -29,8 +32,9 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
 		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
 		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
+		FileResource resource = new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png"));
 		
-		instalacionImagen.setSource(new ClassResource("/images/No_Image_Available.png"));
+		instalacionImagen.setSource(resource);
 		produccionL.setValue(instalacion.getInstalacion().getGeneracionBase() * instalacion.getNivelInstalacion() + "");
 		nivelL.setValue(instalacion.getNivelInstalacion() + "");
 		metalL.setValue(instalacionRecursoRepo.findByRecursoInstalacionname(instalacion.getInstalacionname(), "Metal").getCantidadBase() * instalacion.getNivelInstalacion() + "");
