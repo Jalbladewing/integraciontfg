@@ -10,6 +10,7 @@
    <vaadin-label style-name="huge h4 bold" responsive plain-text _id="tituloL" :center>
      Rebelion Galactica 
    </vaadin-label>
+   <vaadin-image width="100px" height="100px" _id="imagenLogo" :center></vaadin-image>
    <vaadin-vertical-layout style-name="well" size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="card" responsive width-full>
      <vaadin-label style-name="h2" plain-text>
@@ -26,8 +27,8 @@
       </vaadin-label>
      </vaadin-vertical-layout>
      <vaadin-vertical-layout>
-      <vaadin-text-field _id="usuarioF"></vaadin-text-field>
-      <vaadin-password-field _id="passwordF"></vaadin-password-field>
+      <vaadin-text-field placeholder="ej: Jose93" _id="usuarioF"></vaadin-text-field>
+      <vaadin-password-field placeholder="ej: *****" _id="passwordF"></vaadin-password-field>
      </vaadin-vertical-layout>
     </vaadin-horizontal-layout>
     <vaadin-button responsive plain-text _id="loginB" :center>

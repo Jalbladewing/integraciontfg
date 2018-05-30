@@ -1,10 +1,14 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinService;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.UI;
@@ -20,6 +24,10 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana implements View
 	{
 
 		userRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuario();
+		
+		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequeña.png")));
+		imagenLogo.setWidth(100, Unit.PIXELS);
+		imagenLogo.setHeight(100, Unit.PIXELS);
 
 		loginB.addClickListener(new Button.ClickListener() 
 		{

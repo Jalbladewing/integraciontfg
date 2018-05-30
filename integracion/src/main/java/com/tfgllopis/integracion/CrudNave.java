@@ -317,11 +317,14 @@ public class CrudNave
 			if(Integer.parseInt(naves.get(i).cantidadF.getValue()) > 0)
 			{
 				navesMovimiento.add(new MovimientohasNave(movimiento.getIdMovimiento(), naves.get(i).getNave().getNavenombreNave(), Integer.parseInt(naves.get(i).cantidadF.getValue())));
-				auxPlaneta = planetaNaveRepo.findByNavenombreNavePlaneta(naves.get(i).getNave().getNavenombreNave(), planetaOrigen.getCoordenadaX(), planetaOrigen.getCoordenadaX(), planetaOrigen.getSistemanombreSistema()).get(0);
+				auxPlaneta = planetaNaveRepo.findByNavenombreNavePlaneta(naves.get(i).getNave().getNavenombreNave(), planetaOrigen.getCoordenadaX(), planetaOrigen.getCoordenadaY(), planetaOrigen.getSistemanombreSistema()).get(0);
 				auxPlaneta.setCantidad(auxPlaneta.getCantidad() - Integer.parseInt(naves.get(i).cantidadF.getValue()));
 				navesPlaneta.add(auxPlaneta);
 				setNaves += "UPDATE Planeta_has_Nave\nSET cantidad = cantidad+" +naves.get(i).getNave().getCantidad()
-						+"\nWHERE Nave_NombreNave = '" +naves.get(i).getNave().getNavenombreNave() +"';\n";
+						+"\nWHERE Nave_NombreNave = '" +naves.get(i).getNave().getNavenombreNave() +"'"
+						+ " AND Planeta_coordenadaX =" +planetaOrigen.getCoordenadaX() 
+						+ " AND Planeta_coordenadaY=" +planetaOrigen.getCoordenadaY()
+						+ " AND Planeta_Sistema_nombreSistema= '" +planetaOrigen.getSistemanombreSistema() +"';\n";
 			}
 		}
 		
@@ -506,7 +509,9 @@ public class CrudNave
 				+ "DECLARE defensorNom CURSOR FOR SELECT Nave_nombreNave "
 					+ "FROM Planeta_has_Nave "
 					+ "WHERE Planeta_coordenadaX =" +planetaDestino.getCoordenadaX() 
-					+" AND Planeta_coordenadaY=" +planetaDestino.getCoordenadaY() +";\n"
+					+" AND Planeta_coordenadaY=" +planetaDestino.getCoordenadaY()
+					+ " AND Planeta_Sistema_nombreSistema= '" +planetaDestino.getSistemanombreSistema() +"';\n"
+
 				+ "DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;\n"
 				+ "CREATE TEMPORARY TABLE IF NOT EXISTS NaveCombate ("
 					+ "nombreNave VARCHAR(45) NOT NULL,"
@@ -675,7 +680,8 @@ public class CrudNave
 						+ "FROM Planeta_has_Nave "
 						+ "WHERE Planeta_coordenadaX =" +planetaDestino.getCoordenadaX()
 						+ " AND Planeta_coordenadaY =" +planetaDestino.getCoordenadaY()
-						+ " AND Nave_nombreNave = nom;\n"
+						+ " AND Planeta_Sistema_nombreSistema= '" +planetaDestino.getSistemanombreSistema()
+						+ "' AND Nave_nombreNave = nom;\n"
 					+ "UPDATE NaveDefensa "
 						+ "SET ataqueNave = ataqueNave * cantidad_aux,"
 							+ "hullNave = hullNave * cantidad_aux, "
@@ -686,6 +692,7 @@ public class CrudNave
 				+ "END LOOP;\n"
 				+ "SET done = FALSE;\n"
 				+ "CLOSE defensorNom;\n"
+				+"INSERT INTO Mensaje (asunto, descripcion, TipoMensaje_name, fechaEnvio) VALUES ('LOG', 'Tras defensor', 'Sistema', @fecha);\n"
 				+ "loopPrincipal: WHILE v1 < 6 DO\n"
 					+ "SELECT COUNT(*) INTO navesRestantes "
 						+ "FROM NaveCombate "
@@ -1081,7 +1088,7 @@ public class CrudNave
 					stmt.setString(3, planetaOrigen.getUsuariousername().getUsername());
 					stmt.setInt(4, planetaOrigen.getCoordenadaX());
 					stmt.setInt(5, planetaOrigen.getCoordenadaY());
-					stmt.setString(6, planetaOrigen.getSistemanombreSistema());
+					stmt.setString(6, planetaOrigen.getSistemanombreSistema());     
 					stmt.executeUpdate();
 					
 					stmt = conn.prepareStatement(recuperarNavesTrasBatalla);

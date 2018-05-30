@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.vaadin.server.ClassResource;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Label;
@@ -33,6 +34,8 @@ public class Nave_en_construccion extends Nave_en_construccion_Ventana
 		navesConstruccionL.setValue(naveConstruida.getCantidad() + "");
 		tiempoL.setValue(hours + ":" + minutes + ":" + seconds);
 		imagenNave.setSource(naveConstruida.getNave().getImage().getSource());
+		imagenNave.setWidth(50, Unit.PIXELS);
+		imagenNave.setHeight(50, Unit.PIXELS);
 		cancelarConstruccionB.addClickListener(new Button.ClickListener() 
 		{
 			

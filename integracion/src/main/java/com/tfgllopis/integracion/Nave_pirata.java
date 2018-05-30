@@ -15,6 +15,9 @@ public class Nave_pirata extends Nave_pirata_Ventana
 	public Nave_pirata(Image imagenNave, String nombreNave, int idPirata)
 	{		
 		this.imagenNave.setSource(imagenNave.getSource());
+		this.imagenNave.setWidth(50, Unit.PIXELS);
+		this.imagenNave.setHeight(50, Unit.PIXELS);
+		
 		cantidadF.setValue("0");
 	
 		pirataNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPirataNave();

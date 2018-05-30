@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Image;
@@ -38,8 +39,8 @@ public class Piratas extends Piratas_Ventana implements View
 		piratasTabla.addComponentColumn(pirata -> {
 			Image imagen = new Image();
 			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-			imagen.setWidth("50px");
-			imagen.setHeight("50px");
+			imagen.setWidth(50, Unit.PIXELS);
+			imagen.setHeight(50, Unit.PIXELS);
 			return imagen;	
 		}).setCaption("")
 		.setId("imagenPlaneta");

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Image;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.UI;
@@ -56,8 +57,8 @@ public class Flota extends Flota_Ventana implements View
 		naveTabla.addComponentColumn(nave -> {
 			Image imagen = new Image();
 			imagen.setSource(nave.getNave().getImage().getSource());
-			//imagen.setWidth("50px");
-			//imagen.setHeight("50px");
+			imagen.setWidth(50, Unit.PIXELS);
+			imagen.setHeight(50, Unit.PIXELS);
 			return imagen;	
 		}).setCaption("Naves")
 		.setId("imagenPlaneta");

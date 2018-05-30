@@ -1,5 +1,7 @@
 package com.tfgllopis.integracion;
 
+import com.vaadin.server.Sizeable.Unit;
+
 public class Nave_ataque extends Nave_ataque_Ventana
 {
 	private PlanetaHasNave nave;
@@ -8,6 +10,8 @@ public class Nave_ataque extends Nave_ataque_Ventana
 	{
 		cantidadF.setValue("0");
 		imagenNave.setSource(navePlaneta.getNave().getImage().getSource());
+		imagenNave.setWidth(50, Unit.PIXELS);
+		imagenNave.setHeight(50, Unit.PIXELS);
 		disponiblesL.setValue(navePlaneta.getCantidad() + "");
 		nave = navePlaneta;
 	}

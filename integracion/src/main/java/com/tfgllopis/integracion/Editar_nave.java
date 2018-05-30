@@ -7,6 +7,7 @@ import com.vaadin.icons.VaadinIcons;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.VaadinServlet;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Button.ClickEvent;
@@ -107,6 +108,8 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 			nombreF.setValue(nave.getNombreNave());
 			tipoNaveCombo.setSelectedItem(nave.getTipoNavenombreTipoNave());
 			imagenNave.setSource(nave.getImage().getSource());
+			imagenNave.setWidth(50, Unit.PIXELS);
+			imagenNave.setHeight(50, Unit.PIXELS);
 			saludF.setValue(nave.getHullNave()+"");
 			escudoF.setValue(nave.getEscudoNave()+"");
 			velocidadF.setValue(nave.getVelocidadNave()+"");

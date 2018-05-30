@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.UI;
@@ -27,8 +28,10 @@ public class Listar_naves extends Listar_naves_Ventana implements View
 		
 		//Columna imagen
 		navesTabla.addComponentColumn(nave -> {
-			
-			return nave.getImage();
+			Image imagen = nave.getImage();
+			imagen.setWidth(50, Unit.PIXELS);
+			imagen.setHeight(50, Unit.PIXELS);
+			return imagen;
 			
 		}).setCaption("")
 		.setId("imagenNave");

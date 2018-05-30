@@ -53,8 +53,6 @@ public class Pagina_principal extends Pagina_principal_Ventana implements View
 		metalL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal").getCantidad() + "");
 		oroL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro").getCantidad() + "");
 		petroleoL.setValue(planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo").getCantidad() + "");
-System.out.println(VaadinServlet.getCurrent().getServletContext().getRealPath("/"));
-System.out.println(new File("").getAbsolutePath());
 
 	}
 }

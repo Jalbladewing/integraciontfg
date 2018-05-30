@@ -6,6 +6,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 import com.vaadin.server.FileResource;
+import com.vaadin.server.Sizeable.Unit;
 import com.vaadin.server.VaadinService;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Image;
@@ -62,8 +63,8 @@ public class ImageUploader implements Receiver, SucceededListener, StartedListen
 	{
      // Show the uploaded file in the image viewer
 		imagen.setSource(new FileResource(file));
-		imagen.setWidthUndefined();
-		imagen.setHeightUndefined();
+		imagen.setWidth(50, Unit.PIXELS);
+		imagen.setHeight(50, Unit.PIXELS);
 	}
 	
 	public void uploadStarted(StartedEvent event) 
@@ -77,11 +78,13 @@ public class ImageUploader implements Receiver, SucceededListener, StartedListen
 	            allowed = true;
 	            break;
 	        }
-	    }
+	        
+	    }System.out.println(event.getComponent().getHeight());
 	    if(!allowed){
 	        errorL.setValue("Tipo de imagen no válida, tipos válidos: "+allowedMimeTypes);
 	    	errorL.setVisible(true);
 	    	this.subirImagen.interruptUpload();
+	    	
 	    }else
 	    {
 	    	errorL.setVisible(false);
