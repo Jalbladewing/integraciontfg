@@ -20,6 +20,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Nave_hangar_Ventana extends VerticalLayout {
 	protected Image imagenNave;
+	protected Image imagenCandado;
 	protected Label nombreNaveL;
 
 	public Nave_hangar_Ventana() {

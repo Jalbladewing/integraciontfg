@@ -95,7 +95,7 @@ public class Hangar extends Hangar_Ventana implements View
 					comprobarFlechaDer();
 					comprobarFlechaIzq();
 					naveLayout.removeAllComponents();
-					naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
+					naveLayout.addComponent(new Nave_hangar(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), usuarioNaveRepo));
 					actualizarDatosNave(naves.get(0));
 					construirF.setValue("");
 				}				
@@ -117,7 +117,7 @@ public class Hangar extends Hangar_Ventana implements View
 						posicion -= 1;
 						if(posicion < 0)posicion = 0;
 						naveLayout.removeAllComponents();
-						naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
+						naveLayout.addComponent(new Nave_hangar(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), usuarioNaveRepo));
 						actualizarDatosNave(naves.get(posicion));
 						construirF.setValue("");
 						Thread.sleep(100);
@@ -148,7 +148,7 @@ public class Hangar extends Hangar_Ventana implements View
 						posicion += 1;
 						if(posicion >= naves.size())posicion = naves.size()-1;
 						naveLayout.removeAllComponents();
-						naveLayout.addComponent(new Nave_hangar(naves.get(posicion)));
+						naveLayout.addComponent(new Nave_hangar(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), usuarioNaveRepo));
 						actualizarDatosNave(naves.get(posicion));
 						construirF.setValue("");
 						Thread.sleep(100);

@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @PreserveOnRefresh
 @SpringUI
-@Theme("valo")
+@Theme("galaxyTheme")
 public class VaadinUI extends UI {
 
 	@Autowired

@@ -110,5 +110,42 @@ public class CrudUsuario
 		
 		return "";
 	}
+	
+	public static String inicializarUsuario(Usuario usuario, UsuarioHasNaveRepository usuarioNaveRepo, PlanetaHasNaveRepository planetaNaveRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, PlanetaRepository planetaRepo)
+	{
+		Planeta planeta = planetaRepo.findByPlanetaLibre().get(0);
+		PlanetahasInstalacion planetaInstalacionMetal = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasInstalacion planetaInstalacionOro = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Oro", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasInstalacion planetaInstalacionPetroleo = planetaInstalacionRepo.findByInstalacionnamePlaneta("Plataforma Petrolifera", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasRecurso planetaRecursoMetal = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		PlanetahasRecurso planetaRecursoOro = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		PlanetahasRecurso planetaRecursoPetroleo = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
+
+		planeta.setUsuariousername(usuario);
+		planeta.setPirataidPirata(null);
+		
+		planetaInstalacionMetal.setUltimaGeneracion(new Date());
+		planetaInstalacionMetal.resetNivelInstalacion();
+		planetaInstalacionOro.setUltimaGeneracion(new Date());
+		planetaInstalacionOro.resetNivelInstalacion();
+		planetaInstalacionPetroleo.setUltimaGeneracion(new Date());
+		planetaInstalacionPetroleo.resetNivelInstalacion();
+		
+		planetaRecursoMetal.setCantidad(0);
+		planetaRecursoOro.setCantidad(0);
+		planetaRecursoPetroleo.setCantidad(0);
+				
+		planetaRepo.save(planeta);
+		
+		planetaInstalacionRepo.save(planetaInstalacionMetal);
+		planetaInstalacionRepo.save(planetaInstalacionOro);
+		planetaInstalacionRepo.save(planetaInstalacionPetroleo);
+		
+		planetaRecursoRepo.save(planetaRecursoMetal);
+		planetaRecursoRepo.save(planetaRecursoOro);
+		planetaRecursoRepo.save(planetaRecursoPetroleo);
+		
+		return "";
+	}
 
 }

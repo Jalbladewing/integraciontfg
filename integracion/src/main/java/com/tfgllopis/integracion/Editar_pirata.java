@@ -155,7 +155,7 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 			
 			//Naves
 			naves = new ArrayList<>(naveRepo.findAll());
-			layoutNaves.setColumns(4);
+			layoutNaves.setColumns(3);
 			
 			if(naves.isEmpty())
 			{
