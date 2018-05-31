@@ -15061,3 +15061,7 @@ div.v-layout.v-horizontal.v-widget {
 .galaxyTheme .my-img-button {
 	cursor: pointer;
 }
+
+.galaxyTheme .grey-image {
+	filter: grayscale(1);
+}

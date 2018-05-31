@@ -9,6 +9,7 @@ public class Nave_hangar extends Nave_hangar_Ventana
 	{
 		nombreNaveL.setValue(nave.getNombreNave());
 		imagenNave.setSource(nave.getImage().getSource());
+		imagenNave.addStyleName("grey-image");
 	}
 
 }
