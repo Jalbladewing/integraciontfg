@@ -13,14 +13,16 @@
        Pirata LvL X 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-vertical-layout size-auto :center>
+    <vaadin-vertical-layout size-auto margin="false" :center>
      <vaadin-vertical-layout style-name="card" size-auto margin="false">
       <vaadin-horizontal-layout style-name="card" width-full>
        <vaadin-label style-name="h3" plain-text>
          Instalaciones 
        </vaadin-label>
       </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout _id="layoutInstalaciones" :center></vaadin-horizontal-layout>
+      <vaadin-panel width="850px" height="350px" :center>
+       <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
+      </vaadin-panel>
      </vaadin-vertical-layout>
      <vaadin-vertical-layout style-name="card" margin="false">
       <vaadin-horizontal-layout style-name="card" width-full>
@@ -28,7 +30,7 @@
          Naves 
        </vaadin-label>
       </vaadin-horizontal-layout>
-      <vaadin-grid-layout spacing height-full _id="layoutNaves" :center>
+      <vaadin-grid-layout spacing height-full _id="layoutNaves">
        <row>
         <column></column>
         <column></column>

@@ -1627,6 +1627,10 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
+.texto-blanco {
+	color: #ffffff;
+}
+
 .galaxyTheme.v-app, .galaxyTheme.v-app-loading {
 	font: 300 16px/1.55 "Open Sans", sans-serif;
 	color: #464646;
@@ -15064,4 +15068,8 @@ div.v-layout.v-horizontal.v-widget {
 
 .galaxyTheme .my-grey-image {
 	filter: grayscale(1);
+}
+
+.galaxyTheme .my-cabecera {
+	background: linear, false, zip(black #333333);
 }

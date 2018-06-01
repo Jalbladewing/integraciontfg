@@ -2,6 +2,7 @@ package com.tfgllopis.integracion;
 
 import com.vaadin.annotations.PreserveOnRefresh;
 import com.vaadin.annotations.Theme;
+import com.vaadin.server.Page;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinService;
 import com.vaadin.spring.annotation.SpringUI;
@@ -130,6 +131,14 @@ public class VaadinUI extends UI {
 			usuario = session;
 			setContent(new Tecnico());
 		}
+		
+		Page.getCurrent().getStyles().add(
+                ".v-ui { background: url(fondo_galaxia.jpg) no-repeat center center fixed;" +
+                        "-webkit-background-size: cover;" +
+                        "-moz-background-size: cover;" +
+                        "-o-background-size: cover;" +
+                        "background-size: cover; }"
+        );
 		
 	}
 	

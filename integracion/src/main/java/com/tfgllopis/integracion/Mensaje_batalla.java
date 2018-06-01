@@ -47,7 +47,17 @@ public class Mensaje_batalla extends Mensaje_batalla_Ventana implements View
 			mensaje.descartar();
 			usuarioMensajeRepo.save(mensaje);
 			
-			doNavigate(Mensajes.VIEW_NAME);
+			if(((VaadinUI) UI.getCurrent()).getUsuario().getRolName().getName().equals("Jugador"))
+			{
+				doNavigate(Mensajes.VIEW_NAME);
+				
+			}else if(((VaadinUI) UI.getCurrent()).getUsuario().getRolName().getName().equals("Administrador"))
+			{
+				doNavigate(Mensajes_administrador.VIEW_NAME);
+			}else
+			{
+				doNavigate(Mensajes_tecnico.VIEW_NAME);					
+			}
 		
 		}
 	}

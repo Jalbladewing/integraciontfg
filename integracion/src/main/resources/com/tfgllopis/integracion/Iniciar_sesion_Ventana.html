@@ -6,51 +6,53 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout responsive>
-   <vaadin-label style-name="huge h4 bold" responsive plain-text _id="tituloL" :center>
-     Rebelion Galactica 
-   </vaadin-label>
-   <vaadin-image width="100px" height="100px" _id="imagenLogo" :center></vaadin-image>
-   <vaadin-vertical-layout style-name="well" size-auto margin="false" :center>
-    <vaadin-horizontal-layout style-name="card" responsive width-full>
-     <vaadin-label style-name="h2" plain-text>
-       Login 
-     </vaadin-label>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout responsive>
-     <vaadin-vertical-layout size-full>
-      <vaadin-label plain-text>
-        Usuario(*) 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        Contraseña(*) 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout>
-      <vaadin-text-field placeholder="ej: Jose93" _id="usuarioF"></vaadin-text-field>
-      <vaadin-password-field placeholder="ej: *****" _id="passwordF"></vaadin-password-field>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-button responsive plain-text _id="loginB" :center>
-      Iniciar Sesión 
-    </vaadin-button>
-    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-      Datos incorrectos 
+  <vaadin-vertical-layout spacing="false" margin="false">
+   <vaadin-vertical-layout responsive size-full :center>
+    <vaadin-label style-name="huge h4 bold" responsive plain-text _id="tituloL" :center>
+      Rebelion Galactica 
     </vaadin-label>
-    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-      Registro realizado con éxito 
-    </vaadin-label>
-    <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Si aun no tiene cuenta: 
-     </vaadin-label>
-     <vaadin-button style-name="link" size-full plain-text _id="registrarseB">
-       Registrarse 
+    <vaadin-image width="100px" height="100px" _id="imagenLogo" :center></vaadin-image>
+    <vaadin-vertical-layout style-name="well" size-auto margin="false" :center>
+     <vaadin-horizontal-layout style-name="card" responsive width-full>
+      <vaadin-label style-name="h2" plain-text>
+        Login 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout responsive>
+      <vaadin-vertical-layout size-full>
+       <vaadin-label plain-text>
+         Usuario(*) 
+       </vaadin-label>
+       <vaadin-label plain-text>
+         Contraseña(*) 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout>
+       <vaadin-text-field placeholder="ej: Jose93" _id="usuarioF"></vaadin-text-field>
+       <vaadin-password-field placeholder="ej: *****" _id="passwordF"></vaadin-password-field>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-button responsive plain-text _id="loginB" :center>
+       Iniciar Sesión 
      </vaadin-button>
-    </vaadin-horizontal-layout>
-    <vaadin-label plain-text>
-      (*) No vacío 
-    </vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Datos incorrectos 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Registro realizado con éxito 
+     </vaadin-label>
+     <vaadin-horizontal-layout>
+      <vaadin-label plain-text>
+        Si aun no tiene cuenta: 
+      </vaadin-label>
+      <vaadin-button style-name="link" size-full plain-text _id="registrarseB">
+        Registrarse 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-label plain-text>
+       (*) No vacío 
+     </vaadin-label>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
