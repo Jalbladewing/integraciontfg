@@ -3,28 +3,35 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="vaadin-version" content="8.1.5">
   <meta name="package-mapping" content="com_vaadin:com.vaadin">
  </head>
  <body>
   <vaadin-vertical-layout spacing="false" size-full margin="false">
-   <vaadin-grid size-full data-item-type="com.tfgllopis.integracion.Usuario" _id="usuariosTabla" :center>
-    <table>
-     <colgroup>
-      <col column-id="email" sortable>
-      <col column-id="username" sortable>
-      <col column-id="activo" sortable>
-     </colgroup>
-     <thead>
-      <tr default>
-       <th plain-text column-ids="email">Correo</th>
-       <th plain-text column-ids="username">Usuario</th>
-       <th plain-text column-ids="activo">Activo</th>
-      </tr>
-     </thead>
-     <tbody></tbody>
-    </table>
-   </vaadin-grid>
+   <vaadin-vertical-layout spacing="false" margin="false">
+    <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+     <vaadin-label style-name="h2 texto-blanco" plain-text :center>
+       Lista de usuarios 
+     </vaadin-label>
+    </vaadin-horizontal-layout>
+    <vaadin-grid size-full data-item-type="com.tfgllopis.integracion.Usuario" _id="usuariosTabla">
+     <table>
+      <colgroup>
+       <col column-id="email" sortable>
+       <col column-id="username" sortable>
+       <col column-id="activo" sortable>
+      </colgroup>
+      <thead>
+       <tr default>
+        <th plain-text column-ids="email">Correo</th>
+        <th plain-text column-ids="username">Usuario</th>
+        <th plain-text column-ids="activo">Activo</th>
+       </tr>
+      </thead>
+      <tbody></tbody>
+     </table>
+    </vaadin-grid>
+   </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

@@ -2,48 +2,57 @@
 <html>
  <head>
   <meta charset="UTF-8">
-  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;galaxyTheme&quot;}">
-  <meta name="vaadin-version" content="8.0.5">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-panel>
-    <vaadin-vertical-layout spacing="false" margin="false" _id="layoutInformacion"></vaadin-vertical-layout>
-   </vaadin-panel>
-   <vaadin-vertical-layout style-name="card" margin="false" :center>
-    <vaadin-horizontal-layout style-name="card" width-full>
-     <vaadin-label style-name="h3" plain-text>
-       Naves 
-     </vaadin-label>
+   <vaadin-vertical-layout margin="false">
+    <vaadin-vertical-layout spacing="false" margin="false">
+     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+      <vaadin-label style-name="h2 texto-blanco" plain-text _id="tituloAtaque" :center>
+        Ataque 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-panel>
+      <vaadin-vertical-layout spacing="false" margin="false" _id="layoutInformacion"></vaadin-vertical-layout>
+     </vaadin-panel>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout style-name="card" margin="false">
+     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+      <vaadin-label style-name="h3 texto-blanco" plain-text :center>
+        Naves 
+      </vaadin-label>
+     </vaadin-horizontal-layout>
+     <vaadin-panel size-full :center>
+      <vaadin-grid-layout spacing size-full _id="layoutNaves">
+       <row>
+        <column></column>
+        <column></column>
+        <column></column>
+        <column></column>
+       </row>
+       <row>
+        <column></column>
+        <column></column>
+        <column></column>
+        <column></column>
+       </row>
+      </vaadin-grid-layout>
+     </vaadin-panel>
+    </vaadin-vertical-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-button plain-text _id="cancelarB">
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="atacarB" :right>
+       Atacar 
+     </vaadin-button>
     </vaadin-horizontal-layout>
-    <vaadin-panel size-full :center>
-     <vaadin-grid-layout spacing size-full _id="layoutNaves">
-      <row>
-       <column></column>
-       <column></column>
-       <column></column>
-       <column></column>
-      </row>
-      <row>
-       <column></column>
-       <column></column>
-       <column></column>
-       <column></column>
-      </row>
-     </vaadin-grid-layout>
-    </vaadin-panel>
+    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL">
+      Error 
+    </vaadin-label>
    </vaadin-vertical-layout>
-   <vaadin-horizontal-layout width-full :bottom :center>
-    <vaadin-button plain-text _id="cancelarB">
-      Cancelar 
-    </vaadin-button>
-    <vaadin-button plain-text _id="atacarB" :right>
-      Atacar 
-    </vaadin-button>
-   </vaadin-horizontal-layout>
-   <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-     Error 
-   </vaadin-label>
   </vaadin-vertical-layout>
  </body>
 </html>

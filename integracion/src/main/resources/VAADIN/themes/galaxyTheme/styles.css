@@ -1627,10 +1627,6 @@ div.v-layout.v-horizontal.v-widget {
 	vertical-align: top;
 }
 
-.texto-blanco {
-	color: #ffffff;
-}
-
 .galaxyTheme.v-app, .galaxyTheme.v-app-loading {
 	font: 300 16px/1.55 "Open Sans", sans-serif;
 	color: #464646;
@@ -15071,5 +15067,47 @@ div.v-layout.v-horizontal.v-widget {
 }
 
 .galaxyTheme .my-cabecera {
-	background: linear, false, zip(black #333333);
+	background: linear-gradient(rgb(0, 0, 0),rgb(51, 51, 51));
+	border: none;
+}
+
+.galaxyTheme .texto-blanco {
+	color: #ffffff;
+}
+
+.galaxyTheme .menu-fondo {
+	background: url(Fondo_menu.png);
+}
+
+.galaxyTheme .botones-menu-fondo {
+	background: url(BotonMenu.png);
+	color: #bfbfbf;
+	text-decoration: none;
+}
+
+.galaxyTheme .botones-menu-fondo:hover {
+	background: url(BotonMenuSelected.png) !important;
+	color: #ffffff !important;
+}
+
+.galaxyTheme .cabecera_ventanas {
+	background: url(Cabecera_Ventanas_Detalles_Small_2000.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.galaxyTheme .cabecera_ventanas_recursos {
+	background: url(Cabecera_Ventanas_Detalles_Small_Recursos.png) !important;
+}
+
+.galaxyTheme .cabecera_ventanas_mensajes {
+	background: url(Cabecera_Ventanas_Detalles_Small_Mensajes.png) !important;
+}
+
+.galaxyTheme .cabecera_ventanas_hangar {
+	background: url(Cabecera_Ventanas_Detalles_Small_Hangar.png) !important;
+}
+
+.galaxyTheme .cabecera_ventanas_hangar_tipo {
+	background: url(Cabecera_Ventanas_Detalles_Small_2000.png) no-repeat;
+	background-size: 100% 100%;
 }

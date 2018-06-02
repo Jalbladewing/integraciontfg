@@ -26,6 +26,8 @@ public class Ver_naves extends Ver_naves_Ventana implements View
 		((VaadinUI) UI.getCurrent()).setMovimiento(null);
 		if(movimiento == null) return;
 		
+		movimientoL.setValue("Movimiento a " + movimiento.getPlaneta().getNombrePlaneta());
+		
 		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
 		movimientoNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazMovimientoNave();
 		navesMovimientoL = movimientoNaveRepo.findByMovimientoidMovimiento(movimiento.getIdMovimiento());

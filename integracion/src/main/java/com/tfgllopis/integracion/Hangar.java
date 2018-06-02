@@ -83,6 +83,20 @@ public class Hangar extends Hangar_Ventana implements View
 			
 			tipoNaveLayout.addComponent(aux);
 			
+			if(i == 0)
+			{
+				construirLayout.setVisible(true);
+				nombreTipoL.setValue(tipoNaves.get(i).getNombreTipoNave());
+				posicion = 0;
+				naves = new ArrayList<>(naveRepo.findByNombreTipoNave(tipoNaves.get(i).getNombreTipoNave()));
+				comprobarFlechaDer();
+				comprobarFlechaIzq();
+				naveLayout.removeAllComponents();
+				naveLayout.addComponent(new Nave_hangar(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), usuarioNaveRepo));
+				actualizarDatosNave(naves.get(0));
+				construirF.setValue("");
+			}
+			
 			aux.getImage().addClickListener(new ClickListener()
 			{
 				@Override

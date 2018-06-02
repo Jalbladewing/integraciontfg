@@ -56,13 +56,38 @@
   
   .my-cabecera
   {
-  	background: linear-gradient(rgb(0, 0, 0),rgb(51, 51, 51)); !important
+  	background: unquote("linear-gradient(rgb(0, 0, 0),rgb(51, 51, 51))");
   	border: none;
   }
   
   .texto-blanco
   {
   	color: #ffffff;
+  }
+  
+  .menu-fondo
+  {
+  	background: unquote("url(Fondo_menu.png)");
+  }
+  
+  .botones-menu-fondo
+  {
+  	background: url(BotonMenu.png);
+  	color: rgb(191, 191, 191);
+  	text-decoration: none;
+  }
+  
+  .botones-menu-fondo:hover
+  {
+  	background: url(BotonMenuSelected.png) !important;
+  	color: #ffffff !important;
+  }
+  
+  .cabecera_ventanas
+  {
+  	//background: unquote("url(Cabecera_Ventanas_Detalles_Small.png)") !important;
+  	background: url(Cabecera_Ventanas_Detalles_Small_2000.png) no-repeat;
+  	background-size: 100% 100%;
   }
   
 }

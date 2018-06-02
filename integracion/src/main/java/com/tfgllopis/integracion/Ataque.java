@@ -44,6 +44,8 @@ public class Ataque extends Ataque_Ventana implements View
 		
 		if(planetaAtaque == null) return;
 		
+		tituloAtaque.setValue("Ataque Vs " +planetaAtaque.getNombrePlaneta());
+		
 		em = ((VaadinUI) UI.getCurrent()).getEntitymanager();
 		((VaadinUI) UI.getCurrent()).setPlanetaAtaque(null);
 		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
