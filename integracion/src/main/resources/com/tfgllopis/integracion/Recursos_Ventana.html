@@ -7,19 +7,21 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+   <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full height="67px">
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Recursos 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
-    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-      Error 
-    </vaadin-label>
-    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-      Instalación subida de nivel correctamente 
-    </vaadin-label>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Error 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Instalación subida de nivel correctamente 
+     </vaadin-label>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

@@ -7,41 +7,43 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+   <vaadin-vertical-layout style-name="cuerpo_ventanas" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text _id="tituloL" :center>
        Pirata LvL X 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-vertical-layout size-auto margin="false" :center>
-     <vaadin-vertical-layout style-name="card" size-auto margin="false">
+    <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" size-auto margin="false" :center>
+     <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" size-auto margin="false">
       <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
        <vaadin-label style-name="h3 texto-blanco" plain-text :center>
          Instalaciones 
        </vaadin-label>
       </vaadin-horizontal-layout>
-      <vaadin-panel width="850px" height="350px" :center>
-       <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
+      <vaadin-panel style-name="fondo_cabecera_cuerpo" width="850px" height="350px" :center>
+       <vaadin-horizontal-layout style-name="cuerpo_ventanas" width-full _id="layoutInstalaciones"></vaadin-horizontal-layout>
       </vaadin-panel>
      </vaadin-vertical-layout>
-     <vaadin-vertical-layout style-name="card" margin="false">
+     <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" margin="false">
       <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
        <vaadin-label style-name="h3 texto-blanco" plain-text :center>
          Naves 
        </vaadin-label>
       </vaadin-horizontal-layout>
-      <vaadin-grid-layout spacing height-full _id="layoutNaves">
-       <row>
-        <column></column>
-        <column></column>
-        <column></column>
-       </row>
-       <row>
-        <column></column>
-        <column></column>
-        <column></column>
-       </row>
-      </vaadin-grid-layout>
+      <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" margin="false">
+       <vaadin-grid-layout spacing height-full _id="layoutNaves">
+        <row>
+         <column></column>
+         <column></column>
+         <column></column>
+        </row>
+        <row>
+         <column></column>
+         <column></column>
+         <column></column>
+        </row>
+       </vaadin-grid-layout>
+      </vaadin-vertical-layout>
      </vaadin-vertical-layout>
      <vaadin-horizontal-layout :center>
       <vaadin-button plain-text _id="guardarB">

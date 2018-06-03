@@ -7,56 +7,58 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+   <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Borrar Usuario 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout margin>
-     <vaadin-vertical-layout width-auto height-full margin="false">
-      <vaadin-label style-name="bold" plain-text>
-        Usuario 
-      </vaadin-label>
-      <vaadin-label style-name="bold" plain-text>
-        Correo 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout size-auto margin="false">
-      <vaadin-label plain-text _id="usuarioL">
-        Username 
-      </vaadin-label>
-      <vaadin-label plain-text _id="emailL">
-        example@gmail.com 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout :center>
-     <vaadin-check-box caption="Activo" enabled="false" _id="activoChckBx"></vaadin-check-box>
-     <vaadin-vertical-layout style-name="card" size-auto margin="false" _id="layoutRoles">
-      <vaadin-radio-button-group enabled="false" data-item-type="java.lang.String" _id="rolesRadio">
-       <option item="Jugador" selected>Jugador</option>
-       <option item="Administrador">Administrador</option>
-      </vaadin-radio-button-group>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout :center>
-     <vaadin-button plain-text _id="eliminarB">
-       Eliminar 
-     </vaadin-button>
-     <vaadin-button plain-text _id="cancelarB">
-       Cancelar 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
-    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-      Usuario creado con éxito 
-    </vaadin-label>
-    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-      Error 
-    </vaadin-label>
-    <vaadin-label plain-text>
-      (*) No vacío 
-    </vaadin-label>
+    <vaadin-vertical-layout style-name="cuerpo_ventanas" size-auto>
+     <vaadin-horizontal-layout margin>
+      <vaadin-vertical-layout width-auto height-full margin="false">
+       <vaadin-label style-name="bold texto-blanco" plain-text>
+         Usuario 
+       </vaadin-label>
+       <vaadin-label style-name="bold texto-blanco" plain-text>
+         Correo 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto margin="false">
+       <vaadin-label style-name="texto-blanco" plain-text _id="usuarioL">
+         Username 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="emailL">
+         example@gmail.com 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout :center>
+      <vaadin-check-box caption="Activo" enabled="false" style-name="texto-blanco" _id="activoChckBx"></vaadin-check-box>
+      <vaadin-vertical-layout style-name="card" size-auto margin="false" _id="layoutRoles">
+       <vaadin-radio-button-group enabled="false" data-item-type="java.lang.String" _id="rolesRadio">
+        <option item="Jugador" selected>Jugador</option>
+        <option item="Administrador">Administrador</option>
+       </vaadin-radio-button-group>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout :center>
+      <vaadin-button plain-text _id="eliminarB">
+        Eliminar 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cancelarB">
+        Cancelar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Usuario creado con éxito 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Error 
+     </vaadin-label>
+     <vaadin-label style-name="texto-blanco" plain-text>
+       (*) No vacío 
+     </vaadin-label>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

@@ -7,113 +7,115 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+   <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Recursos 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
-    <vaadin-label plain-text :center>
-      Tasa de Generación por nivel 
-    </vaadin-label>
-    <vaadin-combo-box empty-selection-allowed="false" data-item-type="java.lang.String" _id="generacionCombo" :center>
-     <option item="Nivel">Por Nivel</option>
-    </vaadin-combo-box>
-    <vaadin-horizontal-layout :center>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-label plain-text></vaadin-label>
-      <vaadin-label plain-text>
-        Nivel 1 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        Nivel 2 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        Nivel 3 
-      </vaadin-label>
-      <vaadin-label plain-text :center>
-        . 
-      </vaadin-label>
-      <vaadin-label plain-text :center>
-        . 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-label plain-text>
-        Metal 
-      </vaadin-label>
-      <vaadin-label plain-text _id="metalNiv1">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="metalNiv2">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="metalNiv3">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-label plain-text>
-        Oro 
-      </vaadin-label>
-      <vaadin-label plain-text _id="oroNiv1">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="oroNiv2">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="oroNiv3">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-label plain-text>
-        Petroleo 
-      </vaadin-label>
-      <vaadin-label plain-text _id="petroleoNiv1">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="petroleoNiv2">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text _id="petroleoNiv3">
-        0 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        . 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout :center>
-     <vaadin-button plain-text _id="guardarB">
-       Guardar Cambios 
-     </vaadin-button>
-     <vaadin-button plain-text _id="cancelarB">
-       Cancelar 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
-    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-      Error 
-    </vaadin-label>
-    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-      Instalaciones modificadas correctamente 
-    </vaadin-label>
+    <vaadin-vertical-layout style-name="cuerpo_ventanas" size-auto :center>
+     <vaadin-horizontal-layout _id="layoutInstalaciones"></vaadin-horizontal-layout>
+     <vaadin-label style-name="texto-blanco" plain-text :center>
+       Tasa de Generación por nivel 
+     </vaadin-label>
+     <vaadin-combo-box empty-selection-allowed="false" data-item-type="java.lang.String" _id="generacionCombo" :center>
+      <option item="Nivel">Por Nivel</option>
+     </vaadin-combo-box>
+     <vaadin-horizontal-layout style-name="recursos_fondo_horizontal" :center>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-label plain-text></vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Nivel 1 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Nivel 2 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Nivel 3 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text :center>
+         . 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text :center>
+         . 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Metal 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="metalNiv1">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="metalNiv2">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="metalNiv3">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Oro 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="oroNiv1">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="oroNiv2">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="oroNiv3">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Petroleo 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="petroleoNiv1">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="petroleoNiv2">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text _id="petroleoNiv3">
+         0 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         . 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout :center>
+      <vaadin-button plain-text _id="guardarB">
+        Guardar Cambios 
+      </vaadin-button>
+      <vaadin-button plain-text _id="cancelarB">
+        Cancelar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Error 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Instalaciones modificadas correctamente 
+     </vaadin-label>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

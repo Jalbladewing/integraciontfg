@@ -7,118 +7,120 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" responsive size-auto margin="false" :center>
+   <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Modificar Nave 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout>
-     <vaadin-vertical-layout size-auto>
-      <vaadin-image _id="imagenNave" :center></vaadin-image>
-      <vaadin-upload button-caption="Cargar Imagen" _id="subirImagen"></vaadin-upload>
+    <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" size-auto>
+     <vaadin-horizontal-layout>
+      <vaadin-vertical-layout size-auto>
+       <vaadin-image style-name="recursos_fondo_horizontal" width="100px" height="100px" _id="imagenNave" :center></vaadin-image>
+       <vaadin-upload button-caption="Cargar Imagen" _id="subirImagen"></vaadin-upload>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout width-auto height-full margin="false">
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Nombre 
+       </vaadin-label>
+       <vaadin-label style-name="texto-blanco" plain-text>
+         Tipo de Nave 
+       </vaadin-label>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout width-auto height-full margin="false">
+       <vaadin-text-field enabled="false" _id="nombreF"></vaadin-text-field>
+       <vaadin-combo-box empty-selection-allowed="false" data-item-type="com.tfgllopis.integracion.TipoNave" _id="tipoNaveCombo"></vaadin-combo-box>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+     <vaadin-vertical-layout size-auto :center>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="caracteristicasB">
+         Características 
+       </vaadin-button>
+       <vaadin-panel visible="false" style-name="fondo_cabecera_cuerpo recursos_fondo_horizontal" size-auto _id="panelCaracteristicas">
+        <vaadin-horizontal-layout margin>
+         <vaadin-vertical-layout width-auto height-full margin="false">
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Salud 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Escudo 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Ataque 
+          </vaadin-label>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout size-auto margin="false">
+          <vaadin-text-field placeholder="ej: 120.3" _id="saludF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 210.4" _id="escudoF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 83.1" _id="ataqueF"></vaadin-text-field>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout width-auto height-full margin="false">
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Agilidad 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Velocidad 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Capacidad Carga 
+          </vaadin-label>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout width-auto height-full margin="false">
+          <vaadin-text-field placeholder="ej: 102.5" _id="agilidadF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 92.1" _id="velocidadF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 50" _id="cargaF"></vaadin-text-field>
+         </vaadin-vertical-layout>
+        </vaadin-horizontal-layout>
+       </vaadin-panel>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="costeB">
+         Coste 
+       </vaadin-button>
+       <vaadin-panel visible="false" style-name="fondo_cabecera_cuerpo recursos_fondo_horizontal" size-auto _id="panelCoste">
+        <vaadin-horizontal-layout margin>
+         <vaadin-vertical-layout width-auto height-full margin="false">
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Metal 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Oro 
+          </vaadin-label>
+          <vaadin-label style-name="texto-blanco" plain-text>
+            Petróleo 
+          </vaadin-label>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout size-auto margin="false">
+          <vaadin-text-field placeholder="ej: 50" _id="metalF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 120" _id="oroF"></vaadin-text-field>
+          <vaadin-text-field placeholder="ej: 92" _id="petroleoF"></vaadin-text-field>
+         </vaadin-vertical-layout>
+        </vaadin-horizontal-layout>
+       </vaadin-panel>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-check-box caption="Bloqueada" style-name="texto-blanco" _id="bloqueadaChckBx"></vaadin-check-box>
+       <vaadin-panel visible="false" style-name="fondo_cabecera_cuerpo recursos_fondo_horizontal" size-auto _id="panelPiratas">
+        <vaadin-vertical-layout size-auto _id="layoutDesbloqueo"></vaadin-vertical-layout>
+       </vaadin-panel>
+      </vaadin-vertical-layout>
      </vaadin-vertical-layout>
-     <vaadin-vertical-layout width-auto height-full margin="false">
-      <vaadin-label plain-text>
-        Nombre 
-      </vaadin-label>
-      <vaadin-label plain-text>
-        Tipo de Nave 
-      </vaadin-label>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout width-auto height-full margin="false">
-      <vaadin-text-field enabled="false" _id="nombreF"></vaadin-text-field>
-      <vaadin-combo-box empty-selection-allowed="false" data-item-type="com.tfgllopis.integracion.TipoNave" _id="tipoNaveCombo"></vaadin-combo-box>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
-    <vaadin-vertical-layout size-auto :center>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="caracteristicasB">
-        Características 
+     <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+       Nave modificada con éxito 
+     </vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+       Error 
+     </vaadin-label>
+     <vaadin-horizontal-layout :center>
+      <vaadin-button plain-text _id="guardarB">
+        Guardar 
       </vaadin-button>
-      <vaadin-panel visible="false" size-auto _id="panelCaracteristicas">
-       <vaadin-horizontal-layout margin>
-        <vaadin-vertical-layout width-auto height-full margin="false">
-         <vaadin-label plain-text>
-           Salud 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Escudo 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Ataque 
-         </vaadin-label>
-        </vaadin-vertical-layout>
-        <vaadin-vertical-layout size-auto margin="false">
-         <vaadin-text-field placeholder="ej: 120.3" _id="saludF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 210.4" _id="escudoF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 83.1" _id="ataqueF"></vaadin-text-field>
-        </vaadin-vertical-layout>
-        <vaadin-vertical-layout width-auto height-full margin="false">
-         <vaadin-label plain-text>
-           Agilidad 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Velocidad 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Capacidad Carga 
-         </vaadin-label>
-        </vaadin-vertical-layout>
-        <vaadin-vertical-layout width-auto height-full margin="false">
-         <vaadin-text-field placeholder="ej: 102.5" _id="agilidadF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 92.1" _id="velocidadF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 50" _id="cargaF"></vaadin-text-field>
-        </vaadin-vertical-layout>
-       </vaadin-horizontal-layout>
-      </vaadin-panel>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" plain-text _id="costeB">
-        Coste 
+      <vaadin-button plain-text _id="cancelarB">
+        Cancelar 
       </vaadin-button>
-      <vaadin-panel visible="false" size-auto _id="panelCoste">
-       <vaadin-horizontal-layout margin>
-        <vaadin-vertical-layout width-auto height-full margin="false">
-         <vaadin-label plain-text>
-           Metal 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Oro 
-         </vaadin-label>
-         <vaadin-label plain-text>
-           Petróleo 
-         </vaadin-label>
-        </vaadin-vertical-layout>
-        <vaadin-vertical-layout size-auto margin="false">
-         <vaadin-text-field placeholder="ej: 50" _id="metalF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 120" _id="oroF"></vaadin-text-field>
-         <vaadin-text-field placeholder="ej: 92" _id="petroleoF"></vaadin-text-field>
-        </vaadin-vertical-layout>
-       </vaadin-horizontal-layout>
-      </vaadin-panel>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-check-box caption="Bloqueada" _id="bloqueadaChckBx"></vaadin-check-box>
-      <vaadin-panel visible="false" size-auto _id="panelPiratas">
-       <vaadin-vertical-layout size-auto _id="layoutDesbloqueo"></vaadin-vertical-layout>
-      </vaadin-panel>
-     </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
     </vaadin-vertical-layout>
-    <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-      Nave modificada con éxito 
-    </vaadin-label>
-    <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-      Error 
-    </vaadin-label>
-    <vaadin-horizontal-layout :center>
-     <vaadin-button plain-text _id="guardarB">
-       Guardar 
-     </vaadin-button>
-     <vaadin-button plain-text _id="cancelarB">
-       Cancelar 
-     </vaadin-button>
-    </vaadin-horizontal-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

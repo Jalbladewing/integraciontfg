@@ -7,50 +7,52 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full margin="false">
-   <vaadin-vertical-layout style-name="well" spacing="false" margin="false" :center>
-    <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+   <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" size-auto margin="false" :center>
+    <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full :center>
      <vaadin-label style-name="h4 huge texto-blanco" plain-text :center>
        Página Principal 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout :center>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-horizontal-layout style-name="well">
-       <vaadin-button icon="fonticon://Vaadin-Icons/e698" description="Metal" style-name="icon-only link" plain-text icon-alt="Metal">
-         Button 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout style-name="card" size-full :center>
-       <vaadin-label plain-text _id="metalL" :center>
-         0 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-horizontal-layout style-name="well">
-       <vaadin-button icon="fonticon://Vaadin-Icons/e901" description="Oro" style-name="icon-only link" plain-text icon-alt="Oro">
-         Button 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout style-name="card" size-full>
-       <vaadin-label plain-text _id="oroL" :center>
-         0 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout spacing="false" size-auto margin="false">
-      <vaadin-horizontal-layout style-name="well">
-       <vaadin-button icon="fonticon://Vaadin-Icons/e704" description="Petróleo" style-name="icon-only link" plain-text icon-alt="Petróleo">
-         Button 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-      <vaadin-horizontal-layout style-name="card" size-full :center>
-       <vaadin-label plain-text _id="petroleoL" :center>
-         0 
-       </vaadin-label>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout style-name="cuerpo_ventanas" size-auto :center>
+     <vaadin-horizontal-layout :center>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-horizontal-layout style-name="well">
+        <vaadin-button icon="fonticon://Vaadin-Icons/e698" description="Metal" style-name="icon-only link" plain-text icon-alt="Metal">
+          Button 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="card" size-full :center>
+        <vaadin-label plain-text _id="metalL" :center>
+          0 
+        </vaadin-label>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-horizontal-layout style-name="well">
+        <vaadin-button icon="fonticon://Vaadin-Icons/e901" description="Oro" style-name="icon-only link" plain-text icon-alt="Oro">
+          Button 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="card" size-full>
+        <vaadin-label plain-text _id="oroL" :center>
+          0 
+        </vaadin-label>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+      <vaadin-vertical-layout spacing="false" size-auto margin="false">
+       <vaadin-horizontal-layout style-name="well">
+        <vaadin-button icon="fonticon://Vaadin-Icons/e704" description="Petróleo" style-name="icon-only link" plain-text icon-alt="Petróleo">
+          Button 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="card" size-full :center>
+        <vaadin-label plain-text _id="petroleoL" :center>
+          0 
+        </vaadin-label>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

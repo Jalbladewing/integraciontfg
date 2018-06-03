@@ -7,48 +7,48 @@
  </head>
  <body>
   <vaadin-vertical-layout responsive size-full>
-   <vaadin-vertical-layout style-name="well" spacing="false" responsive margin="false" :center>
+   <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" responsive margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text _id="tipoL" :center>
        Tipo Mensaje 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-vertical-layout size-auto>
-     <vaadin-label plain-text>
+     <vaadin-label style-name="texto-blanco" plain-text>
        Asunto 
      </vaadin-label>
      <vaadin-text-field width="300px" readonly _id="asuntoF"></vaadin-text-field>
     </vaadin-vertical-layout>
     <vaadin-vertical-layout>
-     <vaadin-tab-sheet _id="nombreNaveL">
+     <vaadin-tab-sheet style-name="texot-blanco" _id="nombreNaveL">
       <tab caption="Atacantes" selected>
-       <vaadin-panel height="300px">
+       <vaadin-panel style-name="fondo_cabecera_cuerpo" height="300px">
         <vaadin-vertical-layout _id="atacantesLayout"></vaadin-vertical-layout>
        </vaadin-panel>
       </tab>
       <tab caption="Defensores">
-       <vaadin-panel height="300px">
+       <vaadin-panel style-name="fondo_cabecera_cuerpo" height="300px">
         <vaadin-vertical-layout _id="defensoresLayout"></vaadin-vertical-layout>
        </vaadin-panel>
       </tab>
       <tab caption="Recompensas">
-       <vaadin-panel height="300px">
+       <vaadin-panel style-name="fondo_cabecera_cuerpo" height="300px">
         <vaadin-vertical-layout>
-         <vaadin-vertical-layout spacing="false" margin="false">
-          <vaadin-horizontal-layout style-name="card" width-full>
-           <vaadin-label style-name="h2" plain-text>
+         <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" margin="false">
+          <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+           <vaadin-label style-name="h2 texto-blanco" plain-text :center>
              Recursos Obtenidos 
            </vaadin-label>
           </vaadin-horizontal-layout>
-          <vaadin-horizontal-layout style-name="well" width-full _id="recursosLayout"></vaadin-horizontal-layout>
+          <vaadin-horizontal-layout width-full _id="recursosLayout"></vaadin-horizontal-layout>
          </vaadin-vertical-layout>
-         <vaadin-vertical-layout spacing="false" margin="false">
-          <vaadin-horizontal-layout style-name="card" width-full>
-           <vaadin-label style-name="h2" plain-text>
+         <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" margin="false">
+          <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+           <vaadin-label style-name="h2 texto-blanco" plain-text :center>
              Naves Desbloqueadas 
            </vaadin-label>
           </vaadin-horizontal-layout>
-          <vaadin-horizontal-layout style-name="well" width-full _id="navesDesbloqueadasLayout"></vaadin-horizontal-layout>
+          <vaadin-horizontal-layout width-full _id="navesDesbloqueadasLayout"></vaadin-horizontal-layout>
          </vaadin-vertical-layout>
         </vaadin-vertical-layout>
        </vaadin-panel>

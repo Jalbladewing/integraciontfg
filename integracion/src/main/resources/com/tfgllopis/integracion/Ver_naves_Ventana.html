@@ -7,24 +7,24 @@
  </head>
  <body>
   <vaadin-vertical-layout size-full>
-   <vaadin-vertical-layout margin="false">
+   <vaadin-vertical-layout style-name="cuerpo_ventanas" margin="false">
     <vaadin-vertical-layout spacing="false" margin="false">
      <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
       <vaadin-label style-name="h2 texto-blanco" plain-text _id="movimientoL" :center>
         Movimiento 
       </vaadin-label>
      </vaadin-horizontal-layout>
-     <vaadin-panel>
+     <vaadin-panel style-name="fondo_cabecera_cuerpo">
       <vaadin-vertical-layout spacing="false" margin="false" _id="layoutInformacion"></vaadin-vertical-layout>
      </vaadin-panel>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout style-name="card" margin="false">
-     <vaadin-horizontal-layout style-name="card" width-full>
-      <vaadin-label style-name="h3" plain-text>
+    <vaadin-vertical-layout spacing="false" margin="false">
+     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
+      <vaadin-label style-name="h3 texto-blanco" plain-text :center>
         Naves 
       </vaadin-label>
      </vaadin-horizontal-layout>
-     <vaadin-panel size-full :center>
+     <vaadin-panel style-name="cuerpo_ventanas" size-full :center>
       <vaadin-grid-layout spacing size-full _id="layoutNaves">
        <row>
         <column></column>

@@ -85,8 +85,31 @@
   
   .cabecera_ventanas
   {
-  	//background: unquote("url(Cabecera_Ventanas_Detalles_Small.png)") !important;
   	background: url(Cabecera_Ventanas_Detalles_Small_2000.png) no-repeat;
+  	background-size: 100% 100%;
+  }
+  
+  .cuerpo_ventanas
+  {
+  	background: url(Ventana.png) no-repeat;
+  	background-size: 100% 100%;
+  	border: none;
+  }
+  
+  .fondo_cabecera_cuerpo
+  {
+  	background: rgba(0,0,0,0);
+  }
+  
+   .recursos_fondo
+  {
+  	background: url(Recursos_Fondo.png) no-repeat !important;
+  	background-size: 100% 100% !important;
+  }
+  
+   .recursos_fondo_horizontal
+  {
+  	background: url(Recursos_Fondo_Horizontal.png) no-repeat;
   	background-size: 100% 100%;
   }
   

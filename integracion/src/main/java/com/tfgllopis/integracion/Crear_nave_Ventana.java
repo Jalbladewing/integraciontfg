@@ -45,10 +45,10 @@ public class Crear_nave_Ventana extends VerticalLayout {
 	protected CheckBox bloqueadaChckBx;
 	protected Panel panelPiratas;
 	protected VerticalLayout layoutDesbloqueo;
-	protected Label correctoL;
-	protected Label errorL;
 	protected Button guardarB;
 	protected Button cancelarB;
+	protected Label correctoL;
+	protected Label errorL;
 
 	public Crear_nave_Ventana() {
 		Design.read(this);

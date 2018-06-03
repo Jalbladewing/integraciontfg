@@ -15095,19 +15095,22 @@ div.v-layout.v-horizontal.v-widget {
 	background-size: 100% 100%;
 }
 
-.galaxyTheme .cabecera_ventanas_recursos {
-	background: url(Cabecera_Ventanas_Detalles_Small_Recursos.png) !important;
+.galaxyTheme .cuerpo_ventanas {
+	background: url(Ventana.png) no-repeat;
+	background-size: 100% 100%;
+	border: none;
 }
 
-.galaxyTheme .cabecera_ventanas_mensajes {
-	background: url(Cabecera_Ventanas_Detalles_Small_Mensajes.png) !important;
+.galaxyTheme .fondo_cabecera_cuerpo {
+	background: transparent;
 }
 
-.galaxyTheme .cabecera_ventanas_hangar {
-	background: url(Cabecera_Ventanas_Detalles_Small_Hangar.png) !important;
+.galaxyTheme .recursos_fondo {
+	background: url(Recursos_Fondo.png) no-repeat !important;
+	background-size: 100% 100% !important;
 }
 
-.galaxyTheme .cabecera_ventanas_hangar_tipo {
-	background: url(Cabecera_Ventanas_Detalles_Small_2000.png) no-repeat;
+.galaxyTheme .recursos_fondo_horizontal {
+	background: url(Recursos_Fondo_Horizontal.png) no-repeat;
 	background-size: 100% 100%;
 }

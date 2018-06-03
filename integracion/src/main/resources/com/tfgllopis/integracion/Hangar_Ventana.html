@@ -6,23 +6,23 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout style-name="well" spacing="false" margin="false">
+  <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" margin="false">
    <vaadin-vertical-layout spacing="false" margin="false">
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Hangar 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout spacing="false" size-full>
+    <vaadin-horizontal-layout style-name="cuerpo_ventanas" spacing="false" size-full>
      <vaadin-vertical-layout spacing="false" width-auto height-full _id="tipoNaveLayout"></vaadin-vertical-layout>
      <vaadin-vertical-layout visible="false" size-auto margin="false" _id="construirLayout" :center :expand>
-      <vaadin-vertical-layout style-name="well" responsive size-auto margin="false">
+      <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false">
        <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full height="67px">
         <vaadin-label style-name="h2 texto-blanco" plain-text _id="nombreTipoL" :center>
           Tipo Nave 
         </vaadin-label>
        </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout>
+       <vaadin-horizontal-layout style-name="cuerpo_ventanas">
         <vaadin-vertical-layout size-auto>
          <vaadin-horizontal-layout spacing="false" :center>
           <vaadin-image style-name="my-img-button" width="40px" height="40px" _id="flechaIzq" :middle :center></vaadin-image>
