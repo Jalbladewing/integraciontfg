@@ -80,7 +80,12 @@ public class PlanetahasInstalacion implements Serializable {
     
     public void resetNivelInstalacion()
     {
-    	this.nivelInstalacion = 0;
+    	this.nivelInstalacion = 1;
+    }
+    
+    public void setNivelInstalacion(int nivel)
+    {
+    	this.nivelInstalacion = nivel;
     }
 
     public Date getUltimaGeneracion() {

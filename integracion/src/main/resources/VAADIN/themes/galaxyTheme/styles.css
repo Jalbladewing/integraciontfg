@@ -15103,6 +15103,7 @@ div.v-layout.v-horizontal.v-widget {
 
 .galaxyTheme .fondo_cabecera_cuerpo {
 	background: transparent;
+	border: none;
 }
 
 .galaxyTheme .recursos_fondo {

@@ -1,5 +1,6 @@
 package com.tfgllopis.integracion;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.vaadin.server.VaadinService;
@@ -111,7 +112,7 @@ public class CrudUsuario
 		return "";
 	}
 	
-	public static String inicializarUsuario(Usuario usuario, UsuarioHasNaveRepository usuarioNaveRepo, PlanetaHasNaveRepository planetaNaveRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, PlanetaRepository planetaRepo)
+	public static String inicializarUsuario(Usuario usuario, PlanetaHasNaveRepository planetaNaveRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, PlanetaRepository planetaRepo)
 	{
 		Planeta planeta = planetaRepo.findByPlanetaLibre().get(0);
 		PlanetahasInstalacion planetaInstalacionMetal = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
@@ -123,6 +124,8 @@ public class CrudUsuario
 
 		planeta.setUsuariousername(usuario);
 		planeta.setPirataidPirata(null);
+		planeta.setInformeBatallaidBatalla(null);
+		planeta.setNombrePlaneta("Planeta de " + usuario.getUsername());
 		
 		planetaInstalacionMetal.setUltimaGeneracion(new Date());
 		planetaInstalacionMetal.resetNivelInstalacion();
@@ -134,6 +137,8 @@ public class CrudUsuario
 		planetaRecursoMetal.setCantidad(0);
 		planetaRecursoOro.setCantidad(0);
 		planetaRecursoPetroleo.setCantidad(0);
+		
+		planetaNaveRepo.deleteAll(planetaNaveRepo.findByPlaneta(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema()));
 				
 		planetaRepo.save(planeta);
 		
@@ -144,6 +149,60 @@ public class CrudUsuario
 		planetaRecursoRepo.save(planetaRecursoMetal);
 		planetaRecursoRepo.save(planetaRecursoOro);
 		planetaRecursoRepo.save(planetaRecursoPetroleo);
+		
+		return "";
+	}
+	
+	public static String borrarUsuario(Usuario usuario, PlanetaHasNaveRepository planetaNaveRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, PlanetaRepository planetaRepo, PirataRepository pirataRepo, PiratahasInstalacionRepository pirataInstalacionRepo, PiratahasNaveRepository pirataNaveRepo, UsuarioRepository usuarioRepo)
+	{
+		Planeta planeta = planetaRepo.findByUsuarioUsername(usuario);
+		PlanetahasInstalacion planetaInstalacionMetal = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasInstalacion planetaInstalacionOro = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Oro", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasInstalacion planetaInstalacionPetroleo = planetaInstalacionRepo.findByInstalacionnamePlaneta("Plataforma Petrolifera", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasRecurso planetaRecursoMetal = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		PlanetahasRecurso planetaRecursoOro = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		PlanetahasRecurso planetaRecursoPetroleo = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
+		ArrayList<PiratahasNave> listaNavesDefecto;
+		ArrayList<PlanetaHasNave> listaNaves = new ArrayList<>();
+		
+		planeta.setUsuariousername(null);
+		planeta.setPirataidPirata(pirataRepo.findByIdPirata(planeta.getCoordenadaY()+1).get(0));
+		planeta.setInformeBatallaidBatalla(null);
+		planeta.setNombrePlaneta("Pirata LvL " + (planeta.getCoordenadaY()+1));
+		
+		planetaInstalacionMetal.setUltimaGeneracion(new Date());
+		planetaInstalacionMetal.setNivelInstalacion(pirataInstalacionRepo.findByPirataidPirata_Instalacionname(planeta.getCoordenadaY()+1, "Mina de Metal").getNivelDefecto());
+		planetaInstalacionOro.setUltimaGeneracion(new Date());
+		planetaInstalacionOro.setNivelInstalacion(pirataInstalacionRepo.findByPirataidPirata_Instalacionname(planeta.getCoordenadaY()+1, "Mina de Oro").getNivelDefecto());
+		planetaInstalacionPetroleo.setUltimaGeneracion(new Date());
+		planetaInstalacionPetroleo.setNivelInstalacion(pirataInstalacionRepo.findByPirataidPirata_Instalacionname(planeta.getCoordenadaY()+1, "Plataforma Petrolifera").getNivelDefecto());
+		
+		planetaRecursoMetal.setCantidad(0);
+		planetaRecursoOro.setCantidad(0);
+		planetaRecursoPetroleo.setCantidad(0);
+		
+		listaNavesDefecto = new ArrayList<>(pirataNaveRepo.findByPirataidPirata(planeta.getCoordenadaY()+1));
+		
+		for(int i = 0; i < listaNavesDefecto.size(); i++)
+		{
+			listaNaves.add(new PlanetaHasNave(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), listaNavesDefecto.get(i).getNavenombreNave(), listaNavesDefecto.get(i).getCantidadDefecto()));
+		}
+		
+		planetaNaveRepo.deleteAll(planetaNaveRepo.findByPlaneta(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema()));
+						
+		planetaRepo.save(planeta);
+		
+		planetaInstalacionRepo.save(planetaInstalacionMetal);
+		planetaInstalacionRepo.save(planetaInstalacionOro);
+		planetaInstalacionRepo.save(planetaInstalacionPetroleo);
+		
+		planetaRecursoRepo.save(planetaRecursoMetal);
+		planetaRecursoRepo.save(planetaRecursoOro);
+		planetaRecursoRepo.save(planetaRecursoPetroleo);
+		
+		planetaNaveRepo.saveAll(listaNaves);
+		
+		usuarioRepo.delete(usuario);
 		
 		return "";
 	}

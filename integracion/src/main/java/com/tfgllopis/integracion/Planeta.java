@@ -92,6 +92,10 @@ public class Planeta implements Serializable {
     public String getNombrePlaneta() {
         return nombrePlaneta;
     }
+    
+    public void setNombrePlaneta(String nombrePlaneta) {
+        this.nombrePlaneta = nombrePlaneta;
+    }
 
     public Date getFinProteccion() {
         return finProteccion;

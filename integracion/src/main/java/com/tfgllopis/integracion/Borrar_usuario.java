@@ -13,6 +13,27 @@ public class Borrar_usuario extends Borrar_usuario_Ventana implements View
 	@Autowired
 	private UsuarioRepository userRepo;
 	
+	@Autowired
+	private PlanetaRepository planetaRepo;
+	
+	@Autowired
+	private PlanetaHasNaveRepository planetaNaveRepo;
+	
+	@Autowired
+	private PlanetahasInstalacionRepository planetaInstalacionRepo;
+	
+	@Autowired
+	private PlanetahasRecursoRepository planetaRecursoRepo;
+	
+	@Autowired
+	private PirataRepository pirataRepo;
+	
+	@Autowired
+	private PiratahasInstalacionRepository pirataInstalacionRepo;
+	
+	@Autowired
+	private PiratahasNaveRepository pirataNaveRepo;
+	
 	public static String VIEW_NAME = "borrarUsuario";
 	
 	public Borrar_usuario()
@@ -23,7 +44,7 @@ public class Borrar_usuario extends Borrar_usuario_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				Usuario.borrarUsuario(usuarioL.getValue(), userRepo);
+				CrudUsuario.borrarUsuario(Usuario.cargarUsuario(usuarioL.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo, pirataRepo, pirataInstalacionRepo, pirataNaveRepo, userRepo);
 				doNavigate(Listar_usuarios.VIEW_NAME);	
 			}
 		});
@@ -46,6 +67,13 @@ public class Borrar_usuario extends Borrar_usuario_Ventana implements View
 		if (!event.getParameters().isEmpty())
 		{
 			userRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuario();
+			planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
+			planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
+			planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
+			planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
+			pirataRepo = ((VaadinUI) UI.getCurrent()).getInterfazPirata();
+			pirataInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPirataInstalacion();
+			pirataNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPirataNave();
 			
 			usuarioL.setValue(event.getParameters());
 			emailL.setValue(userRepo.findByUsername(event.getParameters()).get(0).getEmail());

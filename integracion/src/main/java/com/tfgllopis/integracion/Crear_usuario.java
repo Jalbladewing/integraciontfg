@@ -17,12 +17,28 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 	@Autowired
 	private RolesRepository rolRepo;
 	
+	@Autowired
+	private PlanetaRepository planetaRepo;
+	
+	@Autowired
+	private PlanetaHasNaveRepository planetaNaveRepo;
+	
+	@Autowired
+	private PlanetahasInstalacionRepository planetaInstalacionRepo;
+	
+	@Autowired
+	private PlanetahasRecursoRepository planetaRecursoRepo;
+	
 	public static String VIEW_NAME = "crearUsuario";
 	
 	public Crear_usuario()
 	{
 		userRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuario();
 		rolRepo = ((VaadinUI) UI.getCurrent()).getInterfazRol();
+		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
+		planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
+		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
+		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
 		
 		guardarB.addClickListener(new Button.ClickListener() 
 		{
@@ -36,6 +52,7 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 				if(value.isEmpty()) 
 				{
 					errorL.setVisible(false);
+					CrudUsuario.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
 					doNavigate(Crear_usuario.VIEW_NAME + "/" + "creado");
 				}else
 				{

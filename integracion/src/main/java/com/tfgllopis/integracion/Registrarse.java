@@ -19,12 +19,28 @@ public class Registrarse  extends Registrarse_Ventana implements View
 	@Autowired
 	private RolesRepository rolRepo;
 	
+	@Autowired
+	private PlanetaRepository planetaRepo;
+	
+	@Autowired
+	private PlanetaHasNaveRepository planetaNaveRepo;
+	
+	@Autowired
+	private PlanetahasInstalacionRepository planetaInstalacionRepo;
+	
+	@Autowired
+	private PlanetahasRecursoRepository planetaRecursoRepo;
+	
 	public static final String VIEW_NAME = "registro";
 	
 	public Registrarse()
 	{
 		userRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuario();
 		rolRepo = ((VaadinUI) UI.getCurrent()).getInterfazRol();
+		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
+		planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
+		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
+		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
 		
 		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequeña.png")));
 		imagenLogo.setWidth(100, Unit.PIXELS);
@@ -42,6 +58,7 @@ public class Registrarse  extends Registrarse_Ventana implements View
 				if(value.isEmpty()) 
 				{
 					errorL.setVisible(false);
+					CrudUsuario.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
 					doNavigate(Iniciar_sesion.VIEW_NAME + "/" + "registrado");
 				}else
 				{
