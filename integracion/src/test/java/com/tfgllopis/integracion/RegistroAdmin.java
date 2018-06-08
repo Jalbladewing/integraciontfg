@@ -72,7 +72,7 @@ public class RegistroAdmin
 	{
 		Usuario aux;
 		
-		assertTrue(CrudUsuario.registroAdmin("Pepe", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertTrue(Crear_usuario.registroAdmin("Pepe", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 		
 		aux = Usuario.cargarUsuario("Pepe", repo);
 		
@@ -86,30 +86,30 @@ public class RegistroAdmin
 	@Test
 	public void testRegistrAdminoUsuarioIncorrecto()
 	{
-		assertFalse(CrudUsuario.registroAdmin(" Pepe&Changed", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Crear_usuario.registroAdmin(" Pepe&Changed", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroAdminEmailIncorrecto()
 	{
-		assertFalse(CrudUsuario.registroAdmin("Pepe", "mail", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Crear_usuario.registroAdmin("Pepe", "mail", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroAdminPasswordIncorrecto()
 	{
-		assertFalse(CrudUsuario.registroAdmin("Pepe", "juan@gmail.com", "1234", "123", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Crear_usuario.registroAdmin("Pepe", "juan@gmail.com", "1234", "123", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroAdminUsuarioExistente()
 	{
-		assertFalse(CrudUsuario.registroAdmin("juan", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Crear_usuario.registroAdmin("juan", "juan@gmail.com", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroAdminEmailExistente()
 	{
-		assertFalse(CrudUsuario.registroAdmin("Pepe", "juanito@ual.es", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Crear_usuario.registroAdmin("Pepe", "juanito@ual.es", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 }

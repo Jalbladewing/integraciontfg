@@ -30,7 +30,7 @@ public class TestPerfil
 	@Transactional
 	public void setUp() 
 	{
-	       
+	     
 		 rol1 = new Rol("admin");
 		 rol2 = new Rol("Jugador");
 		 	
@@ -45,7 +45,6 @@ public class TestPerfil
 	     usuario2 = new Usuario("juanito@ual.es", "juan","damn",true,new Date(), new Date());
 	     usuario2.setRolName(rolRepo.findByName("Jugador").get(0)); 
 	       
-	     repo.deleteAll();
 	     repo.save(usuario1);
 	     repo.save(usuario2);
 	 
@@ -116,7 +115,7 @@ public class TestPerfil
 	{
 		Usuario aux;
 		
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juan2@gmail.com", "12345", "12345", repo).isEmpty());
+		assertTrue(Perfil.modificarPerfil("juan", "juanito@ual.es", "juan2@gmail.com", "12345", "12345", repo).isEmpty());
 		
 		aux = Usuario.cargarUsuario("juan", repo);
 		
@@ -127,31 +126,31 @@ public class TestPerfil
 	@Test
 	public void testModificarPerfilEmailIncorrecto()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "mail", "1234", "1234", repo).isEmpty());
+		assertFalse(Perfil.modificarPerfil("juan", "juanito@ual.es", "mail", "1234", "1234", repo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilPasswordIncorrecto()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "1234", "123", repo).isEmpty());
+		assertFalse(Perfil.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "1234", "123", repo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilNoPassword()
 	{
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "", "123", repo).isEmpty());
+		assertTrue(Perfil.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "", "123", repo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilEmailExistente()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "root@ual.es", "1234", "1234", repo).isEmpty());
+		assertFalse(Perfil.modificarPerfil("juan", "juanito@ual.es", "root@ual.es", "1234", "1234", repo).isEmpty());
 	}
 	
 	@Test
 	public void testNoModificarPerfil()
 	{
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "damn", "damn", repo).isEmpty());
+		assertTrue(Perfil.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "damn", "damn", repo).isEmpty());
 	}
 	
 	@Transactional
@@ -160,7 +159,7 @@ public class TestPerfil
 	{
 		Usuario aux;
 		
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juan2@gmail.com", "12345", "12345", "admin", false, repo, rolRepo).isEmpty());
+		assertTrue(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "juan2@gmail.com", "12345", "12345", "admin", false, repo, rolRepo).isEmpty());
 		
 		aux = Usuario.cargarUsuario("juan", repo);
 		
@@ -171,31 +170,31 @@ public class TestPerfil
 	@Test
 	public void testModificarPerfilAdminEmailIncorrecto()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "mail", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "mail", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilAdminPasswordIncorrecto()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "1234", "123", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "1234", "123", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilAdminNoPassword()
 	{
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "", "123", "Jugador", true, repo, rolRepo).isEmpty());
+		assertTrue(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "", "123", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testModificarPerfilAdminEmailExistente()
 	{
-		assertFalse(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "root@ual.es", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
+		assertFalse(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "root@ual.es", "1234", "1234", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testNoModificarPerfilAdmin()
 	{
-		assertTrue(CrudUsuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "damn", "damn", "Jugador", true, repo, rolRepo).isEmpty());
+		assertTrue(Editar_usuario.modificarPerfil("juan", "juanito@ual.es", "juanito@ual.es", "damn", "damn", "Jugador", true, repo, rolRepo).isEmpty());
 	}
 	
 	@Test

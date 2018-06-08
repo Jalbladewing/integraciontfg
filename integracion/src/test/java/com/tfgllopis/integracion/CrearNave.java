@@ -162,7 +162,7 @@ public class CrearNave
 		ArrayList<PiratahasDesbloqueoNave> desbloqueos;
 		String[] probabilidadesDesbloqueo = new String[]{};
 		
-		assertTrue(CrudNave.crearNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Crear_nave.crearNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Type-6", repo);
 		desbloqueos = new ArrayList<>(PiratahasDesbloqueoNave.cargarDesbloqueosNave("Type", pirataDesbloqueoRepo));
@@ -188,7 +188,7 @@ public class CrearNave
 		ArrayList<PiratahasDesbloqueoNave> desbloqueos;
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertTrue(CrudNave.crearNave("Viper", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Crear_nave.crearNave("Viper", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Viper", repo);
 		desbloqueos = new ArrayList<>(PiratahasDesbloqueoNave.cargarDesbloqueosNave("Viper", pirataDesbloqueoRepo));
@@ -216,7 +216,7 @@ public class CrearNave
 		int costeOro, costeMetal, costePetroleo;
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertTrue(CrudNave.crearNave("Anaconda", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Crear_nave.crearNave("Anaconda", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Anaconda", repo);
 		costeOro = NavecuestaRecurso.cargarCosteNave("Oro", "Anaconda", naveCuestaRepo);
@@ -245,7 +245,7 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("    ", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("    ", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -254,7 +254,7 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("Vulture", "   ", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "   ", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -263,7 +263,7 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "-15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "-15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -272,12 +272,12 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3a", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2`", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "adwad", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "2+2.*4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "  ", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "8awd0awd.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3a", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2`", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "adwad", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "2+2.*4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "  ", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "8awd0awd.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -286,9 +286,9 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", " ", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "zsfz", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "1!80", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", " ", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "zsfz", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "1!80", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -297,7 +297,7 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60a"};
 		
-		assertFalse(CrudNave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Vulture", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -306,7 +306,7 @@ public class CrearNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.crearNave("Eagle", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Crear_nave.crearNave("Eagle", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 
 }

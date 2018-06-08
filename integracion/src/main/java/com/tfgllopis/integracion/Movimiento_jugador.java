@@ -1,7 +1,20 @@
 package com.tfgllopis.integracion;
 
 import java.io.File;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.hibernate.Session;
+import org.hibernate.jdbc.Work;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinServlet;
@@ -69,7 +82,7 @@ public class Movimiento_jugador extends Movimiento_jugador_Ventana
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				CrudNave.cancelarAtaque(((VaadinUI) UI.getCurrent()).getEntitymanager(), planetaOrigen, movimiento, movimientoRepo, movimientoNaveRepo);
+				Movimiento_jugador.cancelarAtaque(((VaadinUI) UI.getCurrent()).getEntitymanager(), planetaOrigen, movimiento, movimientoRepo, movimientoNaveRepo);
 				doNavigate(Ver_movimiento.VIEW_NAME);
 			}
 		});
@@ -101,6 +114,80 @@ public class Movimiento_jugador extends Movimiento_jugador_Ventana
 	private void doNavigate(String viewName) 
 	{
 		UI.getCurrent().getNavigator().navigateTo(viewName);
+	}
+	
+	@Transactional
+	public static void cancelarAtaque(EntityManager em, Planeta planetaOrigen, Movimiento antiguoMovimiento, MovimientoRepository movimientoRepo, MovimientohasNaveRepository movimientoNaveRepo)
+	{
+		Movimiento movimiento;
+		List<MovimientohasNave> naves = movimientoNaveRepo.findByMovimientoidMovimiento(antiguoMovimiento.getIdMovimiento());
+		ArrayList<MovimientohasNave> nuevoNavesMovimiento = new ArrayList<>();
+		
+		Date fechaAhora = new Date();
+		Timestamp fechaEnvio = new Timestamp(fechaAhora.getTime());
+		Calendar nuevaFechaC = Calendar.getInstance();
+		int seconds = (int) ((fechaEnvio.getTime() - antiguoMovimiento.getTiempoEnvio().getTime())/1000);
+		nuevaFechaC.add(Calendar.SECOND, seconds);
+		Timestamp nuevaFecha = new Timestamp(nuevaFechaC.getTime().getTime());
+
+		em = em.getEntityManagerFactory().createEntityManager();
+		em.getTransaction().begin();
+		Session session = em.unwrap(Session.class);
+		String sentencia = "ALTER EVENT movimiento_" +antiguoMovimiento.getIdMovimiento() +"_ships ON SCHEDULE AT ? ;";
+		String eventoVuelta = "DROP EVENT movimiento_" +antiguoMovimiento.getIdMovimiento() +"_return;";
+		String cancelarEventoBatalla = "DROP EVENT movimiento_" +antiguoMovimiento.getIdMovimiento() + "_battleShips;";
+		
+		movimiento = new Movimiento(nuevaFecha, fechaEnvio, (short) 0);
+		movimiento.setUsuariousername(planetaOrigen.getUsuariousername());
+		movimiento.setPlaneta(planetaOrigen);
+		movimiento = movimientoRepo.save(movimiento);
+		
+		antiguoMovimiento.cancelarMovimiento();
+		movimientoRepo.save(antiguoMovimiento);
+		
+		for(int i = 0; i < naves.size(); i++)
+		{
+			nuevoNavesMovimiento.add(new MovimientohasNave(movimiento.getIdMovimiento(), naves.get(i).getNavenombreNave(), naves.get(i).getCantidad()));
+		}
+		
+		movimientoNaveRepo.saveAll(nuevoNavesMovimiento);
+		
+		session.doWork(new Work()
+		{
+
+			@Override
+			public void execute(Connection conn) throws SQLException 
+			{
+				PreparedStatement stmt = null;
+				
+				try
+				{		
+					stmt = conn.prepareStatement(sentencia);
+					stmt.setInt(1, 0);
+					stmt.setTimestamp(1, nuevaFecha);
+					stmt.executeUpdate();
+					
+					stmt = conn.prepareStatement(eventoVuelta);
+					stmt.executeUpdate();
+					
+					stmt = conn.prepareStatement(cancelarEventoBatalla);
+					stmt.executeUpdate();
+					
+				}catch(Exception e)
+				{
+					System.out.println(e);
+				}finally
+				{
+					stmt.close();
+
+				}
+						
+			}
+			
+		});
+		
+		em.getTransaction().commit();
+		session.close();
 	}
 
 }

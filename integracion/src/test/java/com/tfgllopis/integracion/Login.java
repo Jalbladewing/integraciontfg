@@ -49,7 +49,6 @@ public class Login
 	     usuario3 = new Usuario("admin@ual.es", "admin","1234",true,new Date(), new Date());
 	     usuario3.setRolName(rolRepo.findByName("admin").get(0));
 	       
-	     repo.deleteAll();
 	     repo.save(usuario1);
 	     repo.save(usuario2);
 	     repo.save(usuario3);
@@ -62,7 +61,7 @@ public class Login
 		String username = "juan";
 		String password = "damn";
 		
-		assertTrue(CrudUsuario.login(username, password, repo).isEmpty());	
+		assertTrue(Iniciar_sesion.login(username, password, repo).isEmpty());	
 	}
 	
 	@Test
@@ -71,7 +70,7 @@ public class Login
 		String username = "";
 		String password = "damn";
 		
-		assertFalse(CrudUsuario.login(username, password, repo).isEmpty());			
+		assertFalse(Iniciar_sesion.login(username, password, repo).isEmpty());			
 	}
 	
 	@Test
@@ -80,7 +79,7 @@ public class Login
 		String username = "juan";
 		String password = "";
 		
-		assertFalse(CrudUsuario.login(username, password, repo).isEmpty());			
+		assertFalse(Iniciar_sesion.login(username, password, repo).isEmpty());			
 	}
 	
 	@Test
@@ -89,7 +88,7 @@ public class Login
 		String username = "juan";
 		String password = "damn";
 		
-		assertTrue(CrudUsuario.login(username, password, repo).isEmpty());			
+		assertTrue(Iniciar_sesion.login(username, password, repo).isEmpty());			
 		assertEquals(repo.findByUsername(username).get(0).getRolName().getName(), "Jugador");
 	}
 	
@@ -99,7 +98,7 @@ public class Login
 		String username = "admin";
 		String password = "1234";
 		
-		assertTrue(CrudUsuario.login(username, password, repo).isEmpty());			
+		assertTrue(Iniciar_sesion.login(username, password, repo).isEmpty());			
 		assertEquals(repo.findByUsername(username).get(0).getRolName().getName(), "admin");
 	}
 	
@@ -117,7 +116,7 @@ public class Login
 		String username = "root";
 		String password = "1234";
 		
-		assertFalse(CrudUsuario.login(username, password, repo).isEmpty());	
+		assertFalse(Iniciar_sesion.login(username, password, repo).isEmpty());	
 	}
 	
 	@Test
@@ -130,7 +129,7 @@ public class Login
 		java.sql.Date fecha = new java.sql.Date(aux.getTime());
 		
 		
-		CrudUsuario.login(username, password, repo);
+		Iniciar_sesion.login(username, password, repo);
 		user = Usuario.cargarUsuario(username, repo);
 		
 		assertEquals(fecha.toString(), user.getFechaUltimoAcceso().toString());

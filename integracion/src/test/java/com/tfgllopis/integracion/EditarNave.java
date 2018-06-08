@@ -77,7 +77,7 @@ public class EditarNave
 		pirataRepo.save(new Pirata(3));
 		pirataRepo.save(new Pirata(4));
 		
-		CrudNave.crearNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo);	 
+		Crear_nave.crearNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo);	 
 	 }
 	
 	@Transactional
@@ -88,7 +88,7 @@ public class EditarNave
 		ArrayList<PiratahasDesbloqueoNave> desbloqueos;
 		String[] probabilidadesDesbloqueo = new String[]{"2","8","1","9"};
 		
-		assertTrue(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "120", "140", "180", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Type-6", repo);
 		desbloqueos = new ArrayList<>(PiratahasDesbloqueoNave.cargarDesbloqueosNave("Type-6", pirataDesbloqueoRepo));
@@ -114,7 +114,7 @@ public class EditarNave
 		ArrayList<PiratahasDesbloqueoNave> desbloqueos;
 		String[] probabilidadesDesbloqueo = new String[]{"2","8","1","9"};
 		
-		assertTrue(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4", "3.1", "80.9", "120", "140", "180", true, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Type-6", repo);
 		desbloqueos = new ArrayList<>(PiratahasDesbloqueoNave.cargarDesbloqueosNave("Type-6", pirataDesbloqueoRepo));
@@ -143,7 +143,7 @@ public class EditarNave
 		int costeOro, costeMetal, costePetroleo;
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertTrue(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertTrue(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 		
 		aux = Nave.cargarNave("Type-6", repo);
 		costeOro = NavecuestaRecurso.cargarCosteNave("Oro", "Type-6", naveCuestaRepo);
@@ -172,7 +172,7 @@ public class EditarNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.modificarNave("Type-6", "  ", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "  ", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -181,7 +181,7 @@ public class EditarNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "-15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "-15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -190,12 +190,12 @@ public class EditarNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3a", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2`", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "adwaad", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "2+2*4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","   ", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "8adwada.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3a", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2`", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "adwaad", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "2+2*4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","   ", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "8adwada.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -204,9 +204,9 @@ public class EditarNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60"};
 		
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "  ", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "asdaz", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "2!80", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "  ", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "asdaz", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "2!80", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -215,6 +215,6 @@ public class EditarNave
 	{
 		String[] probabilidadesDesbloqueo = new String[]{"10","15", "30", "60a"};
 		
-		assertFalse(CrudNave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
+		assertFalse(Editar_nave.modificarNave("Type-6", "imagenUrl", "Caza", "15", "20.3", "10.2", "50.4", "22.4","3.1", "80.9", "100", "104", "280", false, probabilidadesDesbloqueo, repo, tipoNaveRepo, naveCuestaRepo, pirataDesbloqueoRepo).isEmpty());
 	}
 }

@@ -1,5 +1,7 @@
 package com.tfgllopis.integracion;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
@@ -30,7 +32,7 @@ public class Perfil extends Perfil_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				String value = CrudUsuario.modificarPerfil(usuarioF.getValue(), user.getEmail(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), userRepo);
+				String value = Perfil.modificarPerfil(usuarioF.getValue(), user.getEmail(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), userRepo);
 				errorL.setValue(value);
 				if(value.isEmpty()) 
 				{
@@ -63,5 +65,28 @@ public class Perfil extends Perfil_Ventana implements View
 	private void doNavigate(String viewName) 
 	{
 		UI.getCurrent().getNavigator().navigateTo(viewName);
+	}
+	
+	public static String modificarPerfil(String username, String emailOriginal, String emailNuevo, String password1, String password2, UsuarioRepository repo)
+	{
+		Usuario user = Usuario.cargarUsuario(username, repo);
+		Date fechaRegistro = new Date();
+		if(!UserDataValidator.comprobarEmail(emailNuevo)) return "Email inválido";	
+		
+		if(!emailOriginal.equals(emailNuevo))
+		{
+			if(UserDataValidator.comprobarEmailBD(emailNuevo, repo)) return "El correo ya está en uso";
+			user.setEmail(emailNuevo);
+		}
+		
+		if(!password1.isEmpty())
+		{
+			if(!UserDataValidator.comprobarPassword(password1, password2)) return "Las contraseñas no coinciden";
+			user.setPassword(password1);
+		}
+		
+		user.guardarUsuario(repo);
+		
+		return "";
 	}
 }

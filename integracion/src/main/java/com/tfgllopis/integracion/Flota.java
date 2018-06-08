@@ -46,7 +46,7 @@ public class Flota extends Flota_Ventana implements View
 		naveCuestaRepo = ((VaadinUI) UI.getCurrent()).getInterfazNaveCuesta();
 		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
 
-		CrudNave.checkConstruccion(((VaadinUI) UI.getCurrent()).getUsuario(), construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo);
+		Nave_en_construccion.checkConstruccion(((VaadinUI) UI.getCurrent()).getUsuario(), construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo);
 		
 		navesL = usuarioNaveRepo.findByUsuarioUsername(usuario.getUsername());
 		planeta = planetaRepo.findByUsuarioUsername(usuario);

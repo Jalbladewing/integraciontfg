@@ -54,7 +54,7 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 					probabilidadesDesbloqueo[i] = ((Nave_desbloqueo) layoutDesbloqueo.getComponent(i)).porcentajeF.getValue();
 				}
 				
-				String value = CrudNave.modificarNave(nave.getNombreNave(), uploader.getNombreImagen(), tipoNaveCombo.getSelectedItem().get().getNombreTipoNave(), "23", ataqueF.getValue(), saludF.getValue(), escudoF.getValue(), velocidadF.getValue(), agilidadF.getValue(), cargaF.getValue(), oroF.getValue(), metalF.getValue(), petroleoF.getValue(), bloqueadaChckBx.getValue(), probabilidadesDesbloqueo, naveRepo, tipoRepo, naveCuestaRepo, pirataDesbloqueoRepo);
+				String value = Editar_nave.modificarNave(nave.getNombreNave(), uploader.getNombreImagen(), tipoNaveCombo.getSelectedItem().get().getNombreTipoNave(), "23", ataqueF.getValue(), saludF.getValue(), escudoF.getValue(), velocidadF.getValue(), agilidadF.getValue(), cargaF.getValue(), oroF.getValue(), metalF.getValue(), petroleoF.getValue(), bloqueadaChckBx.getValue(), probabilidadesDesbloqueo, naveRepo, tipoRepo, naveCuestaRepo, pirataDesbloqueoRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty())
@@ -192,5 +192,80 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 	private void doNavigate(String viewName) 
 	{
 		UI.getCurrent().getNavigator().navigateTo(viewName);
+	}
+	
+	public static String modificarNave(String nombre, String imagen, String tipoNave, String segundosConstruccion, String ataqueNave, String hullNave, String escudoNave, String velocidadNave,String agilidadNave, String capacidadCarga, String costeOro, String costeMetal, String costePetroleo, boolean bloqueada, String[] probabilidadesDesbloqueo, NaveRepository repo, TipoNaveRepository tipoNaveRepo, NavecuestaRecursoRepository naveCuestaRepo, PiratahasDesbloqueoNaveRepository pirataRepo)
+	{
+		Nave nave = Nave.cargarNave(nombre, repo);
+		NavecuestaRecurso naveCuestaOro;
+		NavecuestaRecurso naveCuestaMetal;
+		NavecuestaRecurso naveCuestaPetroleo;
+		ArrayList<PiratahasDesbloqueoNave> porcentajesDesbloqueo;
+		
+		Short bloqueo = (short) 0;
+		if(!NaveDataValidator.comprobarImagen(imagen)) return "Imagen inválida";
+		if(!NaveDataValidator.comprobarValorInteger(segundosConstruccion)) return "Tiempo de construcción no válido";
+		if(!NaveDataValidator.comprobarValorFloat(ataqueNave)) return "Valor de ataque no válido";
+		if(!NaveDataValidator.comprobarValorFloat(hullNave)) return "Valor de hull no válido";
+		if(!NaveDataValidator.comprobarValorFloat(escudoNave)) return "Valor de escudo no válido";
+		if(!NaveDataValidator.comprobarValorFloat(velocidadNave)) return "Valor de velocidad no válido";
+		if(!NaveDataValidator.comprobarValorFloat(agilidadNave)) return "Valor de agilidad no válido";
+		if(!NaveDataValidator.comprobarValorFloat(capacidadCarga)) return "Valor de carga no válido";
+		if(!NaveDataValidator.comprobarValorInteger(costeOro)) return "La cantidad de oro es incorrecta";
+		if(!NaveDataValidator.comprobarValorInteger(costeMetal)) return "La cantidad de metal es incorrecta";
+		if(!NaveDataValidator.comprobarValorInteger(costePetroleo)) return "La cantidad de petróleo es incorrecta";
+				
+		for(int i = 0; i < probabilidadesDesbloqueo.length; i++)
+		{
+			if(!NaveDataValidator.comprobarValorFloat(probabilidadesDesbloqueo[i])) return "La " + (i+1) +"ª probabilidad es inválida";
+		}
+		
+		if(bloqueada) bloqueo = (short) 1;
+		
+		nave.setRutaImagenNave(imagen);
+		nave.setSegundosConstruccion(Integer.parseInt(segundosConstruccion.replaceAll(",",".")));
+		nave.setAtaqueNave(Float.parseFloat(ataqueNave.replaceAll(",",".")));
+		nave.setHullNave(Float.parseFloat(hullNave.replaceAll(",",".")));
+		nave.setEscudoNave(Float.parseFloat(escudoNave.replaceAll(",",".")));
+		nave.setVelocidadNave(Float.parseFloat(velocidadNave.replaceAll(",",".")));
+		nave.setAgilidadNave(Float.parseFloat(agilidadNave.replaceAll(",",".")));
+		nave.setCapacidadCarga(Float.parseFloat(capacidadCarga.replaceAll(",",".")));
+		nave.setBloqueada(bloqueo);
+		nave.setTipoNavenombreTipoNave(tipoNaveRepo.findByNombreTipoNave(tipoNave).get(0));
+		nave.guardarNave(repo);
+		
+		naveCuestaOro = NavecuestaRecurso.cargarNaveCuestaRecurso("Oro", nombre, naveCuestaRepo);
+		naveCuestaOro.setRecursoname("Oro");
+		naveCuestaOro.setNavenombreNave(nombre);
+		naveCuestaOro.setRecursoInstalacionname("Mina de Oro");
+		naveCuestaOro.setCantidadBase(Integer.parseInt(costeOro.replaceAll(",",".")));
+		naveCuestaOro.guardarNaveCuestaRecurso(naveCuestaRepo);
+		
+		naveCuestaMetal = NavecuestaRecurso.cargarNaveCuestaRecurso("Metal", nombre, naveCuestaRepo);
+		naveCuestaMetal.setRecursoname("Metal");
+		naveCuestaMetal.setNavenombreNave(nombre);
+		naveCuestaMetal.setRecursoInstalacionname("Mina de Metal");
+		naveCuestaMetal.setCantidadBase(Integer.parseInt(costeMetal.replaceAll(",",".")));
+		naveCuestaMetal.guardarNaveCuestaRecurso(naveCuestaRepo);
+		
+		naveCuestaPetroleo = NavecuestaRecurso.cargarNaveCuestaRecurso("Petroleo", nombre, naveCuestaRepo);
+		naveCuestaPetroleo.setRecursoname("Petroleo");
+		naveCuestaPetroleo.setNavenombreNave(nombre);
+		naveCuestaPetroleo.setRecursoInstalacionname("Plataforma Petrolifera");
+		naveCuestaPetroleo.setCantidadBase(Integer.parseInt(costePetroleo.replaceAll(",",".")));
+		naveCuestaPetroleo.guardarNaveCuestaRecurso(naveCuestaRepo);
+		
+		if(bloqueada)
+		{
+			porcentajesDesbloqueo = new ArrayList<>(PiratahasDesbloqueoNave.cargarDesbloqueosNave(nombre, pirataRepo));
+			for(int i = 0; i < probabilidadesDesbloqueo.length; i++)
+			{
+				porcentajesDesbloqueo.get(i).setNavenombreNave(nombre);
+				porcentajesDesbloqueo.get(i).setProbabilidadDesbloqueo( Float.parseFloat(probabilidadesDesbloqueo[i].replaceAll(",",".")));
+				pirataRepo.save(porcentajesDesbloqueo.get(i));
+			}
+		}
+		
+		return "";
 	}
 }

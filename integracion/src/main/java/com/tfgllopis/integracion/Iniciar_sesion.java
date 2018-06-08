@@ -1,6 +1,7 @@
 package com.tfgllopis.integracion;
 
 import java.io.File;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -35,7 +36,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				String value = CrudUsuario.login(usuarioF.getValue(), passwordF.getValue(), userRepo);
+				String value = Iniciar_sesion.login(usuarioF.getValue(), passwordF.getValue(), userRepo);
 				Usuario usuario;
 				errorL.setValue(value);
 				
@@ -90,6 +91,25 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana implements View
 	public void enter(ViewChangeEvent event) 
 	{
 		 if (!event.getParameters().isEmpty()) correctoL.setVisible(true);
+	}
+	
+	public static String login(String username, String password, UsuarioRepository repo)
+	{		
+		
+		
+		if(!UserDataValidator.comprobarUsuarioBD(username, repo)) return "Usuario no registrado";
+		if(!UserDataValidator.comprobarPassword(username, password, repo)) return "Datos incorrectos";
+		if(!UserDataValidator.comprobarActivo(username, repo)) return "Usuario bloqueado";
+		
+		actualizarFechaAcceso(username, repo);
+		return "";
+	}
+	
+	private static void actualizarFechaAcceso(String username, UsuarioRepository repo)
+	{
+		Usuario user = Usuario.cargarUsuario(username, repo);
+		user.setFechaUltimoAcceso(new Date());
+		user.guardarUsuario(repo);
 	}
 	
 

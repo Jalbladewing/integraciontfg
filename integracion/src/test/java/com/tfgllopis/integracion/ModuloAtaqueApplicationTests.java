@@ -195,18 +195,21 @@ public class ModuloAtaqueApplicationTests {
 		fechaLuego = aux.getTime();
 		
 		Movimiento movimiento = new Movimiento(fechaLuego, fechaAhora, (short) 0);
+		Movimiento movimiento2 = new Movimiento(fechaAhora, fechaAhora, (short) 0);
 	
 		Usuario user = new Usuario("juan@gmail.com", "Pepe", "1234", true, fechaAhora, fechaAhora);
 		Planeta planeta = new Planeta(0, 1, "Atlas", "Planeta Centauri 1", "/ruta/imagen.png");
 		
 		movimiento.setUsuariousername(user);
 		movimiento.setPlaneta(planeta);
+		movimiento.setMovimientoIda(movimiento2);
 		
 		assertEquals(fechaAhora, movimiento.getTiempoEnvio());
 		assertEquals(fechaLuego, movimiento.getTiempoLlegada());
 		assertEquals(0, movimiento.getMovimientoCancelado());
 		assertEquals(user, movimiento.getUsuariousername());
 		assertEquals(planeta, movimiento.getPlaneta());
+		assertEquals(movimiento2, movimiento.getMovimientoIda());
 	}
 	
 	@Test

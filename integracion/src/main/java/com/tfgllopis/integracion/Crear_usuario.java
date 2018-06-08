@@ -1,5 +1,7 @@
 package com.tfgllopis.integracion;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
@@ -46,13 +48,13 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event)
 			{
-				String value = CrudUsuario.registroAdmin(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
+				String value = Crear_usuario.registroAdmin(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty()) 
 				{
 					errorL.setVisible(false);
-					CrudUsuario.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
+					Registrarse.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
 					doNavigate(Crear_usuario.VIEW_NAME + "/" + "creado");
 				}else
 				{
@@ -75,4 +77,23 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 		UI.getCurrent().getNavigator().navigateTo(viewName);
 	}
 
+	public static String registroAdmin(String username, String email, String password1, String password2, String rol, boolean activo, UsuarioRepository repo, RolesRepository rolRepo)
+	{
+		Usuario user;
+		Date fechaRegistro = new Date();
+		//Gestor_Correos correo = new Gestor_Correos();
+		if(!UserDataValidator.comprobarUser(username)) return "Usuario inválido";
+		if(!UserDataValidator.comprobarEmail(email)) return "Email inválido";
+		if(!UserDataValidator.comprobarPassword(password1, password2)) return "Las contraseñas no coinciden";		
+		if(UserDataValidator.comprobarUsuarioBD(username, repo)) return "El usuario ya existe";
+		if(UserDataValidator.comprobarEmailBD(email, repo)) return "El correo ya está en uso";
+		//if(!correo.correo_registro(email)) return "Imposible acceder al correo";
+		
+		user = new Usuario(email, username, password1, activo, fechaRegistro, fechaRegistro);
+		user.setRolName(rolRepo.findByName(rol).get(0));
+		user.guardarUsuario(repo);
+		
+		return "";
+	}
+	
 }

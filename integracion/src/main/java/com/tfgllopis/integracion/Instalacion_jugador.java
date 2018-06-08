@@ -47,7 +47,7 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				String value = CrudRecurso.subirNivel(((VaadinUI) UI.getCurrent()).getUsuario(), instalacion.getInstalacionname(), planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionRecursoRepo);
+				String value = Instalacion_jugador.subirNivel(((VaadinUI) UI.getCurrent()).getUsuario(), instalacion.getInstalacionname(), planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionRecursoRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty())
@@ -66,5 +66,35 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 	private void doNavigate(String viewName) 
 	{
 		UI.getCurrent().getNavigator().navigateTo(viewName);
+	}
+	
+	public static String subirNivel(Usuario usuario, String nombreInstalacion,PlanetaRepository planetaRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, InstalacioncuestaRecursoRepository instalacionCuestaRepo)
+	{
+		Planeta planeta = planetaRepo.findByUsuarioUsername(usuario);
+		PlanetahasInstalacion instalacion = planetaInstalacionRepo.findByInstalacionnamePlaneta(nombreInstalacion, planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
+		PlanetahasRecurso recursoMetal = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		PlanetahasRecurso recursoOro = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		PlanetahasRecurso recursoPetroleo = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
+		int costeMetal = instalacionCuestaRepo.findByRecursoInstalacionname(nombreInstalacion, "Metal").getCantidadBase() * instalacion.getNivelInstalacion();
+		int costeOro = instalacionCuestaRepo.findByRecursoInstalacionname(nombreInstalacion, "Oro").getCantidadBase() * instalacion.getNivelInstalacion();
+		int costePetroleo = instalacionCuestaRepo.findByRecursoInstalacionname(nombreInstalacion, "Petroleo").getCantidadBase() * instalacion.getNivelInstalacion();
+
+		if(costeMetal > recursoMetal.getCantidad()) return "Metal insuficiente";
+		if(costeOro > recursoOro.getCantidad()) return "Oro insuficiente";
+		if(costePetroleo > recursoPetroleo.getCantidad()) return "Petroleo insuficiente";
+		
+		
+		recursoMetal.setCantidad(recursoMetal.getCantidad()-costeMetal);
+		recursoOro.setCantidad(recursoOro.getCantidad()-costeOro);
+		recursoPetroleo.setCantidad(recursoPetroleo.getCantidad()-costePetroleo);
+		
+		instalacion.subirNivelInstalacion();
+		planetaInstalacionRepo.save(instalacion);
+		
+		planetaRecursoRepo.save(recursoMetal);
+		planetaRecursoRepo.save(recursoOro);
+		planetaRecursoRepo.save(recursoPetroleo);
+		
+		return "";
 	}
 }

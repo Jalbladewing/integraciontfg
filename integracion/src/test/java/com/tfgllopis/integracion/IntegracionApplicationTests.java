@@ -93,7 +93,7 @@ public class IntegracionApplicationTests
 	     usuario2 = new Usuario("juanito@ual.es", "juan","damn",true,new Date(), new Date());
 	     usuario2.setRolName(rolRepo.findByName("Jugador").get(0)); 
 	       
-	     repo.deleteAll();
+
 	     repo.save(usuario1);
 	     repo.save(usuario2);
 	     
@@ -140,7 +140,7 @@ public class IntegracionApplicationTests
 		 pirataNaveRepo.save(pirataNave);
 		 
 		 Sistema sistema = new Sistema("Atlas", 0, 0);
-		 planeta1 = new Planeta(0, 0, "Atlas", "Pirata LvL 1", "ruta");
+		 planeta1 = new Planeta(2, 2, "Atlas", "Pirata LvL 1", "ruta");
 		 planeta1.setPirataidPirata(pirata);
 		 
 		 sistemaRepo.save(sistema);
@@ -190,16 +190,16 @@ public class IntegracionApplicationTests
 	{
 		Usuario usuario;
 		
-		assertTrue(CrudUsuario.registro("Pepe", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
+		assertTrue(Registrarse.registro("Dani", "dani@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
 		
-		usuario = Usuario.cargarUsuario("Pepe", repo);
+		usuario = Usuario.cargarUsuario("Dani", repo);
 		
-		assertTrue(CrudUsuario.inicializarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo).isEmpty());
+		assertTrue(Registrarse.inicializarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo).isEmpty());
 
 		planeta1 = planetaRepo.findByUsuarioUsername(usuario);
 		
-		assertEquals(usuario.getEmail(), "juan@gmail.com");
-		assertEquals(usuario.getUsername(), "Pepe");
+		assertEquals(usuario.getEmail(), "dani@gmail.com");
+		assertEquals(usuario.getUsername(), "Dani");
 		assertEquals(usuario.getActivo(), true);
 		assertTrue(CheckPassword.verifyHash("1234", usuario.getPassword()));
 		
@@ -221,12 +221,12 @@ public class IntegracionApplicationTests
 	{
 		Usuario usuario;
 		
-		assertTrue(CrudUsuario.registro("Pepe", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
+		assertTrue(Registrarse.registro("Carl", "carl@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
 		
-		usuario = Usuario.cargarUsuario("Pepe", repo);
+		usuario = Usuario.cargarUsuario("Carl", repo);
 		
-		assertTrue(CrudUsuario.inicializarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo).isEmpty());
-		assertTrue(CrudUsuario.borrarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo, pirataRepo, pirataInstalacionRepo, pirataNaveRepo, repo).isEmpty());
+		assertTrue(Registrarse.inicializarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo).isEmpty());
+		assertTrue(Borrar_usuario.borrarUsuario(usuario, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo, pirataRepo, pirataInstalacionRepo, pirataNaveRepo, repo).isEmpty());
 		
 		planeta1 = planetaRepo.findByPlanetaLibre().get(0);
 		

@@ -29,7 +29,7 @@ public class Editar_usuario extends Editar_usuario_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				String value = CrudUsuario.modificarPerfil(usuarioF.getValue(), user.getEmail(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
+				String value = Editar_usuario.modificarPerfil(usuarioF.getValue(), user.getEmail(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
 				errorL.setValue(value);
 				if(value.isEmpty()) 
 				{
@@ -75,5 +75,29 @@ public class Editar_usuario extends Editar_usuario_Ventana implements View
 	private void doNavigate(String viewName) 
 	{
 		UI.getCurrent().getNavigator().navigateTo(viewName);
+	}
+	
+	public static String modificarPerfil(String username, String emailOriginal,String emailNuevo, String password1, String password2, String rol, boolean activo, UsuarioRepository repo, RolesRepository rolRepo)
+	{
+		Usuario user = Usuario.cargarUsuario(username, repo);
+		if(!UserDataValidator.comprobarEmail(emailNuevo)) return "Email inválido";		
+		
+		if(!emailOriginal.equals(emailNuevo))
+		{
+			if(UserDataValidator.comprobarEmailBD(emailNuevo, repo)) return "El correo ya está en uso";
+			user.setEmail(emailNuevo);
+		}
+		
+		if(!password1.isEmpty())
+		{
+			if(!UserDataValidator.comprobarPassword(password1, password2)) return "Las contraseñas no coinciden";
+			user.setPassword(password1);
+		}
+		
+		user.setActivo(activo);
+		user.setRolName(rolRepo.findByName(rol).get(0));
+		user.guardarUsuario(repo);
+		
+		return "";
 	}
 }

@@ -110,7 +110,7 @@ public class GestionRecursos
 	@Test
 	public void testSubirNivel1Correcto()
 	{
-		assertTrue(CrudRecurso.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
+		assertTrue(Instalacion_jugador.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
 		
 		assertEquals(2, planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", 0, 0, "Atlas").getNivelInstalacion());
 		assertEquals(80, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
@@ -138,7 +138,7 @@ public class GestionRecursos
 		
 		planetaInstalacionRepo.save(planetaInstalacion1);
 				
-		assertTrue(CrudRecurso.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
+		assertTrue(Instalacion_jugador.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
 		
 		assertEquals(5, planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", 0, 0, "Atlas").getNivelInstalacion());
 		assertEquals(0, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
@@ -154,7 +154,7 @@ public class GestionRecursos
 		aux.setCantidad(119);
 		planetaRecursoRepo.save(aux);
 		
-		assertFalse(CrudRecurso.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
+		assertFalse(Instalacion_jugador.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
 		
 		assertEquals(1, planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", 0, 0, "Atlas").getNivelInstalacion());
 		assertEquals(119, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
@@ -170,7 +170,7 @@ public class GestionRecursos
 		aux.setCantidad(179);
 		planetaRecursoRepo.save(aux);
 		
-		assertFalse(CrudRecurso.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
+		assertFalse(Instalacion_jugador.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
 		
 		assertEquals(1, planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", 0, 0, "Atlas").getNivelInstalacion());
 		assertEquals(200, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
@@ -187,7 +187,7 @@ public class GestionRecursos
 		aux.setCantidad(210);
 		planetaRecursoRepo.save(aux);
 		
-		assertFalse(CrudRecurso.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
+		assertFalse(Instalacion_jugador.subirNivel(usuario, "Mina de Metal", planetaRepo, planetaInstalacionRepo, planetaRecursoRepo, instalacionCuestaRepo).isEmpty());
 		
 		assertEquals(1, planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", 0, 0, "Atlas").getNivelInstalacion());
 		assertEquals(200, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
@@ -214,7 +214,7 @@ public class GestionRecursos
 		planetaInstalacionRepo.save(planetaInstalacion2);
 		planetaInstalacionRepo.save(planetaInstalacion3);
 		
-		assertTrue(CrudRecurso.generarRecursos(planeta, planetaRecursoRepo, planetaInstalacionRepo).isEmpty());
+		assertTrue(Pagina_principal.generarRecursos(planeta, planetaRecursoRepo, planetaInstalacionRepo).isEmpty());
 
 		assertEquals(recursosMetal, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad());
 		assertEquals(recursosOro, planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Oro").getCantidad());

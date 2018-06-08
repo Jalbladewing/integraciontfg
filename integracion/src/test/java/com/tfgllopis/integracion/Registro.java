@@ -45,7 +45,6 @@ public class Registro
 	     usuario2 = new Usuario("juanito@ual.es", "juan","damn",true,new Date(), new Date());
 	     usuario2.setRolName(rolRepo.findByName("Jugador").get(0)); 
 	       
-	     repo.deleteAll();
 	     repo.save(usuario1);
 	     repo.save(usuario2);
 	 
@@ -144,12 +143,12 @@ public class Registro
 	{
 		Usuario aux;
 		
-		assertTrue(CrudUsuario.registro("Pepe", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
+		assertTrue(Registrarse.registro("Zacarias", "zacarias@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
 		
-		aux = Usuario.cargarUsuario("Pepe", repo);
+		aux = Usuario.cargarUsuario("Zacarias", repo);
 		
-		assertEquals(aux.getEmail(), "juan@gmail.com");
-		assertEquals(aux.getUsername(), "Pepe");
+		assertEquals(aux.getEmail(), "zacarias@gmail.com");
+		assertEquals(aux.getUsername(), "Zacarias");
 		assertEquals(aux.getActivo(), true);
 		assertTrue(CheckPassword.verifyHash("1234", aux.getPassword()));
 	}
@@ -157,31 +156,31 @@ public class Registro
 	@Test
 	public void testRegistroUsuarioIncorrecto()
 	{
-		assertFalse(CrudUsuario.registro(" ", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
+		assertFalse(Registrarse.registro(" ", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroEmailIncorrecto()
 	{
-		assertFalse(CrudUsuario.registro("Pepe", "mail", "1234", "1234", repo, rolRepo).isEmpty());
+		assertFalse(Registrarse.registro("Pepe", "mail", "1234", "1234", repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroPasswordIncorrecto()
 	{
-		assertFalse(CrudUsuario.registro("Pepe", "juan@gmail.com", "1234", "123", repo, rolRepo).isEmpty());
+		assertFalse(Registrarse.registro("Pepe", "juan@gmail.com", "1234", "123", repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroUsuarioExistente()
 	{
-		assertFalse(CrudUsuario.registro("juan", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
+		assertFalse(Registrarse.registro("juan", "juan@gmail.com", "1234", "1234", repo, rolRepo).isEmpty());
 	}
 	
 	@Test
 	public void testRegistroEmailExistente()
 	{
-		assertFalse(CrudUsuario.registro("Pepe", "juanito@ual.es", "1234", "1234", repo, rolRepo).isEmpty());
+		assertFalse(Registrarse.registro("Pepe", "juanito@ual.es", "1234", "1234", repo, rolRepo).isEmpty());
 	}
 
 }

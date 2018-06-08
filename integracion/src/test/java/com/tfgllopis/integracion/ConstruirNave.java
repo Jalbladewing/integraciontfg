@@ -144,7 +144,7 @@ public class ConstruirNave
 	@Test
 	public void testConstruirNaveCorrecto()
 	{
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo,usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo,usuarioNaveRepo).isEmpty());
 		
 		assertEquals(planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Metal").getCantidad(), 1100);
 		assertEquals(planetaRecursoRepo.findByPlanetaRecurso(0, 0, "Atlas", "Oro").getCantidad(), 770);
@@ -157,22 +157,22 @@ public class ConstruirNave
 	@Test
 	public void testConstruirNaveConstruyendose()
 	{		
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
-		assertFalse(CrudNave.construirNave(nave2, usuario, "5", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave2, usuario, "5", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
 	@Test
 	public void testConstruirNaveBloqueada()
 	{
-		assertFalse(CrudNave.construirNave(nave3, usuario, "5", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave3, usuario, "5", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
 	@Test
 	public void testConstruirNaveCantidadNegativa()
 	{
-		assertFalse(CrudNave.construirNave(nave1, usuario, "-10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave1, usuario, "-10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -182,7 +182,7 @@ public class ConstruirNave
 		planetaMetal.setCantidad(0);
 		planetaRecursoRepo.save(planetaMetal);
 		
-		assertFalse(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -192,7 +192,7 @@ public class ConstruirNave
 		planetaOro.setCantidad(0);
 		planetaRecursoRepo.save(planetaOro);
 		
-		assertFalse(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -202,21 +202,21 @@ public class ConstruirNave
 		planetaPetroleo.setCantidad(0);
 		planetaRecursoRepo.save(planetaPetroleo);
 		
-		assertFalse(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 	}
 	
 	@Transactional
 	@Test
 	public void testCancelarConstruccionErrorNoNaves()
 	{
-		assertFalse(CrudNave.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertFalse(Nave_en_construccion.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 	}
 	
 	@Transactional
 	@Test
 	public void testCheckConstruccionNoNaves()
 	{
-		assertFalse(CrudNave.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertFalse(Nave_en_construccion.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 	}
 	
 	@Transactional
@@ -226,8 +226,8 @@ public class ConstruirNave
 		nave1.setSegundosConstruccion(0);
 		naveRepo.save(nave1);
 
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
-		assertFalse(CrudNave.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Nave_en_construccion.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(10, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(10, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -242,8 +242,8 @@ public class ConstruirNave
 		usuarioNaveRepo.save(new UsuarioHasNave("juan", "Eagle", 2));
 		planetaNaveRepo.save(new PlanetaHasNave(0, 0, "Atlas", "Eagle", 5));
 		
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
-		assertFalse(CrudNave.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Nave_en_construccion.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(12, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(15, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -256,8 +256,8 @@ public class ConstruirNave
 		nave1.setSegundosConstruccion(0);
 		naveRepo.save(nave1);
 
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
-		assertFalse(CrudNave.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Nave_en_construccion.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(10, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(10, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -272,8 +272,8 @@ public class ConstruirNave
 		usuarioNaveRepo.save(new UsuarioHasNave("juan", "Eagle", 2));
 		planetaNaveRepo.save(new PlanetaHasNave(0, 0, "Atlas", "Eagle", 5));
 		
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
-		assertFalse(CrudNave.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertFalse(Nave_en_construccion.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(12, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(15, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -286,7 +286,7 @@ public class ConstruirNave
 		nave1.setSegundosConstruccion(1);
 		naveRepo.save(nave1);
 		
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 		
 		try {
 			Thread.sleep(2000);
@@ -295,7 +295,7 @@ public class ConstruirNave
 			e.printStackTrace();
 		}
 		
-		assertTrue(CrudNave.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Nave_en_construccion.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(3, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(3, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -314,7 +314,7 @@ public class ConstruirNave
 		usuarioNaveRepo.save(new UsuarioHasNave("juan", "Eagle", 2));
 		planetaNaveRepo.save(new PlanetaHasNave(0, 0, "Atlas", "Eagle", 5));
 
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 		
 		try {
 			Thread.sleep(2000);
@@ -323,7 +323,7 @@ public class ConstruirNave
 			e.printStackTrace();
 		}
 		
-		assertTrue(CrudNave.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Nave_en_construccion.cancelarConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(5, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(8, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -340,7 +340,7 @@ public class ConstruirNave
 		nave1.setSegundosConstruccion(1);
 		naveRepo.save(nave1);
 		
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 		
 		try {
 			Thread.sleep(2000);
@@ -349,7 +349,7 @@ public class ConstruirNave
 			e.printStackTrace();
 		}
 		
-		assertTrue(CrudNave.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Nave_en_construccion.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(3, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(3, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());
@@ -364,7 +364,7 @@ public class ConstruirNave
 		usuarioNaveRepo.save(new UsuarioHasNave("juan", "Eagle", 2));
 		planetaNaveRepo.save(new PlanetaHasNave(0, 0, "Atlas", "Eagle", 5));
 
-		assertTrue(CrudNave.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
+		assertTrue(Hangar.construirNave(nave1, usuario, "10", construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo).isEmpty());
 		
 		try {
 			Thread.sleep(2000);
@@ -373,7 +373,7 @@ public class ConstruirNave
 			e.printStackTrace();
 		}
 		
-		assertTrue(CrudNave.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
+		assertTrue(Nave_en_construccion.checkConstruccion(usuario, construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo).isEmpty());
 		
 		assertEquals(5, usuarioNaveRepo.findByNavenombreNaveUsuarioUsername("Eagle", usuario.getUsername()).get(0).getCantidad());
 		assertEquals(8, planetaNaveRepo.findByNavenombreNavePlaneta("Eagle", 0, 0, "Atlas").get(0).getCantidad());

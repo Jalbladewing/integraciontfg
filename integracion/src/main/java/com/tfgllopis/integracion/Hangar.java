@@ -1,6 +1,8 @@
 package com.tfgllopis.integracion;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,8 +71,8 @@ public class Hangar extends Hangar_Ventana implements View
 		
 		planeta = planetaRepo.findByUsuarioUsername(((VaadinUI) UI.getCurrent()).getUsuario());
 		
-		CrudRecurso.generarRecursos(planeta, planetaRecursoRepo, planetaInstalacionRepo);
-		CrudNave.checkConstruccion(((VaadinUI) UI.getCurrent()).getUsuario(), construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo);
+		Pagina_principal.generarRecursos(planeta, planetaRecursoRepo, planetaInstalacionRepo);
+		Nave_en_construccion.checkConstruccion(((VaadinUI) UI.getCurrent()).getUsuario(), construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo);
 
 		if(!construyeRepo.findByUsuariousername(((VaadinUI) UI.getCurrent()).getUsuario().getUsername()).isEmpty())
 		{
@@ -200,7 +202,7 @@ public class Hangar extends Hangar_Ventana implements View
 			@Override
 			public void buttonClick(com.vaadin.ui.Button.ClickEvent event) 
 			{
-				String value = CrudNave.construirNave(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), construirF.getValue(), construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo);
+				String value = Hangar.construirNave(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), construirF.getValue(), construyeRepo, planetaRepo, planetaRecursoRepo, naveRepo, naveCuestaRepo, usuarioNaveRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty())
@@ -261,5 +263,54 @@ public class Hangar extends Hangar_Ventana implements View
 		oroL.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(naves.get(posicion).getNombreNave(), "Oro").getCantidadBase() * cantidad + "");
 		petroleoL.setValue(naveCuestaRepo.findByRecursoname_NavenombreNave(naves.get(posicion).getNombreNave(), "Petroleo").getCantidadBase() * cantidad + "");
 	}
+	
+	public static String construirNave(Nave nave, Usuario usuario, String cantidad, UsuarioconstruyeNaveRepository construyeRepo, PlanetaRepository planetaRepo, PlanetahasRecursoRepository planetaRecursoRepo, NaveRepository naveRepo, NavecuestaRecursoRepository naveCuestaRepo, UsuarioHasNaveRepository usuarioNaveRepo)
+	{
+		Date fechaFinConstruccion;
+		Calendar calendar = Calendar.getInstance();
+		Planeta planeta = planetaRepo.findByUsuarioUsername(usuario);
+		PlanetahasRecurso cantidadMetal = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		PlanetahasRecurso cantidadOro = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		PlanetahasRecurso cantidadPetroleo = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
+		int costeMetal = naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Metal").getCantidadBase();
+		int costeOro = naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Oro").getCantidadBase();
+		int costePetroleo = naveCuestaRepo.findByRecursoname_NavenombreNave(nave.getNombreNave(), "Petroleo").getCantidadBase();
+		UsuarioconstruyeNave naveConstruida;
+		
+		if(!construyeRepo.findByUsuariousername(usuario.getUsername()).isEmpty()) return "Ya hay naves construyendose";
+		if(nave.getBloqueada() == 1 && usuarioNaveRepo.findByNavenombreNaveUsuarioUsername(nave.getNombreNave(), usuario.getUsername()).isEmpty()) return "No tienes esa nave desbloqueada";
+		if(!NaveDataValidator.comprobarValorInteger(cantidad)) return "La cantidad de naves introducida es incorrecta";
+		
+		costeMetal *= Integer.parseInt(cantidad);
+		costeOro *= Integer.parseInt(cantidad);
+		costePetroleo *= Integer.parseInt(cantidad);
+		
+		if(costeMetal > cantidadMetal.getCantidad()) return "No posees suficiente metal";
+		if(costeOro > cantidadOro.getCantidad()) return "No posees suficiente oro";
+		if(costePetroleo > cantidadPetroleo.getCantidad()) return "No posees suficiente petroleo";
+
+		calendar.add(Calendar.SECOND, Integer.parseInt(cantidad) * nave.getSegundosConstruccion());
+		fechaFinConstruccion = calendar.getTime();
+		
+		cantidadMetal = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Metal");
+		cantidadMetal.setCantidad(cantidadMetal.getCantidad()-costeMetal);
+		planetaRecursoRepo.save(cantidadMetal);
+		
+		cantidadOro = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Oro");
+		cantidadOro.setCantidad(cantidadOro.getCantidad()-costeOro);
+		planetaRecursoRepo.save(cantidadOro);	
+		
+		cantidadPetroleo = planetaRecursoRepo.findByPlanetaRecurso(planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema(), "Petroleo");
+		cantidadPetroleo.setCantidad(cantidadPetroleo.getCantidad()-costePetroleo);
+		planetaRecursoRepo.save(cantidadPetroleo);	
+		
+		naveConstruida = new UsuarioconstruyeNave(usuario.getUsername(), nave.getNombreNave(), Integer.parseInt(cantidad), fechaFinConstruccion);
+		naveConstruida.setNave(nave);
+		
+		construyeRepo.save(naveConstruida);
+		
+		return "";
+	}
+	
 
 }

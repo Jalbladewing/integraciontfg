@@ -65,6 +65,9 @@ public class Movimiento implements Serializable {
     private Usuario usuariousername;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "movimiento")
     private List<MovimientohasNave> movimientohasNaveList;
+    @JoinColumn(name = "Movimiento_ida", referencedColumnName = "idMovimiento")
+    @ManyToOne
+    private Movimiento movimientoIda;
 
     public Movimiento() {
     }
@@ -128,6 +131,14 @@ public class Movimiento implements Serializable {
 
     public void setMovimientohasNaveList(List<MovimientohasNave> movimientohasNaveList) {
         this.movimientohasNaveList = movimientohasNaveList;
+    }
+    
+    public Movimiento getMovimientoIda() {
+        return movimientoIda;
+    }
+
+    public void setMovimientoIda(Movimiento movimientoIda) {
+        this.movimientoIda = movimientoIda;
     }
 
     @Override
