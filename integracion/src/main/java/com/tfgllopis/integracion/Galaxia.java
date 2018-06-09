@@ -183,9 +183,9 @@ public class Galaxia extends Galaxia_Ventana implements View
 					int subListInicio = 10*(Integer.parseInt(event.getButton().getId()) - 1);
 					int subListFinal = 10 +  subListInicio;
 					
-					seleccionadoB.removeStyleName("friendly");
+					seleccionadoB.removeStyleName("boton-galaxia");
 					seleccionadoB = event.getButton();
-					seleccionadoB.addStyleName("friendly");
+					seleccionadoB.addStyleName("boton-galaxia");
 					
 					if(subListFinal > planetasL.size()-1) subListFinal = planetasL.size();
 				
@@ -204,7 +204,7 @@ public class Galaxia extends Galaxia_Ventana implements View
 			planetaTabla.setItems(planetasL.subList(0, 10));
 
 		}
-		seleccionadoB.addStyleName("friendly");
+		seleccionadoB.addStyleName("boton-galaxia");
 	}
 	
 	public static String comprobarPlanetaDisponible(Usuario usuario, Planeta planeta, MovimientoRepository movimientoRepo, InformeBatallaRepository informeRepo, InformeBatallahasNaveDefensaRepository informeDefensaRepo)

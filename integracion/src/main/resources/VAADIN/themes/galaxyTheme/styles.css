@@ -15075,12 +15075,27 @@ div.v-layout.v-horizontal.v-widget {
 	color: #ffffff;
 }
 
+.galaxyTheme .v-button-link {
+	color: white !important;
+	background: none !important;
+}
+
+.galaxyTheme .v-button-link:focus {
+	color: #4396ea !important;
+	text-decoration: none;
+}
+
+.galaxyTheme .v-button-link:hover {
+	color: #4396ea !important;
+	text-decoration: none;
+}
+
 .galaxyTheme .menu-fondo {
 	background: url(Fondo_menu.png);
 }
 
 .galaxyTheme .botones-menu-fondo {
-	background: url(BotonMenu.png);
+	background: url(BotonMenu.png) !important;
 	color: #bfbfbf;
 	text-decoration: none;
 }
@@ -15114,4 +15129,75 @@ div.v-layout.v-horizontal.v-widget {
 .galaxyTheme .recursos_fondo_horizontal {
 	background: url(Recursos_Fondo_Horizontal.png) no-repeat;
 	background-size: 100% 100%;
+}
+
+.galaxyTheme .v-grid-cell {
+	background-color: #2f3946 !important;
+	color: white !important;
+}
+
+.galaxyTheme .v-grid-row-stripe > td {
+	background-color: #070a0e !important;
+	color: white !important;
+}
+
+.galaxyTheme .v-grid-row > td {
+	border: none !important;
+}
+
+.galaxyTheme .v-grid {
+	background: transparent !important;
+	border: none !important;
+}
+
+.galaxyTheme .v-grid-tablewrapper {
+	border: none !important;
+}
+
+.galaxyTheme .v-grid .v-grid-header th.v-grid-cell {
+	background: #070a0e !important;
+	color: white !important;
+	border: none !important;
+	border-bottom: 1px solid #d4d4d4 !important;
+}
+
+.galaxyTheme .v-tabsheet-tabitemcell .v-caption .v-captiontext {
+	color: #ffffff !important;
+}
+
+.galaxyTheme .v-tabsheet-tabitemcell .v-caption .v-captiontext:focus {
+	color: #197de1 !important;
+}
+
+.galaxyTheme .v-tabsheet-tabitemcell .v-caption .v-captiontext:hover {
+	color: #197de1 !important;
+}
+
+.galaxyTheme .texto-negro {
+	color: #000000;
+}
+
+.galaxyTheme .v-button {
+	background: url(botonSinPulsar.png) no-repeat;
+	background-size: 100% 100%;
+	color: #ffffff;
+	text-decoration: none;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.galaxyTheme .v-button:focus {
+	background: url(botonPulsado.png) no-repeat;
+	background-size: 100% 100%;
+	color: #bfbfbf;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.galaxyTheme .boton-galaxia {
+	background: url(botonPulsado.png) no-repeat !important;
+	background-size: 100% 100% !important;
+	color: #bfbfbf !important;
+	border: none !important;
+	box-shadow: none !important;
 }

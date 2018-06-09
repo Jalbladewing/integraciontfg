@@ -6,13 +6,13 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout spacing="false" size-full margin="false">
+  <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" size-full margin="false">
    <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
     <vaadin-label style-name="h2 texto-blanco" plain-text :center>
       Flota 
     </vaadin-label>
    </vaadin-horizontal-layout>
-   <vaadin-grid size-full data-item-type="com.tfgllopis.integracion.UsuarioHasNave" _id="naveTabla" :center>
+   <vaadin-grid column-resize-mode="simple" width="95%" height="95%" data-item-type="com.tfgllopis.integracion.UsuarioHasNave" _id="naveTabla" :middle :center>
     <table>
      <colgroup></colgroup>
      <thead>

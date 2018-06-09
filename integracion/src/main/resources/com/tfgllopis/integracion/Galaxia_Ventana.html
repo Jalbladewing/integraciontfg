@@ -7,15 +7,15 @@
  </head>
  <body>
   <vaadin-vertical-layout spacing="false" size-full margin="false">
-   <vaadin-vertical-layout style-name="well" spacing="false" margin="false">
+   <vaadin-vertical-layout style-name="cuerpo_ventanas" spacing="false" margin="false">
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Galaxia 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-tab-sheet size-full _id="sistemasTab">
+    <vaadin-tab-sheet width="95%" height="95%" _id="sistemasTab" :center>
      <tab caption="Tab" selected>
-      <vaadin-vertical-layout size-full>
+      <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" size-full>
        <vaadin-grid size-full data-item-type="com.tfgllopis.integracion.Planeta" _id="planetaTabla" :expand>
         <table>
          <colgroup>

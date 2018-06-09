@@ -6,147 +6,155 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" margin="false">
-   <vaadin-vertical-layout spacing="false" margin="false">
+  <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive margin="false">
+   <vaadin-vertical-layout spacing="false" responsive size-auto margin="false" :center>
     <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full>
      <vaadin-label style-name="h2 texto-blanco" plain-text :center>
        Hangar 
      </vaadin-label>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout style-name="cuerpo_ventanas" spacing="false" size-full>
-     <vaadin-vertical-layout spacing="false" width-auto height-full _id="tipoNaveLayout"></vaadin-vertical-layout>
-     <vaadin-vertical-layout visible="false" size-auto margin="false" _id="construirLayout" :center :expand>
-      <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false">
-       <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full height="67px">
-        <vaadin-label style-name="h2 texto-blanco" plain-text _id="nombreTipoL" :center>
-          Tipo Nave 
-        </vaadin-label>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout style-name="cuerpo_ventanas">
-        <vaadin-vertical-layout size-auto>
-         <vaadin-horizontal-layout spacing="false" :center>
-          <vaadin-image style-name="my-img-button" width="40px" height="40px" _id="flechaIzq" :middle :center></vaadin-image>
-          <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="naveLayout"></vaadin-vertical-layout>
-          <vaadin-image style-name="my-img-button" width="40px" height="40px" _id="flechaDer" :middle :center></vaadin-image>
-         </vaadin-horizontal-layout>
-         <vaadin-text-field placeholder="ej: 23" _id="construirF" :center></vaadin-text-field>
-         <vaadin-button plain-text _id="construirB" :center>
-           Construir 
-         </vaadin-button>
-         <vaadin-vertical-layout size-auto margin="false" _id="cancelarConstruccionLayout"></vaadin-vertical-layout>
-        </vaadin-vertical-layout>
-        <vaadin-vertical-layout size-auto margin="false">
-         <vaadin-vertical-layout style-name="card" spacing="false" size-auto margin="false">
-          <vaadin-label style-name="h3 bold" plain-text :center>
-            Estadísticas 
-          </vaadin-label>
-          <vaadin-horizontal-layout style-name="well" width-full>
-           <vaadin-vertical-layout size-auto margin="false">
-            <vaadin-horizontal-layout>
+    <vaadin-vertical-layout spacing="false" size-auto margin="false">
+     <vaadin-horizontal-layout style-name="cuerpo_ventanas" size-full margin>
+      <vaadin-vertical-layout style-name="recursos_fondo" spacing="false" width-auto height-full _id="tipoNaveLayout" :middle :center></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto margin="false" _id="construirLayout" :expand>
+       <vaadin-vertical-layout style-name="fondo_cabecera_cuerpo" spacing="false" responsive size-auto margin="false">
+        <vaadin-horizontal-layout style-name="cabecera_ventanas" width-full height="67px">
+         <vaadin-label style-name="h2 texto-blanco" plain-text _id="nombreTipoL" :center>
+           Tipo Nave 
+         </vaadin-label>
+        </vaadin-horizontal-layout>
+        <vaadin-horizontal-layout style-name="cuerpo_ventanas">
+         <vaadin-vertical-layout size-auto>
+          <vaadin-horizontal-layout spacing="false" :center>
+           <vaadin-image style-name="my-img-button" width="40px" height="40px" _id="flechaIzq" :middle :center></vaadin-image>
+           <vaadin-vertical-layout spacing="false" size-auto margin="false" _id="naveLayout"></vaadin-vertical-layout>
+           <vaadin-image style-name="my-img-button" width="40px" height="40px" _id="flechaDer" :middle :center></vaadin-image>
+          </vaadin-horizontal-layout>
+          <vaadin-text-field placeholder="ej: 23" _id="construirF" :center></vaadin-text-field>
+          <vaadin-button plain-text _id="construirB" :center>
+            Construir 
+          </vaadin-button>
+          <vaadin-vertical-layout style-name="recursos_fondo_horizontal" width="120%" margin="false" _id="cancelarConstruccionLayout"></vaadin-vertical-layout>
+         </vaadin-vertical-layout>
+         <vaadin-vertical-layout size-auto margin="false">
+          <vaadin-vertical-layout spacing="false" size-auto margin="false" :center>
+           <vaadin-horizontal-layout>
+            <vaadin-label style-name="h3 bold texto-blanco" plain-text>
+              Estadísticas 
+            </vaadin-label>
+           </vaadin-horizontal-layout>
+           <vaadin-horizontal-layout width-full>
+            <vaadin-horizontal-layout style-name="recursos_fondo_horizontal" width-full :center>
              <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label style-name="bold" plain-text>
-                Salud: 
-              </vaadin-label>
-              <vaadin-label style-name="bold" plain-text>
-                Ataque: 
-              </vaadin-label>
-              <vaadin-label style-name="bold" plain-text>
-                Cap. Carga: 
-              </vaadin-label>
+              <vaadin-horizontal-layout>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Salud: 
+                </vaadin-label>
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Ataque: 
+                </vaadin-label>
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Cap. Carga: 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+               <vaadin-vertical-layout size-auto margin="false" :center>
+                <vaadin-label style-name="texto-blanco" plain-text _id="saludL">
+                  0 
+                </vaadin-label>
+                <vaadin-label style-name="texto-blanco" plain-text _id="ataqueL">
+                  0 
+                </vaadin-label>
+                <vaadin-label style-name="texto-blanco" plain-text _id="cargaL">
+                  0 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+              </vaadin-horizontal-layout>
+             </vaadin-vertical-layout>
+             <vaadin-vertical-layout size-auto margin="false">
+              <vaadin-horizontal-layout>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Escudo: 
+                </vaadin-label>
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Agilidad: 
+                </vaadin-label>
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Velocidad: 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="texto-blanco" plain-text _id="escudoL">
+                  0 
+                </vaadin-label>
+                <vaadin-label style-name="texto-blanco" plain-text _id="agilidadL">
+                  0 
+                </vaadin-label>
+                <vaadin-label style-name="texto-blanco" plain-text _id="velocidadL">
+                  0 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+              </vaadin-horizontal-layout>
+             </vaadin-vertical-layout>
+            </vaadin-horizontal-layout>
+           </vaadin-horizontal-layout>
+          </vaadin-vertical-layout>
+          <vaadin-vertical-layout spacing="false" width="99.54%" margin="false" :center>
+           <vaadin-label style-name="h3 bold texto-blanco" plain-text>
+             Coste 
+           </vaadin-label>
+           <vaadin-horizontal-layout style-name="recursos_fondo_horizontal" width-full>
+            <vaadin-horizontal-layout width="95%" :center>
+             <vaadin-vertical-layout margin="false">
+              <vaadin-horizontal-layout width-full>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Metal: 
+                </vaadin-label>
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Petroleo: 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+               <vaadin-vertical-layout size-auto margin="false" :right>
+                <vaadin-label style-name="texto-blanco" plain-text _id="metalL">
+                  0 
+                </vaadin-label>
+                <vaadin-label style-name="texto-blanco" plain-text _id="petroleoL">
+                  0 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+              </vaadin-horizontal-layout>
              </vaadin-vertical-layout>
              <vaadin-vertical-layout size-auto margin="false" :center>
-              <vaadin-label plain-text _id="saludL">
-                0 
-              </vaadin-label>
-              <vaadin-label plain-text _id="ataqueL">
-                0 
-              </vaadin-label>
-              <vaadin-label plain-text _id="cargaL">
-                0 
-              </vaadin-label>
+              <vaadin-horizontal-layout>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="bold texto-blanco" plain-text>
+                  Oro: 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+               <vaadin-vertical-layout size-auto margin="false">
+                <vaadin-label style-name="texto-blanco" plain-text _id="oroL">
+                  0 
+                </vaadin-label>
+               </vaadin-vertical-layout>
+              </vaadin-horizontal-layout>
              </vaadin-vertical-layout>
             </vaadin-horizontal-layout>
-           </vaadin-vertical-layout>
-           <vaadin-vertical-layout size-auto margin="false">
-            <vaadin-horizontal-layout>
-             <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label style-name="bold" plain-text>
-                Escudo: 
-              </vaadin-label>
-              <vaadin-label style-name="bold" plain-text>
-                Agilidad: 
-              </vaadin-label>
-              <vaadin-label style-name="bold" plain-text>
-                Velocidad: 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-             <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label plain-text _id="escudoL">
-                0 
-              </vaadin-label>
-              <vaadin-label plain-text _id="agilidadL">
-                0 
-              </vaadin-label>
-              <vaadin-label plain-text _id="velocidadL">
-                0 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-            </vaadin-horizontal-layout>
-           </vaadin-vertical-layout>
-          </vaadin-horizontal-layout>
+           </vaadin-horizontal-layout>
+          </vaadin-vertical-layout>
          </vaadin-vertical-layout>
-         <vaadin-vertical-layout style-name="card" spacing="false" margin="false" :center>
-          <vaadin-label style-name="h3 bold" plain-text :center>
-            Coste 
-          </vaadin-label>
-          <vaadin-horizontal-layout style-name="well" width-full>
-           <vaadin-vertical-layout margin="false">
-            <vaadin-horizontal-layout width-full>
-             <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label style-name="bold" plain-text>
-                Metal: 
-              </vaadin-label>
-              <vaadin-label style-name="bold" plain-text>
-                Petroleo: 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-             <vaadin-vertical-layout size-auto margin="false" :right>
-              <vaadin-label plain-text _id="metalL">
-                0 
-              </vaadin-label>
-              <vaadin-label plain-text _id="petroleoL">
-                0 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-            </vaadin-horizontal-layout>
-           </vaadin-vertical-layout>
-           <vaadin-vertical-layout size-auto margin="false" :center>
-            <vaadin-horizontal-layout>
-             <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label style-name="bold" plain-text>
-                Oro: 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-             <vaadin-vertical-layout size-auto margin="false">
-              <vaadin-label plain-text _id="oroL">
-                0 
-              </vaadin-label>
-             </vaadin-vertical-layout>
-            </vaadin-horizontal-layout>
-           </vaadin-vertical-layout>
-          </vaadin-horizontal-layout>
-         </vaadin-vertical-layout>
-        </vaadin-vertical-layout>
-       </vaadin-horizontal-layout>
-       <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
-         Construcción comenzada con éxito 
-       </vaadin-label>
-       <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
-         Error 
-       </vaadin-label>
+        </vaadin-horizontal-layout>
+        <vaadin-label visible="false" style-name="success" plain-text _id="correctoL" :center>
+          Construcción comenzada con éxito 
+        </vaadin-label>
+        <vaadin-label visible="false" style-name="failure" plain-text _id="errorL" :center>
+          Error 
+        </vaadin-label>
+       </vaadin-vertical-layout>
       </vaadin-vertical-layout>
-     </vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
    </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>

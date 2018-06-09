@@ -8,20 +8,22 @@
  <body>
   <vaadin-vertical-layout spacing="false" size-full margin="false">
    <vaadin-horizontal-layout style-name="recursos_fondo_horizontal" width="500px">
-    <vaadin-vertical-layout spacing="false" size-auto margin="false">
-     <vaadin-label style-name="texto-blanco" plain-text _id="tipoL">
-       Tipo de mensaje 
+    <vaadin-horizontal-layout spacing="false" width="490px" :center>
+     <vaadin-vertical-layout spacing="false" size-auto margin="false">
+      <vaadin-label style-name="texto-blanco" plain-text _id="tipoL">
+        Tipo de mensaje 
+      </vaadin-label>
+      <vaadin-label style-name="large texto-blanco" plain-text _id="asuntoL">
+        Asunto del mensaje 
+      </vaadin-label>
+     </vaadin-vertical-layout>
+     <vaadin-label style-name="texto-blanco" plain-text _id="fechaL">
+       05-12-2010 
      </vaadin-label>
-     <vaadin-label style-name="large texto-blanco" plain-text _id="asuntoL">
-       Asunto del mensaje 
-     </vaadin-label>
-    </vaadin-vertical-layout>
-    <vaadin-label style-name="texto-blanco" plain-text _id="fechaL" :center>
-      05-12-2010 
-    </vaadin-label>
-    <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="large icon-only borderless texto-blanco" height-full plain-text _id="elegirB" :bottom :right>
-      Button 
-    </vaadin-button>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e6ec" style-name="large icon-only texto-blanco borderless link" height-full plain-text _id="elegirB" :right>
+       Button 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
    </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>

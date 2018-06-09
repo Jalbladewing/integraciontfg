@@ -65,6 +65,24 @@
   	color: #ffffff;
   }
   
+  .v-button-link
+  {
+  	color: white !important;
+  	background: none !important;
+  }
+  
+   .v-button-link:focus
+  {
+  	color: #4396ea !important;
+  	text-decoration: none;
+  }
+  
+   .v-button-link:hover
+  {
+  	color: #4396ea !important;
+  	text-decoration: none;
+  }
+  
   .menu-fondo
   {
   	background: unquote("url(Fondo_menu.png)");
@@ -72,7 +90,7 @@
   
   .botones-menu-fondo
   {
-  	background: url(BotonMenu.png);
+  	background: url(BotonMenu.png) !important;
   	color: rgb(191, 191, 191);
   	text-decoration: none;
   }
@@ -113,5 +131,90 @@
   	background: url(Recursos_Fondo_Horizontal.png) no-repeat;
   	background-size: 100% 100%;
   }
+  
+  .v-grid-cell
+  {
+  	background-color: #2f3946 !important;
+  	color: white !important;
+  }
+  
+  .v-grid-row-stripe > td
+  {
+  	background-color: #070a0e !important;
+  	color: white !important;
+  }
+  
+  .v-grid-row > td
+  {
+ 	border: none !important;
+  }
+  
+  .v-grid
+  {
+  	background: rgba(0,0,0,0) !important;
+  	border: none !important;
+  }
+  
+  .v-grid-tablewrapper
+  {
+  	border: none !important;
+  }
+  
+  .v-grid .v-grid-header th.v-grid-cell 
+  {
+    background: #070a0e !important;
+    color: white !important;
+    border: none !important;
+    border-bottom: 1px solid #d4d4d4 !important;
+   }
+  
+  .v-tabsheet-tabitemcell .v-caption .v-captiontext
+  {
+  	color: #ffffff !important;
+  }
+  
+  .v-tabsheet-tabitemcell .v-caption .v-captiontext:focus
+  {
+  	color: #197de1 !important;
+  }
+  
+   .v-tabsheet-tabitemcell .v-caption .v-captiontext:hover
+  {
+  	color: #197de1 !important;
+  }
+  
+    .texto-negro
+  {
+  	color: #000000;
+  }
+    
+  .v-button
+  {
+  	background: url(botonSinPulsar.png) no-repeat;
+  	background-size: 100% 100%;
+  	color: #ffffff;
+  	text-decoration: none;
+  	border:none !important;
+  	box-shadow:none !important;
+  }
+    
+  .v-button:focus
+  {
+  	background: url(botonPulsado.png) no-repeat;
+  	background-size: 100% 100%;
+  	color: rgb(191, 191, 191);
+  	border:none !important;
+  	box-shadow:none !important;
+  }
+  
+  .boton-galaxia
+  {
+  	background: url(botonPulsado.png) no-repeat !important;
+  	background-size: 100% 100% !important;
+  	color: rgb(191, 191, 191) !important;
+  	border:none !important;
+  	box-shadow:none !important;
+  }
+   
   
 }
