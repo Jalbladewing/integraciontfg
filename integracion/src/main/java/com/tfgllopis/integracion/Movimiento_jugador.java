@@ -49,9 +49,9 @@ public class Movimiento_jugador extends Movimiento_jugador_Ventana
 		}
 		
 		this.movimiento = movimiento;
-		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-		imagenMovimiento.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
+		imagenMovimiento.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Movimiento.png")));
+		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
 		nombreOrigen.setValue(planetaOrigen.getNombrePlaneta());
 		coordenadasOrigenL.setValue("(" + planetaOrigen.getCoordenadaX() + "," + planetaOrigen.getCoordenadaY() + ")");
 		nombreDestino.setValue(movimiento.getPlaneta().getNombrePlaneta());

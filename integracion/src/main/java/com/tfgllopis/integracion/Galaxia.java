@@ -77,9 +77,9 @@ public class Galaxia extends Galaxia_Ventana implements View
 		//Columna imagen
 		planetaTabla.addComponentColumn(planeta -> {
 			Image imagen = new Image();
-			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-			imagen.setWidth("50px");
-			imagen.setHeight("50px");
+			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
+			imagen.setWidth("35px");
+			imagen.setHeight("35px");
 			return imagen;	
 		}).setCaption("Planeta")
 		.setId("imagenPlaneta");

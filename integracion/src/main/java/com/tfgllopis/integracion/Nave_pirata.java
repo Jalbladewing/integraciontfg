@@ -15,8 +15,8 @@ public class Nave_pirata extends Nave_pirata_Ventana
 	public Nave_pirata(Image imagenNave, String nombreNave, int idPirata)
 	{		
 		this.imagenNave.setSource(imagenNave.getSource());
-		this.imagenNave.setWidth(50, Unit.PIXELS);
-		this.imagenNave.setHeight(50, Unit.PIXELS);
+		this.imagenNave.setWidth(150, Unit.PIXELS);
+		this.imagenNave.setHeight(100, Unit.PIXELS);
 		
 		cantidadF.setValue("0");
 	

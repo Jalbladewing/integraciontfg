@@ -23,8 +23,8 @@ public class Informacion_movimiento extends Informacion_movimiento_Ventana
 		this.planetaUsuario = planetaUsuario;
 		this.planetaAtaque = planetaAtaque;
 		
-		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		imagenPlanetaOrigen.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
+		imagenPlanetaDestino.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
 		nombreOrigen.setValue(planetaUsuario.getNombrePlaneta());
 		nombreDestino.setValue(planetaAtaque.getNombrePlaneta());
 		coordenadasOrigenL.setValue("(" + planetaUsuario.getCoordenadaX() + "," + planetaUsuario.getCoordenadaY() + ")");

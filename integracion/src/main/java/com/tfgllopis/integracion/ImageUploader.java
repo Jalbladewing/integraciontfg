@@ -63,8 +63,8 @@ public class ImageUploader implements Receiver, SucceededListener, StartedListen
 	{
      // Show the uploaded file in the image viewer
 		imagen.setSource(new FileResource(file));
-		imagen.setWidth(50, Unit.PIXELS);
-		imagen.setHeight(50, Unit.PIXELS);
+		imagen.setWidth(150, Unit.PIXELS);
+		imagen.setHeight(100, Unit.PIXELS);
 	}
 	
 	public void uploadStarted(StartedEvent event) 

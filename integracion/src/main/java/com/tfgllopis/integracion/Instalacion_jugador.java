@@ -32,8 +32,9 @@ public class Instalacion_jugador extends Instalacion_jugador_Ventana
 		planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
 		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
 		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
-		FileResource resource = new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png"));
+		FileResource resource = new FileResource(new File(new File("").getAbsolutePath() + "/images/" + instalacion.getInstalacionname() +".png"));
 		
+		nombreInstalacion.setValue(instalacion.getInstalacionname());
 		instalacionImagen.setSource(resource);
 		produccionL.setValue(instalacion.getInstalacion().getGeneracionBase() * instalacion.getNivelInstalacion() + "");
 		nivelL.setValue(instalacion.getNivelInstalacion() + "");

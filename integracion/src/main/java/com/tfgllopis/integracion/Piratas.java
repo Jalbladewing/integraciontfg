@@ -38,9 +38,9 @@ public class Piratas extends Piratas_Ventana implements View
 		//Columna imagen
 		piratasTabla.addComponentColumn(pirata -> {
 			Image imagen = new Image();
-			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-			imagen.setWidth(50, Unit.PIXELS);
-			imagen.setHeight(50, Unit.PIXELS);
+			imagen.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Planeta.png")));
+			imagen.setWidth(35, Unit.PIXELS);
+			imagen.setHeight(35, Unit.PIXELS);
 			return imagen;	
 		}).setCaption("")
 		.setId("imagenPlaneta");

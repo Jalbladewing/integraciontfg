@@ -21,6 +21,7 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class Instalacion_jugador_Ventana extends VerticalLayout {
 	protected Image instalacionImagen;
+	protected Label nombreInstalacion;
 	protected Label produccionL;
 	protected Label nivelL;
 	protected Label metalL;

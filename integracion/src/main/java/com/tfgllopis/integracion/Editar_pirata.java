@@ -141,9 +141,9 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 			instalacionOro = pirataInstalacionRepo.findByPirataidPirata_Instalacionname(idPirata, "Mina de Oro");
 			instalacionPetroleo = pirataInstalacionRepo.findByPirataidPirata_Instalacionname(idPirata, "Plataforma Petrolifera");
 		
-			layoutMetal = new Instalacion_pirata();
-			layoutOro = new Instalacion_pirata();
-			layoutPetroleo  = new Instalacion_pirata();
+			layoutMetal = new Instalacion_pirata("Mina de Metal");
+			layoutOro = new Instalacion_pirata("Mina de Oro");
+			layoutPetroleo  = new Instalacion_pirata("Plataforma Petrolifera");
 			
 			layoutInstalaciones.addComponent(layoutMetal);
 			layoutInstalaciones.addComponent(layoutOro);

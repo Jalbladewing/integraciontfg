@@ -15201,3 +15201,8 @@ div.v-layout.v-horizontal.v-widget {
 	border: none !important;
 	box-shadow: none !important;
 }
+
+.galaxyTheme .borde-nave {
+	border: solid white;
+	border-radius: 5px;
+}

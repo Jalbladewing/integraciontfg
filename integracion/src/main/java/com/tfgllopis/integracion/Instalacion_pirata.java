@@ -7,9 +7,10 @@ import com.vaadin.server.VaadinServlet;
 
 public class Instalacion_pirata extends Instalacion_pirata_Ventana
 {
-	public Instalacion_pirata()
+	public Instalacion_pirata(String tipoInstalacion)
 	{
-		imagenInstalacion.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
+		nombreInstalacion.setValue(tipoInstalacion);
+		imagenInstalacion.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + tipoInstalacion +".png")));
 	}
 
 }

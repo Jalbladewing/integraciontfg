@@ -10,8 +10,8 @@ public class Nave_informacion extends Nave_informacion_Ventana
 	{
 		cantidadF.setValue(naveMovimiento.getCantidad() + "");
 		imagenNave.setSource(naveMovimiento.getNave().getImage().getSource());
-		imagenNave.setWidth(50, Unit.PIXELS);
-		imagenNave.setHeight(50, Unit.PIXELS);
+		imagenNave.setWidth(150, Unit.PIXELS);
+		imagenNave.setHeight(100, Unit.PIXELS);
 		nave = naveMovimiento;
 	}
 	

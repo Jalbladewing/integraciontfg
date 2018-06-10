@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.navigator.View;
+import com.vaadin.server.FileResource;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
@@ -44,6 +45,11 @@ public class Pagina_principal extends Pagina_principal_Ventana implements View
 		planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
 		usuarioNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuarioNave();
 		naveCuestaRepo = ((VaadinUI) UI.getCurrent()).getInterfazNaveCuesta();
+
+		
+		imagenMetal.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Metal.png")));
+		imagenOro.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Oro.png")));
+		imagenPetroleo.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Petroleo.png")));
 
 		
 		Planeta planeta = planetaRepo.findByUsuarioUsername(((VaadinUI) UI.getCurrent()).getUsuario());

@@ -108,8 +108,8 @@ public class Editar_nave extends Editar_nave_Ventana implements View
 			nombreF.setValue(nave.getNombreNave());
 			tipoNaveCombo.setSelectedItem(nave.getTipoNavenombreTipoNave());
 			imagenNave.setSource(nave.getImage().getSource());
-			imagenNave.setWidth(50, Unit.PIXELS);
-			imagenNave.setHeight(50, Unit.PIXELS);
+			imagenNave.setWidth(150, Unit.PIXELS);
+			imagenNave.setHeight(100, Unit.PIXELS);
 			saludF.setValue(nave.getHullNave()+"");
 			escudoF.setValue(nave.getEscudoNave()+"");
 			velocidadF.setValue(nave.getVelocidadNave()+"");

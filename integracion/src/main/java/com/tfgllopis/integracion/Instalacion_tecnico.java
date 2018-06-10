@@ -15,9 +15,9 @@ public class Instalacion_tecnico extends Instalacion_tecnico_Ventana
 	public Instalacion_tecnico(String tipoInstalacion, Recursos_tecnico recursos)
 	{
 		this.tipoInstalacion = tipoInstalacion;
-		imagenInstalacion.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "No_Image_Available.png")));
-
+		imagenInstalacion.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + tipoInstalacion +".png")));
 		
+		nombreInstalacion.setValue(tipoInstalacion);
 		tasaInstalacionF.addValueChangeListener(new ValueChangeListener() 
 		{
 			@Override

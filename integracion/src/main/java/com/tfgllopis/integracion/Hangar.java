@@ -1,5 +1,6 @@
 package com.tfgllopis.integracion;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,7 +14,9 @@ import com.vaadin.event.MouseEvents.ClickEvent;
 import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
+import com.vaadin.server.FileResource;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Image;
 import com.vaadin.ui.UI;
 
 public class Hangar extends Hangar_Ventana implements View
@@ -49,6 +52,7 @@ public class Hangar extends Hangar_Ventana implements View
 	private int posicion = 0;
 	private ArrayList<Nave> naves;
 	private boolean clickable = true;
+	private Image tipoElegido;
 	
 	@SuppressWarnings({ "rawtypes", "unchecked", "serial" })
 	public Hangar()
@@ -68,6 +72,8 @@ public class Hangar extends Hangar_Ventana implements View
 		usuarioNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuarioNave();
 		tipoRepo = ((VaadinUI) UI.getCurrent()).getInterfazTipo();
 		tipoNaves = new ArrayList<>(tipoRepo.findAll());
+		flechaDer.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" +"Flecha_Der.png")));
+		flechaIzq.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" +"Flecha_Izq.png")));
 		
 		planeta = planetaRepo.findByUsuarioUsername(((VaadinUI) UI.getCurrent()).getUsuario());
 		
@@ -87,6 +93,7 @@ public class Hangar extends Hangar_Ventana implements View
 			
 			if(i == 0)
 			{
+				tipoElegido = aux.getImage();
 				construirLayout.setVisible(true);
 				nombreTipoL.setValue(tipoNaves.get(i).getNombreTipoNave());
 				posicion = 0;
@@ -97,6 +104,7 @@ public class Hangar extends Hangar_Ventana implements View
 				naveLayout.addComponent(new Nave_hangar(naves.get(posicion), ((VaadinUI) UI.getCurrent()).getUsuario(), usuarioNaveRepo));
 				actualizarDatosNave(naves.get(0));
 				construirF.setValue("");
+				tipoElegido.addStyleName("borde-nave");
 			}
 			
 			aux.getImage().addClickListener(new ClickListener()
@@ -104,6 +112,9 @@ public class Hangar extends Hangar_Ventana implements View
 				@Override
 				public void click(ClickEvent event) 
 				{
+					tipoElegido.removeStyleName("borde-nave");
+					tipoElegido = (Image) event.getSource();
+					tipoElegido.addStyleName("borde-nave");
 					construirLayout.setVisible(true);
 					nombreTipoL.setValue(tipoNaves.get(Integer.parseInt(event.getComponent().getId())).getNombreTipoNave());
 					posicion = 0;
