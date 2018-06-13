@@ -53,19 +53,30 @@ public class Registrarse  extends Registrarse_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				String value = Registrarse.registro(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), userRepo, rolRepo);
+				String value = comprobarPlanetaDisponible(planetaRepo);
 				errorL.setValue(value);
-				
+
 				if(value.isEmpty()) 
 				{
 					errorL.setVisible(false);
-					Registrarse.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
-					doNavigate(Iniciar_sesion.VIEW_NAME + "/" + "registrado");
+					
+					value = Registrarse.registro(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), userRepo, rolRepo);
+					errorL.setValue(value);
+					
+					if(value.isEmpty()) 
+					{
+						errorL.setVisible(false);
+						Registrarse.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
+						doNavigate(Iniciar_sesion.VIEW_NAME + "/" + "registrado");
+					}else
+					{
+						errorL.setVisible(true);
+					}
+					
 				}else
 				{
 					errorL.setVisible(true);
 				}
-				
 			}
 		});
 		
@@ -105,7 +116,7 @@ public class Registrarse  extends Registrarse_Ventana implements View
 	}
 	
 	public static String inicializarUsuario(Usuario usuario, PlanetaHasNaveRepository planetaNaveRepo, PlanetahasInstalacionRepository planetaInstalacionRepo, PlanetahasRecursoRepository planetaRecursoRepo, PlanetaRepository planetaRepo)
-	{
+	{		
 		Planeta planeta = planetaRepo.findByPlanetaLibre().get(0);
 		PlanetahasInstalacion planetaInstalacionMetal = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Metal", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
 		PlanetahasInstalacion planetaInstalacionOro = planetaInstalacionRepo.findByInstalacionnamePlaneta("Mina de Oro", planeta.getCoordenadaX(), planeta.getCoordenadaY(), planeta.getSistemanombreSistema());
@@ -141,6 +152,13 @@ public class Registrarse  extends Registrarse_Ventana implements View
 		planetaRecursoRepo.save(planetaRecursoMetal);
 		planetaRecursoRepo.save(planetaRecursoOro);
 		planetaRecursoRepo.save(planetaRecursoPetroleo);
+		
+		return "";
+	}
+	
+	public static String comprobarPlanetaDisponible(PlanetaRepository planetaRepo)
+	{
+		if(planetaRepo.findByPlanetaLibre().isEmpty()) return "No hay planetas libres, pruebe más tarde";
 		
 		return "";
 	}

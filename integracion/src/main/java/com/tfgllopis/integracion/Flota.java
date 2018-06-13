@@ -58,7 +58,7 @@ public class Flota extends Flota_Ventana implements View
 			Image imagen = new Image();
 			imagen.setSource(nave.getNave().getImage().getSource());
 			imagen.setWidth(50, Unit.PIXELS);
-			imagen.setHeight(50, Unit.PIXELS);
+			imagen.setHeight(35, Unit.PIXELS);
 			return imagen;	
 		}).setCaption("Naves")
 		.setId("imagenPlaneta");

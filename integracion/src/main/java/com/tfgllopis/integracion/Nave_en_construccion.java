@@ -35,8 +35,8 @@ public class Nave_en_construccion extends Nave_en_construccion_Ventana
 		navesConstruccionL.setValue(naveConstruida.getCantidad() + "");
 		tiempoL.setValue(hours + ":" + minutes + ":" + seconds);
 		imagenNave.setSource(naveConstruida.getNave().getImage().getSource());
-		imagenNave.setWidth(50, Unit.PIXELS);
-		imagenNave.setHeight(50, Unit.PIXELS);
+		imagenNave.setWidth(150, Unit.PIXELS);
+		imagenNave.setHeight(100, Unit.PIXELS);
 		cancelarConstruccionB.addClickListener(new Button.ClickListener() 
 		{
 			

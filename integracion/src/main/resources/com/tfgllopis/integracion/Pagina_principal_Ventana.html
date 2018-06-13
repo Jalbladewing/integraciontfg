@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
-  <meta name="vaadin-version" content="8.1.5">
+  <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
   <vaadin-vertical-layout size-full margin="false">
@@ -63,32 +63,36 @@
      <vaadin-label style-name="texto-blanco bold h3" plain-text :center>
        Tutorial 
      </vaadin-label>
-     <vaadin-panel width="800px" height="500px">
-      <vaadin-horizontal-layout>
+     <vaadin-panel style-name="borde-negro" width="800px" height="500px">
+      <vaadin-horizontal-layout style-name="color-gris">
        <vaadin-vertical-layout size-auto margin="false">
         <vaadin-horizontal-layout>
          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width="50px" height="50px"></vaadin-image>
          <vaadin-vertical-layout width="400px" margin="false">
-          <vaadin-label style-name="h3 bold" plain-text>
+          <vaadin-label style-name="h3 bold texto-blanco" plain-text>
             Prepara tus defensas 
           </vaadin-label>
-          <vaadin-label width-full plain-text>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             Construye varias naves en la sección Hangar para defenderte de tus enemigos. 
           </vaadin-label>
-          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width-full height="100px"></vaadin-image>
-          <vaadin-label width-full plain-text>
+          <vaadin-image source="C:/Users/JALLOPISE/Downloads/Tutorial_Hangar.png" width="230px" height="210px" :center></vaadin-image>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             Los cazas son rápidos, ágiles y baratos, las corvetas son poderosas pero lentas y caras y los transportes no tienen potencia de fuego pero tienen mucha capacidad de carga para transportar recursos. 
           </vaadin-label>
-          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width-full height="100px"></vaadin-image>
+          <vaadin-horizontal-layout spacing="false">
+           <vaadin-image source="C:/Users/JALLOPISE/Downloads/TFG/Caso_Practico/2_Divison_por_Modulos/Imagenes/FighterVulture.png" width="125px" height="75px"></vaadin-image>
+           <vaadin-image source="C:/Users/JALLOPISE/Downloads/TFG/Caso_Practico/2_Divison_por_Modulos/Imagenes/CorvetteAnaconda.png" width="125px" height="75px"></vaadin-image>
+           <vaadin-image source="C:/Users/JALLOPISE/Downloads/TFG/Caso_Practico/2_Divison_por_Modulos/Imagenes/TransporteHauler.png" width="125px" height="75px"></vaadin-image>
+          </vaadin-horizontal-layout>
          </vaadin-vertical-layout>
         </vaadin-horizontal-layout>
         <vaadin-horizontal-layout>
          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width="50px" height="50px"></vaadin-image>
          <vaadin-vertical-layout width="400px" margin="false">
-          <vaadin-label style-name="h3 bold" plain-text>
+          <vaadin-label style-name="h3 bold texto-blanco" plain-text>
             Aumenta la producción de recursos 
           </vaadin-label>
-          <vaadin-label width-full plain-text>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             En la sección Recursos puedes ver y gestionar tus instalaciones, recuerda subirlas de nivel antes de irte a dormir para levantarte al día siguiente con una gran riqueza 
           </vaadin-label>
          </vaadin-vertical-layout>
@@ -98,14 +102,14 @@
         <vaadin-horizontal-layout>
          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width="50px" height="50px"></vaadin-image>
          <vaadin-vertical-layout width="400px" margin="false">
-          <vaadin-label style-name="h3 bold" plain-text>
+          <vaadin-label style-name="h3 bold texto-blanco" plain-text>
             Desbloquea naves nuevas 
           </vaadin-label>
-          <vaadin-label width-full plain-text>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             Derrota a los piratas que se han rebelado al imperio desde la sección Galaxia, obtendrás grandes riquezas, y quien sabe, quizás encuentres planos de nuevas naves que incluir en tu flota. 
           </vaadin-label>
           <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width-full height="100px"></vaadin-image>
-          <vaadin-label width-full plain-text>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             Pero ten cuidado, poseen grandes flotas bien equipadas, intenta derrotar primero a los de menos nivel de peligro. 
           </vaadin-label>
          </vaadin-vertical-layout>
@@ -113,10 +117,10 @@
         <vaadin-horizontal-layout>
          <vaadin-image source="C:/Users/JALLOPISE/Downloads/apache-tomcat-8.5.31-windows-x64/apache-tomcat-8.5.31/images/No_Image_Available.png" width="50px" height="50px"></vaadin-image>
          <vaadin-vertical-layout width="400px" margin="false">
-          <vaadin-label style-name="h3 bold" plain-text>
+          <vaadin-label style-name="h3 bold texto-blanco" plain-text>
             Se el más fuerte de la galaxia 
           </vaadin-label>
-          <vaadin-label width-full plain-text>
+          <vaadin-label style-name="texto-blanco" width-full plain-text>
             Consigue una inmensa flota a la que nadie pueda hacerle frente, estate atento a tu buzón de mensajes, nunca se sabe cuando nuevas naves podrían aparecer. 
           </vaadin-label>
          </vaadin-vertical-layout>

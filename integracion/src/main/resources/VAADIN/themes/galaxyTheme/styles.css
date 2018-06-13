@@ -15206,3 +15206,15 @@ div.v-layout.v-horizontal.v-widget {
 	border: solid white;
 	border-radius: 5px;
 }
+
+.galaxyTheme .color-gris {
+	background: #4b535e;
+}
+
+.galaxyTheme .borde-negro {
+	border: black;
+}
+
+.galaxyTheme .text-underline {
+	text-decoration: underline;
+}

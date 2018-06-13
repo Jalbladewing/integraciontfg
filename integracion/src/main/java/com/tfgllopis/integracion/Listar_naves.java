@@ -30,7 +30,7 @@ public class Listar_naves extends Listar_naves_Ventana implements View
 		navesTabla.addComponentColumn(nave -> {
 			Image imagen = nave.getImage();
 			imagen.setWidth(50, Unit.PIXELS);
-			imagen.setHeight(50, Unit.PIXELS);
+			imagen.setHeight(35, Unit.PIXELS);
 			return imagen;
 			
 		}).setCaption("")

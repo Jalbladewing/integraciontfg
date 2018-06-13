@@ -220,7 +220,7 @@ public class Hangar extends Hangar_Ventana implements View
 				{
 					errorL.setVisible(false);
 					correctoL.setVisible(true);
-					//doNavigate(Hangar.VIEW_NAME  + "/Changed");
+					cancelarConstruccionLayout.addComponent(new Nave_en_construccion(cancelarConstruccionLayout, errorL,construyeRepo, planetaRepo, planetaNaveRepo, usuarioNaveRepo, planetaRecursoRepo, naveCuestaRepo));
 					
 				}else
 				{

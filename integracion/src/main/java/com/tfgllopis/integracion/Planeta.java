@@ -32,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Planeta.findByNombrePlaneta", query = "SELECT p FROM Planeta p WHERE p.nombrePlaneta = :nombrePlaneta")
     , @NamedQuery(name = "Planeta.findByFinProteccion", query = "SELECT p FROM Planeta p WHERE p.finProteccion = :finProteccion")
     , @NamedQuery(name = "Planeta.findBySistemanombreSistema", query = "SELECT p FROM Planeta p WHERE p.planetaPK.sistemanombreSistema = :sistemanombreSistema")
-    , @NamedQuery(name = "Planeta.findByPlanetaLibre", query = "SELECT p FROM Planeta p WHERE p.usuariousername IS NULL")
+    , @NamedQuery(name = "Planeta.findByPlanetaLibre", query = "SELECT p FROM Planeta p WHERE p.usuariousername IS NULL AND p.pirataidPirata IS NOT NULL")
+    , @NamedQuery(name = "Planeta.findByPirataId", query = "SELECT p FROM Planeta p WHERE p.pirataidPirata.idPirata = :pirataidPirata")
     , @NamedQuery(name = "Planeta.findByUsuarioUsername", query = "SELECT p FROM Planeta p WHERE p.usuariousername = :usuariousername")})
 public class Planeta implements Serializable {
 

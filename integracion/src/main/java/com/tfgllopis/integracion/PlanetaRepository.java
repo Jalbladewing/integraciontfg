@@ -16,5 +16,7 @@ public interface PlanetaRepository extends JpaRepository<Planeta, Integer> {
 	public Planeta findPlaneta(@Param("coordenadaX") Integer coordenadaX, @Param("coordenadaY") Integer coordenadaY, @Param("sistemanombreSistema") String sistema);
 	@Query
 	public List<Planeta> findBySistemanombreSistema(@Param("sistemanombreSistema") String nombreSistema);
+	@Query
+	public List<Planeta> findByPirataId(@Param("pirataidPirata") int idPirata);
 }
 

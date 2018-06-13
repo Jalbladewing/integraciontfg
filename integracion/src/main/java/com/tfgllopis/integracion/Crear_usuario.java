@@ -48,19 +48,31 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event)
 			{
-				String value = Crear_usuario.registroAdmin(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
+				String value = Registrarse.comprobarPlanetaDisponible(planetaRepo);
 				errorL.setValue(value);
 				
 				if(value.isEmpty()) 
 				{
 					errorL.setVisible(false);
-					Registrarse.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
-					doNavigate(Crear_usuario.VIEW_NAME + "/" + "creado");
+					
+					value = Crear_usuario.registroAdmin(usuarioF.getValue(), emailF.getValue(), passwordF.getValue(), password2F.getValue(), rolesRadio.getValue(), activoChckBx.getValue(), userRepo, rolRepo);
+					errorL.setValue(value);
+					
+					if(value.isEmpty()) 
+					{
+						errorL.setVisible(false);
+						Registrarse.inicializarUsuario(Usuario.cargarUsuario(usuarioF.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo);
+						doNavigate(Crear_usuario.VIEW_NAME + "/" + "creado");
+					}else
+					{
+						correctoL.setVisible(false);
+						errorL.setVisible(true);
+					}
+					
 				}else
 				{
-					correctoL.setVisible(false);
 					errorL.setVisible(true);
-				}
+				}		
 				
 			}
 		});

@@ -23,6 +23,12 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 	@Autowired
 	private PiratahasNaveRepository pirataNaveRepo;
 	
+	@Autowired
+	private PlanetaRepository planetaRepo;
+	
+	@Autowired
+	private PlanetaHasNaveRepository planetaNaveRepo;
+	
 	public static String VIEW_NAME = "editarPirata";
 	
 	private int idPirata;
@@ -46,7 +52,7 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 				{
 					errorL.setVisible(false);
 					
-					value = updatePirataNave((Iterator<Nave_pirata>)(Object) layoutNaves.iterator(), pirataNaveRepo);
+					value = updatePirataNave(idPirata, (Iterator<Nave_pirata>)(Object) layoutNaves.iterator(), pirataNaveRepo, planetaRepo, planetaNaveRepo);
 					errorL.setValue(value);
 					
 					if(value.isEmpty())
@@ -96,9 +102,11 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 		return "";
 	}
 	
-	public static String updatePirataNave(Iterator<Nave_pirata> iterator, PiratahasNaveRepository pirataNaveRepo)
+	public static String updatePirataNave(int idPirata, Iterator<Nave_pirata> iterator, PiratahasNaveRepository pirataNaveRepo, PlanetaRepository planetaRepo, PlanetaHasNaveRepository planetaNave)
 	{
+		ArrayList<Planeta> planetas = new ArrayList<>(planetaRepo.findByPirataId(idPirata));
 		ArrayList<Nave_pirata> naves = new ArrayList<>();
+		ArrayList<PlanetaHasNave> planetaNaves = new ArrayList<>();
 		Nave_pirata aux;
 		
 		//Comprobacion
@@ -114,6 +122,19 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 		for(int i = 0; i < naves.size(); i++)
 		{
 			pirataNaveRepo.save(naves.get(i).getNave());
+		}
+		
+		//Actualizar naves de piratas
+		for(int i = 0; i < planetas.size(); i++)
+		{
+			planetaNaves.clear();
+			
+			for(int j = 0; j < naves.size(); j++)
+			{
+				planetaNaves.add(new PlanetaHasNave(planetas.get(i).getCoordenadaX(), planetas.get(i).getCoordenadaY(), planetas.get(i).getSistemanombreSistema(),naves.get(j).getNave().getNavenombreNave(), 0));
+			}
+			
+			planetaNave.saveAll(planetaNaves);
 		}
 		
 		return "";
@@ -133,6 +154,8 @@ public class Editar_pirata extends Editar_pirata_Ventana implements View
 			
 			naveRepo = ((VaadinUI) UI.getCurrent()).getInterfazNave();
 			pirataInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPirataInstalacion();
+			planetaRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlaneta();
+			planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
 			idPirata = Integer.parseInt(parameters[0]);
 			tituloL.setValue("Pirata LvL " +idPirata);
 			
