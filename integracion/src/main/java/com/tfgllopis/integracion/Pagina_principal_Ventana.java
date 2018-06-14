@@ -25,6 +25,15 @@ public class Pagina_principal_Ventana extends VerticalLayout {
 	protected Label oroL;
 	protected Image imagenPetroleo;
 	protected Label petroleoL;
+	protected Image numeroTutorial1;
+	protected Image imagenTutorial1;
+	protected Image naveTutorial1;
+	protected Image naveTutorial2;
+	protected Image naveTutorial3;
+	protected Image numeroTutorial2;
+	protected Image numeroTutorial3;
+	protected Image imagenTutorial2;
+	protected Image numeroTutorial4;
 
 	public Pagina_principal_Ventana() {
 		Design.read(this);

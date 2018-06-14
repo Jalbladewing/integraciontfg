@@ -51,6 +51,18 @@ public class Pagina_principal extends Pagina_principal_Ventana implements View
 		imagenOro.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Oro.png")));
 		imagenPetroleo.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Petroleo.png")));
 
+		imagenTutorial1.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Tutorial_ConstruirNave.png")));
+		imagenTutorial2.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Tutorial_ataque.png")));
+
+		naveTutorial1.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "FighterVulture.png")));
+		naveTutorial2.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "CorvetteAnaconda.png")));
+		naveTutorial3.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "TransporteHauler.png")));
+		
+		numeroTutorial1.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "numero1.png")));
+		numeroTutorial2.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "numero2.png")));
+		numeroTutorial3.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "numero3.png")));
+		numeroTutorial4.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "numero4.png")));
+
 		
 		Planeta planeta = planetaRepo.findByUsuarioUsername(((VaadinUI) UI.getCurrent()).getUsuario());
 		
