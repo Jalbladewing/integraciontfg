@@ -24,5 +24,7 @@ public class Cibernauta extends Cibernauta_Ventana {
 			navigator.navigateTo(Iniciar_sesion.VIEW_NAME);
 		}
 
+		navigator.setErrorView(Iniciar_sesion.class);
+		
 	}
 }

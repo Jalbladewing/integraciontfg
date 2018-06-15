@@ -35,5 +35,7 @@ public class Administrador extends Administrador_Ventana
 		{
 			navigator.navigateTo(Pagina_principal.VIEW_NAME);
 		}
+		
+		navigator.setErrorView(Pagina_principal.class);
 	}
 }

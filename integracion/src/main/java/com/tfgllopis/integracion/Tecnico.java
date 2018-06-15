@@ -39,6 +39,8 @@ public class Tecnico extends Tecnico_Ventana
 			navigator.navigateTo(Pagina_principal.VIEW_NAME);
 		}
 		
+		navigator.setErrorView(Pagina_principal.class);
+		
 		
 	}
 

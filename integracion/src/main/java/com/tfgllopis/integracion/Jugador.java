@@ -34,5 +34,6 @@ public class Jugador extends Jugador_Ventana
 			navigator.navigateTo(Pagina_principal.VIEW_NAME);
 		}
 
+		navigator.setErrorView(Pagina_principal.class);
 	}
 }
