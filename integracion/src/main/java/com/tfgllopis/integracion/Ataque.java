@@ -259,6 +259,15 @@ public class Ataque extends Ataque_Ventana implements View
 					+ "PRIMARY KEY (nombreNave),"
 					+ "UNIQUE INDEX nombreNave_UNIQUE (nombreNave ASC));\n"
 				+ "SELECT NOW() INTO @fecha;\n"
+				+ "IF " + idPirata  +" > 0 AND " +idBatalla + " < 0 THEN\n"
+					+ "UPDATE Planeta_has_Nave planeta\n"
+						+ "LEFT JOIN Pirata_has_Nave pirata ON planeta.Nave_nombreNave = pirata.Nave_nombreNave\n"
+						+ "SET planeta.cantidad = pirata.cantidadDefecto\n"
+						+ "WHERE pirata.Pirata_idPirata =" + idPirata + "\n"
+						+ " AND Planeta_coordenadaX = " +planetaDestino.getCoordenadaX()
+						+ " AND Planeta_coordenadaY = " +planetaDestino.getCoordenadaY()
+						+ " AND Planeta_Sistema_nombreSistema= '" +planetaDestino.getSistemanombreSistema() +"';\n"
+				+ "END IF;\n"
 				+ "IF " + idPirata  +" > 0 AND " +idBatalla + " > 0 THEN\n"
 	   				+"SELECT tiempoLlegada INTO tiempoUltimoAtaque FROM Movimiento\n"
 	   					+"WHERE idMovimiento = (SELECT Movimiento_idMovimiento \n"

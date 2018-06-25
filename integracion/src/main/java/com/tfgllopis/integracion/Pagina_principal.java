@@ -45,7 +45,6 @@ public class Pagina_principal extends Pagina_principal_Ventana implements View
 		planetaNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaNave();
 		usuarioNaveRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuarioNave();
 		naveCuestaRepo = ((VaadinUI) UI.getCurrent()).getInterfazNaveCuesta();
-
 		
 		imagenMetal.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Metal.png")));
 		imagenOro.setSource(new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Oro.png")));

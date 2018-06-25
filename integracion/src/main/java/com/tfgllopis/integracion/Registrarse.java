@@ -43,7 +43,7 @@ public class Registrarse  extends Registrarse_Ventana implements View
 		planetaInstalacionRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaInstalacion();
 		planetaRecursoRepo = ((VaadinUI) UI.getCurrent()).getInterfazPlanetaRecurso();
 		
-		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequeña.png")));
+		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequena.png")));
 		imagenLogo.setWidth(100, Unit.PIXELS);
 		imagenLogo.setHeight(100, Unit.PIXELS);
 		
@@ -100,13 +100,13 @@ public class Registrarse  extends Registrarse_Ventana implements View
 	{
 		Usuario user;
 		Date fechaRegistro = new Date();
-		//Gestor_Correos correo = new Gestor_Correos();
+		Gestor_Correos correo = new Gestor_Correos();
 		if(!UserDataValidator.comprobarUser(username)) return "Usuario inválido";
 		if(!UserDataValidator.comprobarEmail(email)) return "Email inválido";
 		if(!UserDataValidator.comprobarPassword(password1, password2)) return "Las contraseñas no coinciden";		
 		if(UserDataValidator.comprobarUsuarioBD(username, repo)) return "El usuario ya existe";
 		if(UserDataValidator.comprobarEmailBD(email, repo)) return "El correo ya está en uso";
-		//if(!correo.correo_registro(email)) return "Imposible acceder al correo";
+		if(!correo.correo_registro(email)) return "Imposible acceder al correo";
 		
 		user = new Usuario(email, username, password1, true, fechaRegistro, fechaRegistro);
 		user.setRolName(rolRepo.findByName("Jugador").get(0));

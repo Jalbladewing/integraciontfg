@@ -26,7 +26,7 @@ public class Iniciar_sesion extends Iniciar_sesion_Ventana implements View
 
 		userRepo = ((VaadinUI) UI.getCurrent()).getInterfazUsuario();
 		
-		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequeña.png")));
+		imagenLogo.setSource( new FileResource(new File(new File("").getAbsolutePath() + "/images/" + "Logo_Cabeza_Fenix_Pequena.png")));
 		imagenLogo.setWidth(100, Unit.PIXELS);
 		imagenLogo.setHeight(100, Unit.PIXELS);
 

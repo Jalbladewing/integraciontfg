@@ -93,13 +93,13 @@ public class Crear_usuario extends Crear_usuario_Ventana implements View
 	{
 		Usuario user;
 		Date fechaRegistro = new Date();
-		//Gestor_Correos correo = new Gestor_Correos();
+		Gestor_Correos correo = new Gestor_Correos();
 		if(!UserDataValidator.comprobarUser(username)) return "Usuario inválido";
 		if(!UserDataValidator.comprobarEmail(email)) return "Email inválido";
 		if(!UserDataValidator.comprobarPassword(password1, password2)) return "Las contraseñas no coinciden";		
 		if(UserDataValidator.comprobarUsuarioBD(username, repo)) return "El usuario ya existe";
 		if(UserDataValidator.comprobarEmailBD(email, repo)) return "El correo ya está en uso";
-		//if(!correo.correo_registro(email)) return "Imposible acceder al correo";
+		if(!correo.correo_registro(email)) return "Imposible acceder al correo";
 		
 		user = new Usuario(email, username, password1, activo, fechaRegistro, fechaRegistro);
 		user.setRolName(rolRepo.findByName(rol).get(0));
