@@ -130,6 +130,8 @@ public class Movimiento_jugador extends Movimiento_jugador_Ventana
 		nuevaFechaC.add(Calendar.SECOND, seconds);
 		Timestamp nuevaFecha = new Timestamp(nuevaFechaC.getTime().getTime());
 
+		if(fechaAhora.getTime() > antiguoMovimiento.getTiempoLlegada().getTime()) return;
+		
 		em = em.getEntityManagerFactory().createEntityManager();
 		em.getTransaction().begin();
 		Session session = em.unwrap(Session.class);

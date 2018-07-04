@@ -47,7 +47,10 @@ public class Borrar_usuario extends Borrar_usuario_Ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) 
 			{
-				Borrar_usuario.borrarUsuario(Usuario.cargarUsuario(usuarioL.getValue().replaceAll("\\s+",""), userRepo), planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo, pirataRepo, pirataInstalacionRepo, pirataNaveRepo, userRepo);
+				Usuario usuarioBorrado = Usuario.cargarUsuario(usuarioL.getValue().replaceAll("\\s+",""), userRepo);
+				
+				if(!usuarioBorrado.equals(((VaadinUI) UI.getCurrent()).getUsuario())) Borrar_usuario.borrarUsuario(usuarioBorrado, planetaNaveRepo, planetaInstalacionRepo, planetaRecursoRepo, planetaRepo, pirataRepo, pirataInstalacionRepo, pirataNaveRepo, userRepo);
+								
 				doNavigate(Listar_usuarios.VIEW_NAME);	
 			}
 		});

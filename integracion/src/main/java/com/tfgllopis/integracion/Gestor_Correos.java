@@ -51,7 +51,7 @@ public class Gestor_Correos implements Gestor_correo {
                 new InternetAddress(email));
             msg.setSubject(subject);
             msg.setText(" Hola " + email + ", \n \n Su registro ha sido completado satisfactoriamente en "
-            		   		+ "(URL)"+"\n\n \n Si no ha solicitado registrarse en nuestro sistema, " 
+            		   		+ "www.rebeliongalactica.com"+"\n\n \n Si no ha solicitado registrarse en nuestro sistema, " 
             		   		+" por favor elimine este email. \n\n "
             				+ "Si necesita cualquier información, puede ponerse en contacto con nuestro soporte técnico"
             				+ " a través del email teamburton96@gmail.com.");
